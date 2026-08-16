@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/jpeg" href="favicon.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Prosperity Grid | AI Systems</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#673de6',
+                        'primary-dark': '#2f1c6a',
+                        accent: '#c6a664',
+                        dark: '#111111',
+                        darker: '#0a0a0a',
+                        card: '#1c1c1f'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                        ui: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-darker text-white font-sans antialiased overflow-x-hidden">
+
+    <!-- 1. NAVIGATION BAR -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="font-serif text-2xl font-bold tracking-widest text-white uppercase">
+                        THE PROSPERITY GRID
+                    </a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-white border-b-2 border-white pb-1 font-medium text-sm">Home</a>
+                    <a href="prompts-library.html" class="text-gray-300 hover:text-white transition-colors font-medium text-sm">Prompts Library</a>
+                    <a href="ai-lead-system.html" class="text-gray-300 hover:text-white transition-colors font-medium text-sm">AI Lead System</a>
+                    <!-- CTA Button -->
+                    <a href="product.html?id=blueprint-pro" class="bg-accent hover:bg-yellow-600 text-black px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-[0_0_15px_rgba(198,166,100,0.4)]">
+                        Get The Blueprint
+                    </a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-accent focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-darker border-t border-gray-800">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="index.html" class="block px-3 py-3 text-base font-medium text-white hover:text-accent">Home</a>
+                <a href="prompts-library.html" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white">Prompts Library</a>
+                <a href="ai-lead-system.html" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white">AI Lead System</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 lg:pt-40 lg:pb-32 bg-black text-center relative overflow-hidden bg-cover bg-center" style="background-image: url('background image.png.png');">
+        <div class="absolute inset-0 bg-black/70"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 relative z-10 fade-up">
+            <h1 class="font-serif text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
+                The Prosperity Grid
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 font-serif italic mb-8">
+                — AI Systems That Help You Work Smarter, Earn Faster, and Scale Your Skills
+            </p>
+            <p class="text-gray-400 font-ui mb-10 max-w-2xl mx-auto">
+                Premium AI Playbooks & Prompt Libraries for Entrepreneurs, Marketers, Coaches, Creators & More
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 fade-up delay-1">
+                <a href="#systems" class="bg-transparent border border-white text-white hover:bg-white hover:text-black px-8 py-3 rounded-full font-semibold transition-all">
+                    Explore AI Systems
+                </a>
+                <a href="product.html?id=blueprint-free" class="bg-transparent border border-white text-white hover:bg-white hover:text-black px-8 py-3 rounded-full font-semibold transition-all">
+                    Try Free
+                </a>
+                <a href="product.html?id=blueprint-pro" class="bg-white text-black hover:bg-gray-200 px-8 py-3 rounded-full font-semibold transition-all">
+                    Get The Blueprint
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 bg-gray-900 text-center relative bg-cover bg-center" style="background-image: url('background image.png (2).png');">
+        <!-- Made overlay darker for better text visibility -->
+        <div class="absolute inset-0 bg-black/85"></div>
+        <div class="max-w-4xl mx-auto px-4 relative z-10 fade-up">
+            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-8 text-white">About The Prosperity Grid</h2>
+            <p class="text-white mb-6 font-ui leading-relaxed text-lg">
+                We help students, freelancers, and entrepreneurs build smart online income streams using AI-powered tools and digital systems. Our mission is simple: cut the noise, skip the fluff, and deliver short, powerful guides you can act on today.
+            </p>
+            <p class="text-gray-300 mb-10 text-base leading-relaxed max-w-3xl mx-auto">
+                The Prosperity Grid isn't just another online brand. We build premium AI-powered playbooks and industry-specific prompt systems designed for clarity, speed, and real execution. From the AI Millionaire Blueprint, which helps you build income using AI, to our profession-focused Prompt Libraries that streamline daily work, every product is created to save time, accelerate results, and give you step-by-step systems that work in 2025 and beyond.
+            </p>
+            <a href="prompts-library.html" class="bg-transparent border border-white text-white hover:bg-white hover:text-black px-8 py-3 rounded-full font-semibold transition-all inline-block">
+                Explore Our Library
+            </a>
+        </div>
+    </section>
+
+    <!-- Try It Free Section -->
+    <section class="py-24 bg-darker text-center relative bg-cover bg-center" style="background-image: url('background image.png (5).png');">
+        <div class="absolute inset-0 bg-black/90"></div>
+        <div class="max-w-4xl mx-auto px-4 relative z-10 fade-up">
+            
+            <div class="inline-block mb-4 px-4 py-1 rounded-full border border-accent text-accent text-sm font-semibold tracking-widest uppercase fade-up">Risk Free</div>
+            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 text-white fade-up delay-1">Try It Free First</h2>
+            
+            <p class="text-gray-300 font-ui mb-12 text-lg max-w-2xl mx-auto leading-relaxed fade-up delay-1">
+                No credit card, no catch. Download the Normal Edition of the AI Millionaire Blueprint (13 pages) completely free — see the exact teaching style and quality before you invest in anything.
+            </p>
+            
+            <!-- Circular Image -->
+            <div class="flex justify-center mb-12 fade-up delay-2">
+                <div class="w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden shadow-[0_0_40px_rgba(198,166,100,0.15)] relative glow-accent">
+                    <img src="cover.ai millionaire bluprint.png.png" alt="Free AI Millionaire Blueprint" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700">
+                </div>
+            </div>
+
+            <p class="text-gray-300 font-ui mb-8 text-base max-w-xl mx-auto fade-up delay-3">
+                If you find it valuable, the Pro Edition (25+ tools, monetization systems, templates) is there when you're ready.
+            </p>
+
+            <a href="The AI Millionaire Blueprint.pdf" target="_blank" download class="bg-white text-black hover:bg-gray-200 px-10 py-4 rounded-full font-bold text-lg transition-all inline-block fade-up delay-3 shadow-xl hover:shadow-2xl hover:-translate-y-1">
+                Get the Free Blueprint &rarr;
+            </a>
+        </div>
+    </section>
+
+    <!-- Our AI Systems (UPDATED based on screenshot) -->
+    <section id="systems" class="py-24 bg-[#050505] relative">
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4 text-center text-white fade-up">Our AI Systems</h2>
+            <p class="text-gray-400 mb-16 text-center max-w-2xl mx-auto fade-up delay-1">We offer foundational AI playbooks and industry-specific prompt systems — designed to help you learn AI once, then apply it everywhere.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Blueprint Card -->
+                <div class="bg-[#0a0a0a] rounded-[2rem] overflow-hidden flex flex-col border border-white/5 shadow-2xl fade-up delay-1">
+                    <img src="cover.our systems ai millionaire blueprint.png" alt="AI Millionaire Blueprint" class="w-full object-cover">
+                    <div class="p-8 pb-10 flex flex-col items-center text-center mt-[-20px]">
+                        <h4 class="font-bold text-2xl mb-3 text-white">AI Millionaire Blueprint</h4>
+                        <p class="text-gray-400 text-sm mb-8 max-w-[320px] leading-relaxed">Learn AI tools, income models, and systems that form the foundation of smart digital work and monetization.</p>
+                        <a href="#blueprint" class="bg-accent hover:bg-yellow-600 text-black px-10 py-3.5 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(198,166,100,0.2)]">
+                            View Blueprint
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Prompt Libraries Card -->
+                <div class="bg-[#0a0a0a] rounded-[2rem] overflow-hidden flex flex-col border border-white/5 shadow-2xl fade-up delay-2">
+                    <img src="cover.our systems prompt packs.png.png" alt="AI Prompt Libraries" class="w-full object-cover">
+                    <div class="p-8 pb-10 flex flex-col items-center text-center mt-[-20px]">
+                        <h4 class="font-bold text-2xl mb-3 text-white">AI Prompt Libraries</h4>
+                        <p class="text-gray-400 text-sm mb-8 max-w-[320px] leading-relaxed">Industry-specific prompt systems designed to apply AI directly to your profession, communication, and workflows.</p>
+                        <a href="prompts-library.html" class="bg-accent hover:bg-yellow-600 text-black px-10 py-3.5 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(198,166,100,0.2)]">
+                            Explore Prompt Packs
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-20 text-center fade-up delay-3">
+                <p class="text-gray-300 font-ui font-medium bg-gray-900/50 p-6 rounded-2xl border border-gray-800 inline-block">New to AI? Start with the Blueprint.<br/>Already working professionally? Jump straight into your Industry Prompt Pack.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flagship System (The AI Millionaire Blueprint PRO) -->
+    <section id="blueprint" class="py-24 bg-gray-900 relative bg-cover bg-center" style="background-image: url('background image.png (4).png');">
+        <div class="absolute inset-0 bg-gray-900/90"></div>
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">Flagship AI System: The AI Millionaire Blueprint PRO</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">A comprehensive AI playbook designed to help you build income systems and the perfect foundation before using industry-specific Prompt Libraries.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-4xl mx-auto">
+                <!-- Circular Product Image -->
+                <div class="flex justify-center fade-up">
+                    <div class="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-[0_0_50px_rgba(255,255,255,0.05)] border border-white/10 relative">
+                        <img src="cover.ai millionaire blueprint pro.png.png" alt="Blueprint Pro" class="w-full h-full object-cover object-top scale-110 transform hover:scale-125 transition-transform duration-700">
+                    </div>
+                </div>
+
+                <!-- Right Features Only (Left column removed) -->
+                <div class="space-y-6 fade-up delay-1 bg-black/40 p-8 rounded-3xl border border-white/5 backdrop-blur-sm">
+                    <h3 class="font-serif text-2xl font-bold text-white mb-6 border-b border-white/10 pb-4">What's Inside The Pro Edition</h3>
+                    <ul class="space-y-5">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-accent mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-gray-300 text-base">25+ powerful AI tools explained</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-accent mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-gray-300 text-base">Proven monetization systems (YouTube, Instagram, Gumroad)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-accent mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-gray-300 text-base">Templates & bonus resources included</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-accent mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-gray-300 text-base">Beginner-friendly, step-by-step guidance</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-accent mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-gray-300 text-base">Instant PDF download after payment</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Premium Table -->
+            <div class="max-w-4xl mx-auto mt-20 bg-[#1e1e1e] rounded-2xl p-6 shadow-2xl border border-white/10 overflow-x-auto fade-up delay-2">
+                <table class="w-full text-left min-w-[600px] border-collapse">
+                    <thead>
+                        <tr>
+                            <th class="p-4 border-b border-white/20 w-1/3"></th>
+                            <th class="p-4 border-b border-white/20 font-bold text-white w-1/3 text-lg">Normal Edition<br><span class="text-sm font-normal text-gray-400">(Free)</span></th>
+                            <th class="p-4 border-b border-white/20 font-bold text-white w-1/3 text-lg bg-primary/10 rounded-t-lg relative">
+                                Pro Edition <span class="text-sm text-gray-400 font-normal">(₹699)</span>
+                                <span class="bg-primary text-white text-[10px] uppercase tracking-wider px-2 py-1 rounded-full ml-2 align-middle">Popular</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="p-4 border-b border-white/10 font-medium text-gray-300">Pages</td>
+                            <td class="p-4 border-b border-white/10 text-gray-300">13</td>
+                            <td class="p-4 border-b border-white/10 text-white font-semibold bg-primary/5">27</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 border-b border-white/10 font-medium text-gray-300">AI Tools Covered</td>
+                            <td class="p-4 border-b border-white/10 text-gray-300">Core 8-10 tools</td>
+                            <td class="p-4 border-b border-white/10 text-white font-semibold bg-primary/5">25+ tools, explained in depth</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 border-b border-white/10 font-medium text-gray-300">Monetization Strategies</td>
+                            <td class="p-4 border-b border-white/10 text-gray-300">Overview only</td>
+                            <td class="p-4 border-b border-white/10 text-white font-semibold bg-primary/5">Step-by-step systems (YouTube, Instagram, Gumroad)</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 border-b border-white/10 font-medium text-gray-300">Templates & Bonus Resources</td>
+                            <td class="p-4 border-b border-white/10 text-red-500 font-bold text-xl">✗</td>
+                            <td class="p-4 border-b border-white/10 text-white font-semibold bg-primary/5"><span class="text-green-500 font-bold mr-2 text-xl">✔</span> Included</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 border-b border-white/10 font-medium text-gray-300">Beginner-Friendly Guidance</td>
+                            <td class="p-4 border-b border-white/10 text-gray-500 font-bold text-xl">✔</td>
+                            <td class="p-4 border-b border-white/10 text-white font-semibold bg-primary/5"><span class="text-green-500 font-bold mr-2 text-xl">✔</span> Deeper, execution-ready</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-medium text-gray-300">Price</td>
+                            <td class="p-4 text-gray-300">Free</td>
+                            <td class="p-4 text-white font-bold text-xl bg-primary/5 rounded-b-lg">₹699</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-12 text-center fade-up delay-3">
+                <p class="text-white font-bold mb-6 max-w-2xl mx-auto">Loved the free edition? Upgrade to Pro and get the complete system — tools, templates, and monetization strategies, all in one place.</p>
+                
+                <a href="https://razorpay.com" target="_blank" class="bg-accent hover:bg-yellow-600 text-black px-12 py-4 rounded-full font-bold text-lg transition-all shadow-[0_0_20px_rgba(198,166,100,0.4)] inline-block mb-4">
+                    Get Instant Access - ₹699
+                </a>
+                <br>
+                <a href="prompts-library.html" class="bg-transparent border border-white text-white hover:bg-white hover:text-black px-8 py-3 rounded-full font-semibold transition-all inline-block mb-6">
+                    Explore Prompt Packs
+                </a>
+                <div class="flex justify-center items-center space-x-4 text-sm text-gray-400 font-medium">
+                    <span>✓ Secure Payment via Razorpay</span>
+                    <span>✓ Instant Email Delivery</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Blueprint is Foundation -->
+    <section class="py-20 bg-black text-center relative bg-cover bg-center" style="background-image: url('background image.png.png');">
+        <div class="absolute inset-0 bg-black/85"></div>
+        <div class="max-w-4xl mx-auto px-4 relative z-10 fade-up">
+            <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4 text-white">Why the AI Millionaire Blueprint Is the Foundation?</h2>
+            <p class="text-gray-300 font-ui mb-10 text-base">Because every powerful AI workflow starts with the right foundation — tools, systems, and strategy.</p>
+            
+            <ul class="text-left space-y-4 max-w-2xl mx-auto bg-white/5 p-8 rounded-3xl border border-white/5 backdrop-blur-sm">
+                <li class="flex items-start">
+                    <svg class="w-6 h-6 text-accent mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span class="text-gray-300 text-base leading-relaxed"><strong class="text-white">Foundation First:</strong> Understand AI tools, income models, and systems before applying them to any profession.</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-6 h-6 text-accent mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span class="text-gray-300 text-base leading-relaxed"><strong class="text-white">Execution-Ready:</strong> Designed to pair perfectly with industry-specific Prompt Libraries.</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-6 h-6 text-accent mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span class="text-gray-300 text-base leading-relaxed"><strong class="text-white">Time-Efficient:</strong> No fluff — only what you need to use AI confidently.</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-6 h-6 text-accent mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span class="text-gray-300 text-base leading-relaxed"><strong class="text-white">Future-Proof:</strong> Built on modern AI tools and workflows, not outdated tactics.</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Apply AI to Your Industry -->
+    <section class="py-24 bg-darker text-center relative bg-cover bg-center" style="background-image: url('background image.png (2).png');">
+        <div class="absolute inset-0 bg-black/85"></div>
+        <div class="max-w-4xl mx-auto px-4 relative z-10 fade-up">
+            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 text-white">Apply AI to Your Industry</h2>
+            <p class="text-white mb-8 max-w-2xl mx-auto text-lg leading-relaxed font-ui">
+                Use industry-specific AI Prompt Libraries designed to streamline communication, content, sales, and workflows — without learning AI from scratch.
+            </p>
+            <p class="text-gray-400 mb-10 text-sm">
+                Each Prompt Library is a ready-to-use AI system built for one profession — so you can skip trial and error and start executing immediately.
+            </p>
+            
+            <div class="flex justify-center gap-8 md:gap-16 mb-12">
+                <!-- Premium SVG Icons -->
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-black rounded-2xl border border-accent/40 flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/10 group-hover:border-accent transition-all duration-300 shadow-[0_0_15px_rgba(198,166,100,0.1)]">
+                        <svg class="w-10 h-10 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    </div>
+                </div>
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-black rounded-2xl border border-accent/40 flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/10 group-hover:border-accent transition-all duration-300 shadow-[0_0_15px_rgba(198,166,100,0.1)]">
+                        <svg class="w-10 h-10 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path></svg>
+                    </div>
+                </div>
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-black rounded-2xl border border-accent/40 flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/10 group-hover:border-accent transition-all duration-300 shadow-[0_0_15px_rgba(198,166,100,0.1)]">
+                        <svg class="w-10 h-10 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+                <a href="prompts-library.html" class="bg-white text-black hover:bg-gray-200 px-8 py-3 rounded-full font-semibold transition-all">
+                    Explore All Prompt Packs
+                </a>
+                <a href="#blueprint" class="bg-transparent border border-white text-white hover:bg-white hover:text-black px-8 py-3 rounded-full font-semibold transition-all">
+                    Start with the Blueprint
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- See It Work Before You Buy It -->
+    <section class="py-24 bg-black text-center relative bg-cover bg-center" style="background-image: url('background image.png (3).png');">
+        <div class="absolute inset-0 bg-black/85"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10 fade-up">
+            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 text-white">See It Work Before You Buy It</h2>
+            <p class="text-gray-300 mb-16 max-w-3xl mx-auto text-base">
+                Every prompt library comes packed with 90+ ready-to-use prompts. Try 3 for free below — no signup, no payment. If it saves you time, the full pack does that across your entire workflow.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left mb-16">
+                <!-- Real Estate -->
+                <div class="bg-[#1a1a1a] border border-gray-800 rounded-2xl p-8 hover:border-accent transition-all shadow-xl group">
+                    <div class="w-16 h-16 bg-black rounded-full border border-accent/30 flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/10 transition-colors">
+                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    </div>
+                    <h3 class="font-bold text-lg text-white text-center mb-6 border-b border-gray-800 pb-4">Real Estate — Try 3 Free Prompts</h3>
+                    
+                    <div class="mb-5">
+                        <h4 class="font-bold text-white text-sm mb-2">1. Listing with Storytelling</h4>
+                        <p class="text-sm text-gray-400 italic bg-black/50 p-3 rounded-lg border border-white/5">"Add a storytelling angle to this property listing to make readers emotionally connected."</p>
+                    </div>
+                    <div class="mb-5">
+                        <h4 class="font-bold text-white text-sm mb-2">2. Google Search Ad Descriptions</h4>
+                        <p class="text-sm text-gray-400 italic bg-black/50 p-3 rounded-lg border border-white/5">"Write 10 Google Ads descriptions (90 characters each) for generating inquiries for a real estate project in [location]."</p>
+                    </div>
+                    <div class="mb-8">
+                        <h4 class="font-bold text-white text-sm mb-2">3. Objection Handling Follow-Up</h4>
+                        <p class="text-sm text-gray-400 italic bg-black/50 p-3 rounded-lg border border-white/5">"Write a message addressing the client's objection about [price/location/size] while staying helpful, understanding, and solution-focused."</p>
+                    </div>
+                    
+                    <p class="text-center text-gray-300 font-bold text-sm mb-5">Copy any of these into ChatGPT and try it with your own listing.</p>
+                    <a href="prompts-library.html" class="block w-full text-center bg-transparent border border-accent text-accent hover:bg-accent hover:text-black py-3 rounded-xl font-bold transition-all">
+                        View Full Pack →
+                    </a>
+                </div>
+
+                <!-- Digital Marketing -->
+                <div class="bg-[#1a1a1a] border border-gray-800 rounded-2xl p-8 hover:border-accent transition-all shadow-xl group">
+                    <div class="w-16 h-16 bg-black rounded-full border border-accent/30 flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/10 transition-colors">
+                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path></svg>
+                    </div>
+                    <h3 class="font-bold text-lg text-white text-center mb-6 border-b border-gray-800 pb-4">Digital Marketing — Try 3 Free Prompts</h3>
+                    
+                    <div class="mb-5">
+                        <h4 class="font-bold text-white text-sm mb-2">1. Blog Outline</h4>
+                        <p class="text-sm text-gray-400 italic bg-black/50 p-3 rounded-lg border border-white/5">"Create a detailed blog outline for the topic: [keyword]. Include H2s, H3s, key points, and examples."</p>
+                    </div>
+                    <div class="mb-5">
+                        <h4 class="font-bold text-white text-sm mb-2">2. Complete Content Calendar</h4>
+                        <p class="text-sm text-gray-400 italic bg-black/50 p-3 rounded-lg border border-white/5">"Build a 1-month social media content calendar for a [type of business] that posts 5 times a week. Include content type, captions, and goals for each post."</p>
+                    </div>
+                    <div class="mb-8">
+                        <h4 class="font-bold text-white text-sm mb-2">3. Pain-Point Based Ad Copy</h4>
+                        <p class="text-sm text-gray-400 italic bg-black/50 p-3 rounded-lg border border-white/5">"Write a pain-point-based Facebook ad that calls out a common frustration of [audience] and positions [offer] as the solution."</p>
+                    </div>
+                    
+                    <p class="text-center text-gray-300 font-bold text-sm mb-5">See how fast a full campaign brief comes together.</p>
+                    <a href="prompts-library.html" class="block w-full text-center bg-transparent border border-accent text-accent hover:bg-accent hover:text-black py-3 rounded-xl font-bold transition-all">
+                        View Full Pack →
+                    </a>
+                </div>
+
+                <!-- E-Commerce -->
+                <div class="bg-[#1a1a1a] border border-gray-800 rounded-2xl p-8 hover:border-accent transition-all shadow-xl group">
+                    <div class="w-16 h-16 bg-black rounded-full border border-accent/30 flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/10 transition-colors">
+                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                    <h3 class="font-bold text-lg text-white text-center mb-6 border-b border-gray-800 pb-4">E-Commerce — Try 3 Free Prompts</h3>
+                    
+                    <div class="mb-5">
+                        <h4 class="font-bold text-white text-sm mb-2">1. Winning Product Identifier</h4>
+                        <p class="text-sm text-gray-400 italic bg-black/50 p-3 rounded-lg border border-white/5">"Analyze this product: [insert product]. Tell me if it has winning potential based on demand, margins, competition, and uniqueness. Give a score out of 10."</p>
+                    </div>
+                    <div class="mb-5">
+                        <h4 class="font-bold text-white text-sm mb-2">2. AIDA Product Page Copy</h4>
+                        <p class="text-sm text-gray-400 italic bg-black/50 p-3 rounded-lg border border-white/5">"Write full product page copy for [product] using the AIDA framework: Attention, Interest, Desire, Action."</p>
+                    </div>
+                    <div class="mb-8">
+                        <h4 class="font-bold text-white text-sm mb-2">3. Pricing Strategy Recommendation</h4>
+                        <p class="text-sm text-gray-400 italic bg-black/50 p-3 rounded-lg border border-white/5">"Recommend the best pricing strategy for [product] — premium, value-based, competitive, or psychological — along with justification."</p>
+                    </div>
+                    
+                    <p class="text-center text-gray-300 font-bold text-sm mb-5">Test it on your own product listing.</p>
+                    <a href="prompts-library.html" class="block w-full text-center bg-transparent border border-accent text-accent hover:bg-accent hover:text-black py-3 rounded-xl font-bold transition-all">
+                        View Full Pack →
+                    </a>
+                </div>
+            </div>
+
+            <p class="text-white font-bold text-xl max-w-2xl mx-auto">
+                Liked what you saw? Each full pack includes 90+ prompts, organized by use case, ready to copy-paste into any AI tool.
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 bg-[#e5e7eb] text-black relative bg-cover bg-center" style="background-image: url('background image.png (4).png');">
+        <!-- Light overlay to maintain text readability while showing texture -->
+        <div class="absolute inset-0 bg-[#e5e7eb]/90"></div>
+        <div class="max-w-6xl mx-auto px-4 fade-up relative z-10">
+            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-16 text-center text-gray-900">Frequently Asked Questions</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
+                <!-- FAQ Item (Increased font sizes) -->
+                <div>
+                    <h4 class="font-bold text-xl mb-3 text-gray-900 leading-tight">How do I receive the products after payment?</h4>
+                    <p class="text-gray-800 text-base leading-relaxed">You'll receive instant access via email right after your payment is confirmed. The email includes download links for your purchased products.</p>
+                </div>
+                <!-- FAQ Item -->
+                <div>
+                    <h4 class="font-bold text-xl mb-3 text-gray-900 leading-tight">Do I need prior AI or technical knowledge to use these products?</h4>
+                    <p class="text-gray-800 text-base leading-relaxed">No. Both the AI Millionaire Blueprint and the Prompt Libraries are designed for beginners as well as professionals. Everything is explained clearly with step-by-step systems.</p>
+                </div>
+                <!-- FAQ Item -->
+                <div>
+                    <h4 class="font-bold text-xl mb-3 text-gray-900 leading-tight">Can I access the PDFs on mobile or tablet?</h4>
+                    <p class="text-gray-800 text-base leading-relaxed">Yes. All our products are digital PDFs and can be accessed on mobile phones, tablets, laptops, or desktops.</p>
+                </div>
+                <!-- FAQ Item -->
+                <div>
+                    <h4 class="font-bold text-xl mb-3 text-gray-900 leading-tight">Do you offer refunds?</h4>
+                    <p class="text-gray-800 text-base leading-relaxed">Since these are digital products with instant access, refunds are not available. However, each product is carefully designed to deliver real value, and we're confident you'll benefit from it.</p>
+                </div>
+                <!-- FAQ Item -->
+                <div>
+                    <h4 class="font-bold text-xl mb-3 text-gray-900 leading-tight">What if I don't receive the email after purchase?</h4>
+                    <p class="text-gray-800 text-base leading-relaxed">Please check your spam or junk folder first. If you still don't see it, contact us at theprosperitygrid10@gmail.com and we'll resend it immediately.</p>
+                </div>
+                <!-- FAQ Item -->
+                <div>
+                    <h4 class="font-bold text-xl mb-3 text-gray-900 leading-tight">Should I start with the Blueprint or a Prompt Pack?</h4>
+                    <p class="text-gray-800 text-base leading-relaxed">If you're new to AI, we recommend starting with the AI Millionaire Blueprint. If you already work in a specific profession, you can directly start with the Prompt Library for your industry.</p>
+                </div>
+                <!-- FAQ Item -->
+                <div>
+                    <h4 class="font-bold text-xl mb-3 text-gray-900 leading-tight">What is the difference between the AI Millionaire Blueprint and Prompt Libraries?</h4>
+                    <p class="text-gray-800 text-base leading-relaxed">The AI Millionaire Blueprint teaches you the foundation — AI tools, income models, and systems. The Prompt Libraries help you apply AI directly to your specific profession using ready-to-use workflows.</p>
+                </div>
+                <!-- FAQ Item -->
+                <div>
+                    <h4 class="font-bold text-xl mb-3 text-gray-900 leading-tight">Is my payment secure?</h4>
+                    <p class="text-gray-800 text-base leading-relaxed">Yes. All payments are processed securely via Razorpay with UPI, cards, and net banking support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Build Smarter Section -->
+    <section class="py-24 bg-black text-center relative bg-cover bg-center" style="background-image: url('background image.png.png');">
+        <div class="absolute inset-0 bg-black/85"></div>
+        <div class="max-w-4xl mx-auto px-4 fade-up relative z-10">
+            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 text-white">Build Smarter with AI —<br>Starting Today</h2>
+            <p class="text-gray-400 mb-8 max-w-2xl mx-auto text-base">
+                AI is no longer optional.<br>But random tools and generic prompts won't get you results.
+            </p>
+            
+            <p class="text-gray-300 font-bold mb-4 text-lg">The Prosperity Grid gives you <span class="text-white underline decoration-accent underline-offset-4">structured AI systems</span> — built to help you:</p>
+            <ul class="text-gray-400 space-y-2 mb-10 text-base bg-white/5 inline-block p-6 rounded-2xl border border-white/5 text-left">
+                <li class="flex items-center"><span class="text-accent mr-3">✔</span> Work faster</li>
+                <li class="flex items-center"><span class="text-accent mr-3">✔</span> Communicate better</li>
+                <li class="flex items-center"><span class="text-accent mr-3">✔</span> Execute with clarity</li>
+                <li class="flex items-center"><span class="text-accent mr-3">✔</span> Build income and professional leverage</li>
+            </ul>
+
+            <p class="text-gray-300 mb-10 max-w-xl mx-auto text-base">
+                Whether you want to understand AI deeply or apply it directly to your profession, there's a system here for you.
+            </p>
+
+            <div class="inline-block text-center max-w-xl mx-auto mb-10 w-full">
+                <p class="text-white font-bold mb-4 text-lg">New to AI or exploring income opportunities?</p>
+                <a href="#blueprint" class="bg-white text-black hover:bg-gray-200 px-8 py-3.5 rounded-full font-bold transition-all inline-block mb-10 w-full sm:w-auto shadow-xl hover:-translate-y-1">Start with the AI Millionaire Blueprint</a>
+                
+                <p class="text-white font-bold mb-4 text-lg">Already working professionally?</p>
+                <a href="prompts-library.html" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-black px-8 py-3.5 rounded-full font-bold transition-all inline-block w-full sm:w-auto hover:-translate-y-1">Explore Prompt Libraries</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (Updated to pure light gray, removed image, pure black text) -->
+    <footer class="bg-gray-100 py-16 text-gray-900 text-sm">
+        <div class="max-w-7xl mx-auto px-4 text-center mb-10">
+            <h2 class="font-serif text-3xl font-bold tracking-widest uppercase text-black">THE PROSPERITY GRID</h2>
+            <div class="w-full h-px bg-gray-300 my-8"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+            <!-- Quick Links -->
+            <div>
+                <h4 class="font-bold mb-4 text-lg text-black">Quick Links</h4>
+                <ul class="space-y-3 font-semibold text-gray-700">
+                    <li><a href="index.html" class="hover:text-primary transition-colors underline underline-offset-4">HOME</a></li>
+                    <li><a href="prompts-library.html" class="hover:text-primary transition-colors underline underline-offset-4">PRODUCTS</a></li>
+                    <li><a href="#systems" class="hover:text-primary transition-colors underline underline-offset-4">ABOUT US</a></li>
+                </ul>
+            </div>
+            
+            <!-- Policies -->
+            <div>
+                <h4 class="font-bold mb-4 text-lg text-black">Our Policies</h4>
+                <ul class="space-y-3 font-semibold text-gray-700">
+                    <li><a href="privacy-policy.html" class="hover:text-primary transition-colors underline underline-offset-4">PRIVACY POLICY</a></li>
+                    <li><a href="refunds.html" class="hover:text-primary transition-colors underline underline-offset-4">REFUND POLICY</a></li>
+                    <li><a href="terms.html" class="hover:text-primary transition-colors underline underline-offset-4">TERMS & CONDITIONS</a></li>
+                </ul>
+            </div>
+            
+            <!-- Contacts -->
+            <div>
+                <h4 class="font-bold mb-4 text-lg text-black">Contacts</h4>
+                <ul class="space-y-3 font-semibold text-gray-700">
+                    <li>Email - <a href="mailto:theprosperitygrid10@gmail.com" class="hover:text-primary transition-colors underline underline-offset-4">theprosperitygrid10@gmail.com</a></li>
+                </ul>
+                <h4 class="font-bold mt-8 mb-4 text-lg text-black">Instagram</h4>
+                <ul class="space-y-3 font-semibold text-gray-700">
+                    <li><a href="https://instagram.com/theprosperity_grid" target="_blank" class="hover:text-primary transition-colors underline underline-offset-4">@theprosperity_grid</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVITY SCRIPTS -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Sticky Navbar Glass Effect on Scroll
+        const navbar = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('glass-nav');
+            } else {
+                navbar.classList.remove('glass-nav');
+            }
+        });
+
+        // Scroll Animation Observer
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { root: null, rootMargin: "0px", threshold: 0.1 });
+
+            document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/jpeg" href="favicon.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Lead System | The Prosperity Grid</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#673de6',
+                        'primary-dark': '#2f1c6a',
+                        accent: '#c6a664',
+                        dark: '#111111',
+                        darker: '#0a0a0a',
+                        card: '#1c1c1f'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                        ui: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-darker text-white font-sans antialiased overflow-x-hidden">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="font-serif text-2xl font-bold tracking-widest text-white uppercase">
+                        THE PROSPERITY GRID
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-gray-300 hover:text-white transition-colors font-medium text-sm">Home</a>
+                    <a href="prompts-library.html" class="text-gray-300 hover:text-white transition-colors font-medium text-sm">Prompts Library</a>
+                    <a href="ai-lead-system.html" class="text-white border-b-2 border-white pb-1 font-medium text-sm">AI Lead System</a>
+                    <!-- CTA Button -->
+                    <a href="product.html?id=blueprint-pro" class="bg-accent hover:bg-yellow-600 text-black px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-[0_0_15px_rgba(198,166,100,0.4)]">
+                        Get The Blueprint
+                    </a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-accent focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-darker border-t border-gray-800">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="index.html" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white">Home</a>
+                <a href="prompts-library.html" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white">Prompts Library</a>
+                <a href="ai-lead-system.html" class="block px-3 py-3 text-base font-medium text-white hover:text-accent">AI Lead System</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <section class="pt-32 pb-24 lg:pt-40 lg:pb-32 bg-black text-center relative overflow-hidden bg-cover bg-center" style="background-image: url('background image.png (4).png');">
+        <div class="absolute inset-0 bg-black/80"></div>
+        <div class="max-w-4xl mx-auto px-4 relative z-10 fade-up">
+            <div class="inline-block mb-4 px-4 py-1 rounded-full border border-accent text-accent text-sm font-semibold tracking-widest uppercase">Premium Service</div>
+            <h1 class="font-serif text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
+                Turn Cold Traffic Into Booked Calls — <span class="text-accent">On Autopilot</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 font-serif italic mb-8">
+                A high-converting website built for you, powered by an AI system that captures, nurtures, and converts leads 24/7.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 fade-up delay-1">
+                <a href="#pricing" class="bg-accent hover:bg-yellow-600 text-black px-10 py-4 rounded-full font-bold text-lg transition-all shadow-[0_0_20px_rgba(198,166,100,0.5)]">
+                    Inquire About The System
+                </a>
+                <a href="#how-it-works" class="bg-transparent border border-white text-white hover:bg-white hover:text-black px-10 py-4 rounded-full font-bold text-lg transition-all">
+                    See How It Works
+                </a>
+            </div>
+            <p class="text-sm text-gray-400 mt-6 font-ui fade-up delay-2">Setup in days • Zero technical skills required on your end</p>
+        </div>
+    </section>
+
+    <!-- 2. PROBLEM SECTION -->
+    <section class="py-24 bg-darker relative">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6">You're Losing Clients Every Single Day.</h2>
+                <p class="text-gray-400 font-ui text-lg max-w-2xl mx-auto">Running a business is hard enough without having to manually chase every lead that visits your website.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Pain Point 1 -->
+                <div class="bg-card p-8 rounded-2xl border border-gray-800 hover:border-red-900/50 transition-colors fade-up delay-1">
+                    <div class="w-12 h-12 rounded-full bg-red-900/20 flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Missed Opportunities</h3>
+                    <p class="text-gray-400 font-ui leading-relaxed">Potential clients visit your site, have a question, get no immediate answer, and leave to hire your competitor.</p>
+                </div>
+                <!-- Pain Point 2 -->
+                <div class="bg-card p-8 rounded-2xl border border-gray-800 hover:border-red-900/50 transition-colors fade-up delay-2">
+                    <div class="w-12 h-12 rounded-full bg-red-900/20 flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Manual Follow-ups</h3>
+                    <p class="text-gray-400 font-ui leading-relaxed">You spend hours emailing and texting prospects back and forth just trying to find a time to get on a call.</p>
+                </div>
+                <!-- Pain Point 3 -->
+                <div class="bg-card p-8 rounded-2xl border border-gray-800 hover:border-red-900/50 transition-colors fade-up delay-3">
+                    <div class="w-12 h-12 rounded-full bg-red-900/20 flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Inconsistent Growth</h3>
+                    <p class="text-gray-400 font-ui leading-relaxed">Because your lead generation relies on your personal time and energy, your business revenue becomes unpredictable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SOLUTION SECTION -->
+    <section class="py-24 bg-dark relative border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <div class="lg:w-1/2 fade-up">
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6">The Smartest Way To Scale.</h2>
+                    <p class="text-gray-400 font-ui text-lg mb-8 leading-relaxed">The AI Lead System is a "Done-For-You" service. We build you a premium website that acts as a 24/7 salesperson. Our integrated AI captures visitors, answers their questions instantly, and books them straight onto your calendar.</p>
+                    
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-6 h-6 mt-1 rounded-full bg-accent flex items-center justify-center text-black">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold mb-1">Premium Website Design</h4>
+                                <p class="text-gray-400 text-sm">A fast, modern, mobile-optimized website built to convert visitors into leads.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-6 h-6 mt-1 rounded-full bg-accent flex items-center justify-center text-black">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold mb-1">AI Lead Capture</h4>
+                                <p class="text-gray-400 text-sm">Smart forms and bots that instantly engage traffic and capture their contact info.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-6 h-6 mt-1 rounded-full bg-accent flex items-center justify-center text-black">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold mb-1">Automated Booking</h4>
+                                <p class="text-gray-400 text-sm">Your AI system qualifies leads and sends them straight to your calendar without you lifting a finger.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="lg:w-1/2 fade-up delay-2">
+                    <div class="bg-card p-2 rounded-2xl border border-gray-800 shadow-2xl relative glow-accent">
+                        <img src="ai-lead-system-graphic.jpg" alt="AI System Visual" class="w-full h-auto rounded-xl object-cover aspect-video mix-blend-screen opacity-90">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. HOW IT WORKS -->
+    <section id="how-it-works" class="py-24 bg-darker relative bg-cover bg-center" style="background-image: url('background image.png (2).png');">
+        <div class="absolute inset-0 bg-black/90"></div>
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6">How The System Works</h2>
+                <p class="text-gray-400 font-ui text-lg max-w-2xl mx-auto">We handle the technical heavy lifting so you can focus on fulfilling your services.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                <!-- Step 1 -->
+                <div class="text-center p-8 fade-up delay-1 relative z-10">
+                    <div class="w-16 h-16 rounded-full bg-black border-2 border-accent text-accent font-serif text-2xl flex items-center justify-center mx-auto mb-6 shadow-[0_0_15px_rgba(198,166,100,0.2)]">1</div>
+                    <h3 class="text-2xl font-bold mb-4">We Build Your Site</h3>
+                    <p class="text-gray-400 font-ui">We design and develop a high-converting website tailored to your specific business and offers.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="text-center p-8 fade-up delay-2 relative z-10">
+                    <div class="w-16 h-16 rounded-full bg-black border-2 border-accent text-accent font-serif text-2xl flex items-center justify-center mx-auto mb-6 shadow-[0_0_15px_rgba(198,166,100,0.2)]">2</div>
+                    <h3 class="text-2xl font-bold mb-4">We Embed The AI</h3>
+                    <p class="text-gray-400 font-ui">We integrate smart lead capture mechanisms that automatically engage visitors and collect their data.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="text-center p-8 fade-up delay-3 relative z-10">
+                    <div class="w-16 h-16 rounded-full bg-black border-2 border-accent text-accent font-serif text-2xl flex items-center justify-center mx-auto mb-6 shadow-[0_0_15px_rgba(198,166,100,0.2)]">3</div>
+                    <h3 class="text-2xl font-bold mb-4">You Get Bookings</h3>
+                    <p class="text-gray-400 font-ui">The system runs 24/7. You simply wake up, check your calendar, and talk to warm, qualified leads.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. WHO THIS IS FOR & 6. PROOF -->
+    <section class="py-24 bg-dark relative border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <div class="fade-up">
+                <h2 class="font-serif text-4xl font-bold text-white mb-6">Built For Service Businesses</h2>
+                <p class="text-gray-400 font-ui mb-8 text-lg">If you rely on booked calls, appointments, or lead forms to generate revenue, this system will transform your business.</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                    <div class="bg-card p-4 rounded-lg border border-gray-800 flex items-center font-bold">
+                        <span class="text-accent mr-3">✓</span> Small Business Owners
+                    </div>
+                    <div class="bg-card p-4 rounded-lg border border-gray-800 flex items-center font-bold">
+                        <span class="text-accent mr-3">✓</span> Freelancers & Consultants
+                    </div>
+                    <div class="bg-card p-4 rounded-lg border border-gray-800 flex items-center font-bold">
+                        <span class="text-accent mr-3">✓</span> Coaches & Mentors
+                    </div>
+                    <div class="bg-card p-4 rounded-lg border border-gray-800 flex items-center font-bold">
+                        <span class="text-accent mr-3">✓</span> Creative Agencies
+                    </div>
+                </div>
+
+                <a href="#pricing" class="inline-block bg-accent hover:bg-yellow-600 text-black px-8 py-3 rounded-full font-bold text-base transition-all shadow-[0_0_15px_rgba(198,166,100,0.3)]">Get Your System</a>
+            </div>
+
+            <div class="fade-up delay-2">
+                <h3 class="font-serif text-2xl font-bold mb-6 text-white text-center">Real Client Results</h3>
+                <!-- Testimonial Card -->
+                <div class="bg-card p-8 rounded-2xl border border-gray-700 shadow-2xl relative">
+                    <div class="absolute -top-4 -left-4 text-6xl text-accent opacity-50 font-serif">"</div>
+                    <p class="text-gray-300 font-ui text-lg italic leading-relaxed mb-6 relative z-10">
+                        "Before The Prosperity Grid built our system, we were relying entirely on word of mouth and manually texting interested parents. The AI Lead System completely changed our website. We are now getting highly qualified inquiries on autopilot and it has brought significantly more students into our programs without any extra manual work."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-accent font-bold text-xl mr-4">S</div>
+                        <div>
+                            <h4 class="font-bold text-white">Sabdarupa School of Music</h4>
+                            <p class="text-sm text-accent">Music Education Academy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 7. PRICING SECTION -->
+    <section id="pricing" class="py-24 bg-darker relative bg-cover bg-center" style="background-image: url('background image.png (5).png');">
+        <div class="absolute inset-0 bg-black/90"></div>
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6">Choose Your Package</h2>
+                <p class="text-gray-400 font-ui text-lg max-w-2xl mx-auto">Done-for-you website design and AI lead system setup. Clear, transparent pricing.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Tier 1 -->
+                <div class="bg-card rounded-3xl p-8 border border-gray-800 flex flex-col fade-up delay-1 relative overflow-hidden group hover:border-accent transition-colors duration-500">
+                    <h3 class="font-bold text-2xl mb-2 text-white">Starter Package</h3>
+                    <p class="text-gray-400 text-sm mb-6 h-10">Perfect for freelancers and solo professionals.</p>
+                    <div class="mb-8">
+                        <span class="text-4xl font-bold text-white">₹4,999</span><span class="text-gray-500"> setup</span>
+                        <div class="text-accent text-sm font-bold mt-1">+ ₹1,500/month maintenance</div>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow text-gray-300">
+                        <li class="flex items-start"><span class="text-accent mr-3 font-bold">✓</span> Premium Single-Page Website</li>
+                        <li class="flex items-start"><span class="text-accent mr-3 font-bold">✓</span> Custom AI Lead Capture Integration</li>
+                        <li class="flex items-start"><span class="text-accent mr-3 font-bold">✓</span> Mobile & Tablet Optimization</li>
+                        <li class="flex items-start"><span class="text-accent mr-3 font-bold">✓</span> Monthly Hosting & Tech Maintenance</li>
+                        <li class="flex items-start"><span class="text-accent mr-3 font-bold">✓</span> Basic SEO Setup</li>
+                    </ul>
+                    <a href="https://wa.me/916000681916?text=Hi%20The%20Prosperity%20Grid,%20I'm%20interested%20in%20the%20Starter%20Package!" target="_blank" class="block text-center bg-[#25D366] hover:bg-[#1ebd5c] text-white w-full py-4 rounded-full font-bold transition-all mb-3 flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                        WhatsApp
+                    </a>
+                    <a href="mailto:theprosperitygrid10@gmail.com?subject=Inquiry: Starter Package" class="block text-center bg-transparent border-2 border-accent text-accent hover:bg-accent hover:text-black w-full py-4 rounded-full font-bold transition-all">
+                        Email Us
+                    </a>
+                </div>
+
+                <!-- Tier 2 -->
+                <div class="bg-gradient-to-b from-[#1c1c1f] to-[#0a0a0a] rounded-3xl p-8 border border-accent flex flex-col fade-up delay-2 relative glow-accent overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-accent text-black text-xs font-bold px-4 py-1 rounded-bl-lg">MOST POPULAR</div>
+                    <h3 class="font-bold text-2xl mb-2 text-white">Growth Package</h3>
+                    <p class="text-gray-400 text-sm mb-6 h-10">For growing businesses needing multiple pages.</p>
+                    <div class="mb-8">
+                        <span class="text-4xl font-bold text-white">₹6,999</span><span class="text-gray-500"> setup</span>
+                        <div class="text-accent text-sm font-bold mt-1">+ ₹1,500/month maintenance</div>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow text-gray-300">
+                        <li class="flex items-start"><span class="text-accent mr-3 font-bold">✓</span> Premium 3-4 Page Website</li>
+                        <li class="flex items-start"><span class="text-accent mr-3 font-bold">✓</span> Advanced AI Lead Capture Integration</li>
+                        <li class="flex items-start"><span class="text-accent mr-3 font-bold">✓</span> Calendar & Booking System Integration</li>
+                        <li class="flex items-start"><span class="text-accent mr-3 font-bold">✓</span> Mobile & Tablet Optimization</li>
+                        <li class="flex items-start"><span class="text-accent mr-3 font-bold">✓</span> Monthly Hosting & Tech Maintenance</li>
+                    </ul>
+                    <a href="https://wa.me/916000681916?text=Hi%20The%20Prosperity%20Grid,%20I'm%20interested%20in%20the%20Growth%20Package!" target="_blank" class="block text-center bg-[#25D366] hover:bg-[#1ebd5c] text-white w-full py-4 rounded-full font-bold transition-all shadow-lg mb-3 flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                        WhatsApp
+                    </a>
+                    <a href="mailto:theprosperitygrid10@gmail.com?subject=Inquiry: Growth Package" class="block text-center bg-accent hover:bg-yellow-600 text-black w-full py-4 rounded-full font-bold transition-all shadow-lg">
+                        Email Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FAQ SECTION -->
+    <section class="py-24 bg-dark relative border-t border-gray-900">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-center text-white mb-12 fade-up">Frequently Asked Questions</h2>
+            
+            <div class="space-y-4 fade-up delay-1">
+                <!-- FAQ 1 -->
+                <div class="bg-card border border-gray-800 rounded-lg overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none hover:bg-gray-800/50 transition-colors">
+                        <span class="font-bold text-lg text-white">Do I need technical skills to use this?</span>
+                        <svg class="w-5 h-5 text-accent transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content px-6 pb-4 text-gray-400 hidden">
+                        Not at all. This is a "Done-For-You" service. We build the website, integrate the AI systems, and handle the monthly maintenance. You just focus on closing the leads that come in.
+                    </div>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="bg-card border border-gray-800 rounded-lg overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none hover:bg-gray-800/50 transition-colors">
+                        <span class="font-bold text-lg text-white">What does the ₹1,500/month maintenance cover?</span>
+                        <svg class="w-5 h-5 text-accent transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content px-6 pb-4 text-gray-400 hidden">
+                        The monthly fee covers high-speed website hosting, security updates, SSL certificates, ongoing AI system API costs, and minor text/image updates to ensure your site stays fresh and secure.
+                    </div>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="bg-card border border-gray-800 rounded-lg overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none hover:bg-gray-800/50 transition-colors">
+                        <span class="font-bold text-lg text-white">How long does it take to build?</span>
+                        <svg class="w-5 h-5 text-accent transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content px-6 pb-4 text-gray-400 hidden">
+                        Typically, your new website and AI system will be fully operational within 7 to 14 days, depending on the complexity of your requirements and how quickly you can provide us with your business details.
+                    </div>
+                </div>
+                <!-- FAQ 4 -->
+                <div class="bg-card border border-gray-800 rounded-lg overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none hover:bg-gray-800/50 transition-colors">
+                        <span class="font-bold text-lg text-white">Can I integrate my existing domain?</span>
+                        <svg class="w-5 h-5 text-accent transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content px-6 pb-4 text-gray-400 hidden">
+                        Yes! If you already own a domain name (like yourbusiness.com), we will connect your new website to it at no extra charge.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FINAL CTA SECTION -->
+    <section class="py-24 bg-gradient-to-b from-dark to-black text-center relative border-t border-gray-900">
+        <div class="max-w-4xl mx-auto px-4 fade-up">
+            <h2 class="font-serif text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">Stop Missing Out On Revenue.</h2>
+            <p class="text-xl text-gray-300 font-ui mb-10 max-w-2xl mx-auto">
+                Get a premium website powered by AI that works around the clock to capture and convert your leads. Let's build your system today.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://wa.me/916000681916?text=Hi%20The%20Prosperity%20Grid,%20I'm%20interested%20in%20the%20AI%20Lead%20System!" target="_blank" class="bg-[#25D366] hover:bg-[#1ebd5c] text-white px-12 py-5 rounded-full font-bold text-xl transition-all shadow-[0_0_25px_rgba(37,211,102,0.5)] flex items-center justify-center">
+                    <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                    WhatsApp
+                </a>
+                <a href="mailto:theprosperitygrid10@gmail.com?subject=Inquiry: AI Lead System" class="bg-accent hover:bg-yellow-600 text-black px-12 py-5 rounded-full font-bold text-xl transition-all shadow-[0_0_25px_rgba(198,166,100,0.5)] flex items-center justify-center">
+                    Email Us
+                </a>
+            </div>
+            <p class="text-sm text-gray-500 mt-6">Direct access • Secure build process</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-100 py-16 text-gray-900 text-sm">
+        <div class="max-w-7xl mx-auto px-4 text-center mb-10">
+            <h2 class="font-serif text-3xl font-bold tracking-widest uppercase text-black">THE PROSPERITY GRID</h2>
+            <div class="w-full h-px bg-gray-300 my-8"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+            <div>
+                <h4 class="font-bold mb-4 text-lg text-black">Quick Links</h4>
+                <ul class="space-y-3 font-semibold text-gray-700">
+                    <li><a href="index.html" class="hover:text-primary transition-colors underline underline-offset-4">HOME</a></li>
+                    <li><a href="prompts-library.html" class="hover:text-primary transition-colors underline underline-offset-4">PRODUCTS</a></li>
+                    <li><a href="index.html#systems" class="hover:text-primary transition-colors underline underline-offset-4">ABOUT US</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 text-lg text-black">Our Policies</h4>
+                <ul class="space-y-3 font-semibold text-gray-700">
+                    <li><a href="privacy-policy.html" class="hover:text-primary transition-colors underline underline-offset-4">PRIVACY POLICY</a></li>
+                    <li><a href="refunds.html" class="hover:text-primary transition-colors underline underline-offset-4">REFUND POLICY</a></li>
+                    <li><a href="terms.html" class="hover:text-primary transition-colors underline underline-offset-4">TERMS & CONDITIONS</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 text-lg text-black">Contacts</h4>
+                <ul class="space-y-3 font-semibold text-gray-700">
+                    <li>Email - <a href="mailto:theprosperitygrid10@gmail.com" class="hover:text-primary transition-colors underline underline-offset-4">theprosperitygrid10@gmail.com</a></li>
+                </ul>
+                <h4 class="font-bold mt-8 mb-4 text-lg text-black">Instagram</h4>
+                <ul class="space-y-3 font-semibold text-gray-700">
+                    <li><a href="https://instagram.com/theprosperity_grid" target="_blank" class="hover:text-primary transition-colors underline underline-offset-4">@theprosperity_grid</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVITY SCRIPTS -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // FAQ Accordion
+        const faqBtns = document.querySelectorAll('.faq-btn');
+        faqBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('svg');
+                
+                // Toggle current
+                content.classList.toggle('hidden');
+                if(content.classList.contains('hidden')) {
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Scroll Animation Observer
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { root: null, rootMargin: "0px", threshold: 0.1 });
+
+            document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

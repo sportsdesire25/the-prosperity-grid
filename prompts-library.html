@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/jpeg" href="favicon.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompts Library | The Prosperity Grid</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#673de6',
+                        'primary-dark': '#2f1c6a',
+                        accent: '#c6a664',
+                        dark: '#111111',
+                        darker: '#0a0a0a',
+                        card: '#1c1c1f'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                        ui: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#f4f4f5] text-gray-900 font-sans antialiased overflow-x-hidden min-h-screen flex flex-col">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="w-full z-50 bg-black transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="font-serif text-2xl font-bold tracking-widest text-white uppercase">
+                        THE PROSPERITY GRID
+                    </a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-gray-300 hover:text-white transition-colors font-medium text-sm">Home</a>
+                    <a href="prompts-library.html" class="text-white border-b-2 border-white pb-1 font-medium text-sm">Prompts Library</a>
+                    <a href="ai-lead-system.html" class="text-gray-300 hover:text-white transition-colors font-medium text-sm">AI Lead System</a>
+                    <!-- CTA Button -->
+                    <a href="product.html?id=blueprint-pro" class="bg-accent hover:bg-yellow-600 text-black px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-[0_0_15px_rgba(198,166,100,0.4)]">
+                        Get The Blueprint
+                    </a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-accent focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-darker border-t border-gray-800">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="index.html" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white">Home</a>
+                <a href="prompts-library.html" class="block px-3 py-3 text-base font-medium text-white hover:text-accent">Prompts Library</a>
+                <a href="ai-lead-system.html" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white">AI Lead System</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN STORE LAYOUT -->
+    <main class="flex-grow relative bg-cover bg-center" style="background-image: url('background image.png (4).png');">
+        <!-- Light overlay to make text readable but keep the swirly texture -->
+        <div class="absolute inset-0 bg-[#f4f4f5]/85"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10 flex flex-col md:flex-row gap-12">
+            
+            <!-- LEFT SIDEBAR -->
+            <aside class="w-full md:w-64 flex-shrink-0">
+                <h3 class="font-bold text-xl mb-6 text-black border-b border-gray-300 pb-3">Browse by</h3>
+                <ul class="space-y-4 text-sm font-medium" id="category-filters">
+                    <li><button data-filter="all" class="filter-btn text-black font-bold underline underline-offset-4 decoration-accent decoration-2 focus:outline-none">All products</button></li>
+                    <li><button data-filter="blueprint" class="filter-btn text-gray-600 hover:text-black transition-colors focus:outline-none">AI Blueprint</button></li>
+                    <li><button data-filter="prompt-pack" class="filter-btn text-gray-600 hover:text-black transition-colors focus:outline-none">AI Prompt Library</button></li>
+                </ul>
+            </aside>
+
+            <!-- RIGHT CONTENT (Products) -->
+            <div class="w-full">
+                
+                <!-- Header & Controls -->
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 gap-6">
+                    <h1 class="font-serif text-4xl md:text-5xl font-bold text-black" id="category-title">All products</h1>
+                    
+                    <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+                        <div class="relative w-full sm:w-64">
+                            <input type="text" id="search-input" placeholder="Search products" class="w-full pl-10 pr-4 py-2 border border-gray-300 bg-white/50 backdrop-blur-sm rounded-lg focus:outline-none focus:border-gray-500 transition-colors text-sm text-gray-900 placeholder-gray-500">
+                            <svg class="w-5 h-5 text-gray-500 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="products-grid">
+                    
+                    <!-- Product: Free Blueprint -->
+                    <a href="product.html?id=blueprint-free" class="group block product-card" data-category="blueprint" data-title="the ai millionaire blueprint (free edition)">
+                        <div class="bg-gray-200/30 rounded-xl overflow-hidden mb-4 shadow-sm border border-gray-200/50 backdrop-blur-sm transition-all duration-300 group-hover:shadow-xl group-hover:border-accent">
+                            <img src="cover.ai millionaire bluprint.png.png" alt="AI Blueprint Free" class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <h4 class="font-bold text-base text-black mb-1 leading-tight group-hover:text-accent transition-colors">The AI Millionaire Blueprint (Free Edition)</h4>
+                        <p class="text-green-600 font-bold">FREE</p>
+                    </a>
+
+                    <!-- Product: Blueprint PRO -->
+                    <a href="product.html?id=blueprint-pro" class="group block product-card" data-category="blueprint" data-title="the ai millionaire blueprint pro">
+                        <div class="bg-gray-200/30 rounded-xl overflow-hidden mb-4 shadow-sm border border-gray-200/50 backdrop-blur-sm transition-all duration-300 group-hover:shadow-xl group-hover:border-accent">
+                            <img src="cover.ai millionaire blueprint pro.png.png" alt="AI Blueprint Pro" class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <h4 class="font-bold text-base text-black mb-1 leading-tight group-hover:text-accent transition-colors">The AI Millionaire Blueprint PRO</h4>
+                        <p class="text-gray-600 font-medium">₹699.00</p>
+                    </a>
+
+                    <!-- Product 1 -->
+                    <a href="product.html?id=hr-recruiters" class="group block product-card" data-category="prompt-pack" data-title="ai prompt library for hr & recruiters">
+                        <div class="bg-gray-200/30 rounded-xl overflow-hidden mb-4 shadow-sm border border-gray-200/50 backdrop-blur-sm transition-all duration-300 group-hover:shadow-xl group-hover:border-accent">
+                            <img src="cover.hr & recruiters pack.png.png" alt="HR & Recruiters" class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <h4 class="font-bold text-base text-black mb-1 leading-tight group-hover:text-accent transition-colors">AI Prompt Library for HR & Recruiters</h4>
+                        <p class="text-gray-600 font-medium">₹499.00</p>
+                    </a>
+
+                    <!-- Product 2 -->
+                    <a href="product.html?id=startup-founders" class="group block product-card" data-category="prompt-pack" data-title="ai prompt library for startup founders">
+                        <div class="bg-gray-200/30 rounded-xl overflow-hidden mb-4 shadow-sm border border-gray-200/50 backdrop-blur-sm transition-all duration-300 group-hover:shadow-xl group-hover:border-accent">
+                            <img src="cover.startup founders pack.png.png" alt="Startup Founders" class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <h4 class="font-bold text-base text-black mb-1 leading-tight group-hover:text-accent transition-colors">AI Prompt Library for Startup Founders</h4>
+                        <p class="text-gray-600 font-medium">₹499.00</p>
+                    </a>
+
+                    <!-- Product 3 -->
+                    <a href="product.html?id=freelancers" class="group block product-card" data-category="prompt-pack" data-title="ai prompt library for freelancers">
+                        <div class="bg-gray-200/30 rounded-xl overflow-hidden mb-4 shadow-sm border border-gray-200/50 backdrop-blur-sm transition-all duration-300 group-hover:shadow-xl group-hover:border-accent">
+                            <img src="cover.freelancers pack.png.png" alt="Freelancers" class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <h4 class="font-bold text-base text-black mb-1 leading-tight group-hover:text-accent transition-colors">AI Prompt Library for Freelancers</h4>
+                        <p class="text-gray-600 font-medium">₹499.00</p>
+                    </a>
+
+                    <!-- Product 4 -->
+                    <a href="product.html?id=lawyers" class="group block product-card" data-category="prompt-pack" data-title="ai prompt library for lawyers">
+                        <div class="bg-gray-200/30 rounded-xl overflow-hidden mb-4 shadow-sm border border-gray-200/50 backdrop-blur-sm transition-all duration-300 group-hover:shadow-xl group-hover:border-accent">
+                            <img src="cover.lawyers pack.png.png" alt="Lawyers" class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <h4 class="font-bold text-base text-black mb-1 leading-tight group-hover:text-accent transition-colors">AI Prompt Library for Lawyers</h4>
+                        <p class="text-gray-600 font-medium">₹499.00</p>
+                    </a>
+
+                    <!-- Product 5 -->
+                    <a href="product.html?id=doctors-clinics" class="group block product-card" data-category="prompt-pack" data-title="ai prompt library for doctors & clinics">
+                        <div class="bg-gray-200/30 rounded-xl overflow-hidden mb-4 shadow-sm border border-gray-200/50 backdrop-blur-sm transition-all duration-300 group-hover:shadow-xl group-hover:border-accent">
+                            <img src="cover.doctors & clinics pack.png.png" alt="Doctors & Clinics" class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <h4 class="font-bold text-base text-black mb-1 leading-tight group-hover:text-accent transition-colors">AI Prompt Library for Doctors & Clinics</h4>
+                        <p class="text-gray-600 font-medium">₹499.00</p>
+                    </a>
+
+                    <!-- Product 6: Social Media Managers -->
+                    <a href="product.html?id=social-media-managers" class="group block product-card" data-category="prompt-pack" data-title="ai prompt library for social media managers">
+                        <div class="bg-gray-200/30 rounded-xl overflow-hidden mb-4 shadow-sm border border-gray-200/50 backdrop-blur-sm transition-all duration-300 group-hover:shadow-xl group-hover:border-accent">
+                            <img src="cover.social media managers pack.png.png" alt="Social Media Managers" class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <h4 class="font-bold text-base text-black mb-1 leading-tight group-hover:text-accent transition-colors">AI Prompt Library for Social Media Managers</h4>
+                        <p class="text-gray-600 font-medium">₹499.00</p>
+                    </a>
+
+                    <!-- Product 7 -->
+                    <a href="product.html?id=real-estate" class="group block product-card" data-category="prompt-pack" data-title="ai prompt library for real estate agents">
+                        <div class="bg-gray-200/30 rounded-xl overflow-hidden mb-4 shadow-sm border border-gray-200/50 backdrop-blur-sm transition-all duration-300 group-hover:shadow-xl group-hover:border-accent">
+                            <img src="cover.real esatate agents pack.png.png" alt="Real Estate Agents" class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <h4 class="font-bold text-base text-black mb-1 leading-tight group-hover:text-accent transition-colors">AI Prompt Library for Real Estate Agents</h4>
+                        <p class="text-gray-600 font-medium">₹499.00</p>
+                    </a>
+
+                    <!-- Product 8 -->
+                    <a href="product.html?id=digital-marketers" class="group block product-card" data-category="prompt-pack" data-title="ai prompt library for digital marketers">
+                        <div class="bg-gray-200/30 rounded-xl overflow-hidden mb-4 shadow-sm border border-gray-200/50 backdrop-blur-sm transition-all duration-300 group-hover:shadow-xl group-hover:border-accent">
+                            <img src="cover.digital marketers pack.png.png" alt="Digital Marketers" class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <h4 class="font-bold text-base text-black mb-1 leading-tight group-hover:text-accent transition-colors">AI Prompt Library for Digital Marketers</h4>
+                        <p class="text-gray-600 font-medium">₹499.00</p>
+                    </a>
+                    
+                    <!-- Product 9 -->
+                    <a href="product.html?id=fitness-coaches" class="group block product-card" data-category="prompt-pack" data-title="ai prompt library for fitness coaches">
+                        <div class="bg-gray-200/30 rounded-xl overflow-hidden mb-4 shadow-sm border border-gray-200/50 backdrop-blur-sm transition-all duration-300 group-hover:shadow-xl group-hover:border-accent">
+                            <img src="cover.fitness coaches pack.png.png" alt="Fitness Coaches" class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <h4 class="font-bold text-base text-black mb-1 leading-tight group-hover:text-accent transition-colors">AI Prompt Library for Fitness Coaches</h4>
+                        <p class="text-gray-600 font-medium">₹499.00</p>
+                    </a>
+                    
+                </div>
+                
+                <!-- No Results Message (Hidden by default) -->
+                <div id="no-results" class="hidden text-center py-16">
+                    <p class="text-gray-500 font-medium">No products found.</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-100 py-16 text-gray-900 text-sm">
+        <div class="max-w-7xl mx-auto px-4 text-center mb-10">
+            <h2 class="font-serif text-3xl font-bold tracking-widest uppercase text-black">THE PROSPERITY GRID</h2>
+            <div class="w-full h-px bg-gray-300 my-8"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+            <!-- Quick Links -->
+            <div>
+                <h4 class="font-bold mb-4 text-lg text-black">Quick Links</h4>
+                <ul class="space-y-3 font-semibold text-gray-700">
+                    <li><a href="index.html" class="hover:text-primary transition-colors underline underline-offset-4">HOME</a></li>
+                    <li><a href="prompts-library.html" class="hover:text-primary transition-colors underline underline-offset-4">PRODUCTS</a></li>
+                    <li><a href="index.html#systems" class="hover:text-primary transition-colors underline underline-offset-4">ABOUT US</a></li>
+                </ul>
+            </div>
+            
+            <!-- Policies -->
+            <div>
+                <h4 class="font-bold mb-4 text-lg text-black">Our Policies</h4>
+                <ul class="space-y-3 font-semibold text-gray-700">
+                    <li><a href="privacy-policy.html" class="hover:text-primary transition-colors underline underline-offset-4">PRIVACY POLICY</a></li>
+                    <li><a href="refunds.html" class="hover:text-primary transition-colors underline underline-offset-4">REFUND POLICY</a></li>
+                    <li><a href="terms.html" class="hover:text-primary transition-colors underline underline-offset-4">TERMS & CONDITIONS</a></li>
+                </ul>
+            </div>
+            
+            <!-- Contacts -->
+            <div>
+                <h4 class="font-bold mb-4 text-lg text-black">Contacts</h4>
+                <ul class="space-y-3 font-semibold text-gray-700">
+                    <li>Email - <a href="mailto:theprosperitygrid10@gmail.com" class="hover:text-primary transition-colors underline underline-offset-4">theprosperitygrid10@gmail.com</a></li>
+                </ul>
+                <h4 class="font-bold mt-8 mb-4 text-lg text-black">Instagram</h4>
+                <ul class="space-y-3 font-semibold text-gray-700">
+                    <li><a href="https://instagram.com/theprosperity_grid" target="_blank" class="hover:text-primary transition-colors underline underline-offset-4">@theprosperity_grid</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVITY SCRIPTS -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Filtering and Search Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+        const categoryTitle = document.getElementById('category-title');
+        const searchInput = document.getElementById('search-input');
+        const noResults = document.getElementById('no-results');
+
+        let currentFilter = 'all';
+        let searchQuery = '';
+
+        function updateDisplay() {
+            let visibleCount = 0;
+
+            productCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                const title = card.getAttribute('data-title').toLowerCase();
+                
+                const matchesFilter = currentFilter === 'all' || category === currentFilter;
+                const matchesSearch = title.includes(searchQuery);
+
+                if (matchesFilter && matchesSearch) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (visibleCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Update active state styling
+                filterBtns.forEach(b => {
+                    b.classList.remove('text-black', 'font-bold', 'underline', 'underline-offset-4', 'decoration-accent', 'decoration-2');
+                    b.classList.add('text-gray-600');
+                });
+                
+                const clickedBtn = e.target;
+                clickedBtn.classList.remove('text-gray-600');
+                clickedBtn.classList.add('text-black', 'font-bold', 'underline', 'underline-offset-4', 'decoration-accent', 'decoration-2');
+                
+                currentFilter = clickedBtn.getAttribute('data-filter');
+                categoryTitle.innerText = clickedBtn.innerText;
+                
+                updateDisplay();
+            });
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.toLowerCase();
+            updateDisplay();
+        });
+    </script>
+</body>
+</html>

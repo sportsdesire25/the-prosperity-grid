@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/jpeg" href="favicon.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | The Prosperity Grid</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#673de6',
+                        'primary-dark': '#2f1c6a',
+                        accent: '#c6a664',
+                        dark: '#111111',
+                        darker: '#0a0a0a',
+                        card: '#1c1c1f'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                        ui: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Product Database -->
+    <script>
+        const productsDB = {
+            'blueprint-free': {
+                title: "The AI Millionaire Blueprint (Free Edition)",
+                subtitle: "Launch Your Digital Income Journey With AI Tools — in Just 13 Pages",
+                price: "FREE",
+                image: "cover.ai millionaire bluprint.png.png",
+                paymentLink: "The AI Millionaire Blueprint.pdf", // Direct PDF download
+                description: `
+                    <h3 class="text-xl font-bold mb-4">Risk-Free Foundation to AI Income</h3>
+                    <p class="mb-4">The Free Edition of The AI Millionaire Blueprint is designed to show you exactly how our systems work, completely free of charge. See the teaching style, the quality, and the immediate value before you ever invest in the PRO edition or a Prompt Pack.</p>
+                    
+                    <h3 class="text-lg font-bold mt-8 mb-4">WHAT'S INSIDE THIS BLUEPRINT</h3>
+                    <ul class="list-disc pl-5 space-y-2 mb-6">
+                        <li><strong>Core AI Concepts:</strong> A beginner-friendly introduction to leveraging AI for digital income.</li>
+                        <li><strong>8-10 Essential Tools:</strong> A quick overview of the most important tools to start using today.</li>
+                        <li><strong>High-Level Strategy:</strong> Understand the framework of how creators and entrepreneurs are monetizing AI.</li>
+                    </ul>
+
+                    <h3 class="text-lg font-bold mt-8 mb-4">WHAT YOU GET</h3>
+                    <ul class="space-y-2 mb-8">
+                        <li>✓ 13 Pages of clear, actionable content</li>
+                        <li>✓ 100% Free - no credit card required</li>
+                        <li>✓ Instant digital download (PDF)</li>
+                    </ul>
+                `
+            },
+            'blueprint-pro': {
+                title: "The AI Millionaire Blueprint PRO",
+                subtitle: "21 Tools & Systems to Build Digital Wealth in 2025",
+                price: "₹699.00",
+                image: "cover.ai millionaire blueprint pro.png.png",
+                paymentLink: "https://razorpay.com", // Replace with real Razorpay link
+                description: `
+                    <h3 class="text-xl font-bold mb-4">Your Complete Foundation for AI Income</h3>
+                    <p class="mb-4">The AI Millionaire Blueprint PRO is the definitive playbook for understanding and leveraging AI to build real digital income. We cut through the noise and give you the exact systems, tools, and strategies working right now.</p>
+                    
+                    <h3 class="text-lg font-bold mt-8 mb-4">WHAT'S INSIDE THIS BLUEPRINT</h3>
+                    <ul class="list-disc pl-5 space-y-2 mb-6">
+                        <li><strong>25+ High-Impact AI Tools:</strong> Beyond just ChatGPT, learn the tools for video, audio, design, and automation.</li>
+                        <li><strong>Proven Monetization Systems:</strong> Step-by-step models for YouTube, Instagram, Freelancing, and Gumroad.</li>
+                        <li><strong>Execution Frameworks:</strong> Clear, actionable chapters designed to get you started immediately.</li>
+                        <li><strong>Bonus Templates:</strong> Ready-to-use resources to accelerate your journey.</li>
+                    </ul>
+
+                    <p class="font-medium bg-gray-100 p-4 rounded-lg italic">Think of it as the ultimate shortcut to understanding how digital wealth is being built with AI today.</p>
+
+                    <h3 class="text-lg font-bold mt-8 mb-4">WHAT YOU GET</h3>
+                    <ul class="space-y-2 mb-8">
+                        <li>✓ 27 Pages of execution-ready content</li>
+                        <li>✓ Deep dive into 25+ AI tools</li>
+                        <li>✓ Monetization strategies (A-Z workflow)</li>
+                        <li>✓ Lifetime access & free updates</li>
+                        <li>✓ Instant digital download (PDF)</li>
+                    </ul>
+                `
+            },
+            'social-media-managers': {
+                title: "AI Prompt Library for Social Media Managers",
+                subtitle: "Prompts for Content Creation, Strategy, and Engagement",
+                price: "₹499.00",
+                image: "cover.social media managers pack.png.png",
+                paymentLink: "https://razorpay.com",
+                description: `
+                    <h3 class="text-xl font-bold mb-4">Your Complete AI System for Social Media Growth</h3>
+                    <p class="mb-4">Stop wasting hours brainstorming and writing captions. This prompt library gives you the exact inputs to generate viral hooks, a month's worth of content, and engaging replies in minutes.</p>
+                    
+                    <h3 class="text-lg font-bold mt-8 mb-4">WHAT'S INSIDE THIS PACK</h3>
+                    <div class="space-y-4 mb-8 pl-2">
+                        <div><strong class="text-gray-900">✓ Viral Hooks & Captions</strong><p class="text-sm text-gray-600">Generate scroll-stopping opening lines for Reels, TikToks, and posts.</p></div>
+                        <div><strong class="text-gray-900">✓ Content Calendars</strong><p class="text-sm text-gray-600">Build comprehensive 30-day posting schedules tailored to your niche.</p></div>
+                        <div><strong class="text-gray-900">✓ Community Management</strong><p class="text-sm text-gray-600">Handle comments, DMs, and customer service inquiries professionally.</p></div>
+                        <div><strong class="text-gray-900">✓ Campaign Strategy</strong><p class="text-sm text-gray-600">Plan product launches and awareness campaigns with AI-driven insights.</p></div>
+                    </div>
+
+                    <h3 class="text-lg font-bold mt-8 mb-4">WHAT YOU GET</h3>
+                    <ul class="space-y-2 mb-8">
+                        <li>✓ 90+ Social Media-Specific AI Prompts</li>
+                        <li>✓ Structured Chapters (A-Z workflow)</li>
+                        <li>✓ Lifetime access</li>
+                        <li>✓ Instant digital download (PDF)</li>
+                    </ul>
+                `
+            },
+            'hr-recruiters': {
+                title: "AI Prompt Library for HR & Recruiters",
+                subtitle: "Prompts for Hiring, Recruiting, and Employee Management",
+                price: "₹499.00",
+                image: "cover.hr & recruiters pack.png.png",
+                paymentLink: "https://razorpay.com",
+                description: `
+                    <h3 class="text-xl font-bold mb-4">Your Complete AI System for Hiring, Communication & People Management</h3>
+                    <p class="mb-4">Hiring today is no longer just about resumes.</p>
+                    <p class="mb-2">HR professionals and recruiters are expected to:</p>
+                    <ul class="list-disc pl-5 space-y-1 mb-4">
+                        <li>Write clear job descriptions</li>
+                        <li>Screen candidates efficiently</li>
+                        <li>Communicate professionally with applicants</li>
+                        <li>Conduct structured interviews</li>
+                        <li>Manage onboarding & employee communication</li>
+                        <li>Handle performance, feedback, and internal messaging</li>
+                        <li>Maintain employer branding & professionalism</li>
+                    </ul>
+                    <p class="mb-4 font-medium italic">All while saving time and avoiding costly hiring mistakes.</p>
+                    <p class="mb-6">This AI Prompt Library is built <strong>specifically for HR professionals and recruiters.</strong></p>
+                    
+                    <h3 class="text-lg font-bold mt-8 mb-4">WHAT'S INSIDE THIS PACK</h3>
+                    <p class="mb-4">This pack includes <strong>90+ high-impact, HR-specific prompts</strong>, structured into 7 practical chapters, plus bonus templates.</p>
+                    
+                    <div class="space-y-4 mb-8 pl-2">
+                        <div><strong class="text-gray-900">✓ Job Descriptions & Role Clarity</strong><p class="text-sm text-gray-600">Create clear, compelling job descriptions and role expectations.</p></div>
+                        <div><strong class="text-gray-900">✓ Candidate Screening & Shortlisting</strong><p class="text-sm text-gray-600">Generate screening questions, evaluation criteria, and shortlisting frameworks.</p></div>
+                        <div><strong class="text-gray-900">✓ Interview & Hiring Processes</strong><p class="text-sm text-gray-600">Build structured interview questions, scoring systems, and workflows.</p></div>
+                        <div><strong class="text-gray-900">✓ Recruiter & Candidate Communication</strong><p class="text-sm text-gray-600">Write interview invites, follow-ups, rejection messages, and updates.</p></div>
+                    </div>
+
+                    <h3 class="text-lg font-bold mt-8 mb-4">WHAT YOU GET</h3>
+                    <ul class="space-y-2 mb-8">
+                        <li>✓ 90+ HR & Recruiter-Specific AI Prompts</li>
+                        <li>✓ 7 Structured Chapters (A-Z workflow)</li>
+                        <li>✓ Lifetime access</li>
+                        <li>✓ Instant digital download (PDF)</li>
+                    </ul>
+                `
+            },
+            'digital-marketers': {
+                title: "AI Prompt Library for Digital Marketers",
+                subtitle: "Prompts for Content, Ads, Email & Strategy",
+                price: "₹499.00",
+                image: "cover.digital marketers pack.png.png",
+                paymentLink: "https://razorpay.com",
+                description: `
+                    <h3 class="text-xl font-bold mb-4">Your Complete AI System for High-Converting Marketing</h3>
+                    <p class="mb-4">Stop staring at a blank page. The Digital Marketers Prompt Library gives you the exact instructions to feed into AI to generate elite-level marketing assets in minutes.</p>
+                    
+                    <h3 class="text-lg font-bold mt-8 mb-4">WHAT'S INSIDE THIS PACK</h3>
+                    <div class="space-y-4 mb-8 pl-2">
+                        <div><strong class="text-gray-900">✓ Copywriting & Ads</strong><p class="text-sm text-gray-600">Generate Facebook, Google, and TikTok ad copy that converts.</p></div>
+                        <div><strong class="text-gray-900">✓ Social Media Calendars</strong><p class="text-sm text-gray-600">Build 30-day content plans complete with hooks and hashtags.</p></div>
+                        <div><strong class="text-gray-900">✓ Email Marketing Sequences</strong><p class="text-sm text-gray-600">Write abandoned cart, welcome series, and promotional emails.</p></div>
+                        <div><strong class="text-gray-900">✓ SEO & Blog Content</strong><p class="text-sm text-gray-600">Draft optimized outlines, meta descriptions, and full articles.</p></div>
+                    </div>
+
+                    <h3 class="text-lg font-bold mt-8 mb-4">WHAT YOU GET</h3>
+                    <ul class="space-y-2 mb-8">
+                        <li>✓ 90+ Marketing-Specific AI Prompts</li>
+                        <li>✓ 7 Structured Chapters (A-Z workflow)</li>
+                        <li>✓ Lifetime access</li>
+                        <li>✓ Instant digital download (PDF)</li>
+                    </ul>
+                `
+            },
+            // Fallback default for other products
+            'default': {
+                title: "AI Prompt Library",
+                subtitle: "Industry-specific AI systems for high-leverage professionals.",
+                price: "₹499.00",
+                image: "cover.our systems prompt packs.png.png", // Generic fallback
+                paymentLink: "https://razorpay.com",
+                description: `
+                    <h3 class="text-xl font-bold mb-4">Your Complete AI System for Professional Workflows</h3>
+                    <p class="mb-4">This Prompt Library is designed to completely streamline your day-to-day operations, communication, and strategy using AI.</p>
+                    
+                    <h3 class="text-lg font-bold mt-8 mb-4">WHAT'S INSIDE THIS PACK</h3>
+                    <p class="mb-4">This pack includes <strong>90+ high-impact, industry-specific prompts</strong>, structured into practical chapters, plus bonus templates.</p>
+                    <ul class="list-disc pl-5 space-y-2 mb-6 text-gray-700">
+                        <li>Client & Team Communication workflows</li>
+                        <li>Industry-specific strategic planning</li>
+                        <li>Daily task automation prompts</li>
+                        <li>Content generation & marketing frameworks</li>
+                    </ul>
+
+                    <h3 class="text-lg font-bold mt-8 mb-4">WHAT YOU GET</h3>
+                    <ul class="space-y-2 mb-8">
+                        <li>✓ 90+ Profession-Specific AI Prompts</li>
+                        <li>✓ Structured Chapters (A-Z workflow)</li>
+                        <li>✓ Lifetime access</li>
+                        <li>✓ Instant digital download (PDF)</li>
+                    </ul>
+                `
+            }
+        };
+
+        // We will assign images and PDF links dynamically if they aren't explicitly listed above, based on ID
+        const dynamicImages = {
+            'startup-founders': 'cover.startup founders pack.png.png',
+            'freelancers': 'cover.freelancers pack.png.png',
+            'lawyers': 'cover.lawyers pack.png.png',
+            'doctors-clinics': 'cover.doctors & clinics pack.png.png',
+            'ecommerce-sellers': 'cover.e-commerce sellers pack.png.png',
+            'real-estate': 'cover.real esatate agents pack.png.png',
+            'fitness-coaches': 'cover.fitness coaches pack.png.png'
+        };
+        
+        const dynamicTitles = {
+            'startup-founders': 'AI Prompt Library for Startup Founders',
+            'freelancers': 'AI Prompt Library for Freelancers',
+            'lawyers': 'AI Prompt Library for Lawyers',
+            'doctors-clinics': 'AI Prompt Library for Doctors & Clinics',
+            'ecommerce-sellers': 'AI Prompt Library for E-Commerce Sellers',
+            'real-estate': 'AI Prompt Library for Real Estate Agents',
+            'fitness-coaches': 'AI Prompt Library for Fitness Coaches'
+        };
+        
+        const paymentLinks = {
+            'digital-marketers': 'https://rzp.io/rzp/oCvbGAE',
+            'freelancers': 'https://rzp.io/rzp/jWmrgYS',
+            'ecommerce-sellers': 'https://rzp.io/rzp/LqLvYB7',
+            'lawyers': 'https://rzp.io/rzp/XdTTmzp',
+            'fitness-coaches': 'https://rzp.io/rzp/qvIsRYn',
+            'real-estate': 'https://rzp.io/rzp/IfoBFQB',
+            'social-media-managers': 'https://rzp.io/rzp/ovQppdt',
+            'startup-founders': 'https://rzp.io/rzp/zBwIVEw',
+            'doctors-clinics': 'https://rzp.io/rzp/SrOF01f',
+            'hr-recruiters': 'https://rzp.io/rzp/TSuYVQi',
+            'blueprint-pro': 'https://rzp.io/rzp/1RfOpPXd'
+        };
+    </script>
+</head>
+<body class="bg-[#f4f4f5] text-gray-900 font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="w-full z-50 bg-black transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="font-serif text-2xl font-bold tracking-widest text-white uppercase">
+                        THE PROSPERITY GRID
+                    </a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-gray-300 hover:text-white transition-colors font-medium text-sm">Home</a>
+                    <a href="prompts-library.html" class="text-gray-300 hover:text-white transition-colors font-medium text-sm">Prompts Library</a>
+                    <a href="ai-lead-system.html" class="text-gray-300 hover:text-white transition-colors font-medium text-sm">AI Lead System</a>
+                    <!-- CTA Button -->
+                    <a href="product.html?id=blueprint-pro" class="bg-accent hover:bg-yellow-600 text-black px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-[0_0_15px_rgba(198,166,100,0.4)]">
+                        Get The Blueprint
+                    </a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-accent focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-darker border-t border-gray-800">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="index.html" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white">Home</a>
+                <a href="prompts-library.html" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white">Prompts Library</a>
+                <a href="ai-lead-system.html" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white">AI Lead System</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PRODUCT DETAILS MAIN -->
+    <main class="flex-grow pt-16 pb-24 relative bg-cover bg-center" style="background-image: url('background image.png (4).png');">
+        <div class="absolute inset-0 bg-[#f4f4f5]/90"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Breadcrumbs -->
+            <div class="text-sm text-gray-500 mb-8 font-medium">
+                <a href="index.html" class="hover:text-black">Home</a> / 
+                <a href="prompts-library.html" class="hover:text-black">Prompts Library</a> / 
+                <span id="breadcrumb-title" class="text-gray-900">Loading...</span>
+            </div>
+
+            <!-- Two Column Layout -->
+            <div class="flex flex-col md:flex-row gap-12 lg:gap-20">
+                
+                <!-- Left: Product Image -->
+                <div class="w-full md:w-1/2 lg:w-5/12">
+                    <div class="sticky top-28 bg-white/50 backdrop-blur-sm p-4 rounded-3xl border border-gray-200 shadow-xl overflow-hidden">
+                        <img id="product-image" src="" alt="Product Cover" class="w-full h-auto rounded-2xl object-cover shadow-sm">
+                    </div>
+                </div>
+
+                <!-- Right: Product Info & Description -->
+                <div class="w-full md:w-1/2 lg:w-7/12 pt-2">
+                    <!-- Title & Price Block -->
+                    <div class="border-b border-gray-300 pb-8 mb-8">
+                        <h1 id="product-title" class="font-serif text-3xl md:text-5xl font-bold text-black mb-3 leading-tight">Loading...</h1>
+                        <p id="product-subtitle" class="text-lg text-gray-600 font-ui italic mb-6">Please wait...</p>
+                        
+                        <div class="text-3xl font-bold text-black mb-8" id="product-price">₹--.--</div>
+                        
+                        <a id="download-btn" href="#" target="_blank" class="block w-full sm:w-auto sm:inline-block text-center bg-black hover:bg-gray-800 text-white px-12 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:-translate-y-1">
+                            Download Now
+                        </a>
+                        
+                        <p class="text-sm text-gray-500 mt-4 flex items-center font-medium">
+                            <svg class="w-4 h-4 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                            Instant PDF Download
+                        </p>
+                    </div>
+
+                    <!-- Long Form Description -->
+                    <div id="product-description" class="prose prose-lg text-gray-800 font-ui leading-relaxed max-w-none">
+                        <!-- Injected via JS -->
+                    </div>
+                    
+                    <!-- Brand Trust Block -->
+                    <div class="mt-12 pt-8 border-t border-gray-300">
+                        <h3 class="text-lg font-bold mb-2 uppercase tracking-wider text-gray-900">BRAND TRUST</h3>
+                        <p class="text-gray-700"><strong>Created by The Prosperity Grid —</strong><br>A premium digital brand building AI-powered systems for professionals, creators, and entrepreneurs.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- You May Also Like Section -->
+            <div class="mt-32 border-t border-gray-300 pt-16">
+                <h2 class="font-serif text-4xl font-bold text-black mb-10 text-center md:text-left">You may also like</h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Related 1 -->
+                    <a href="product.html?id=real-estate" class="group block">
+                        <div class="bg-gray-200/30 rounded-xl overflow-hidden mb-4 border border-gray-200/50 transition-all duration-300 group-hover:shadow-lg">
+                            <img src="cover.real esatate agents pack.png.png" alt="Real Estate" class="w-full object-cover">
+                        </div>
+                        <h4 class="font-bold text-sm text-black mb-1">AI Prompt Library for Real Estate Agents</h4>
+                        <p class="text-gray-600 font-medium text-sm">₹499.00</p>
+                    </a>
+                    
+                    <!-- Related 2 -->
+                    <a href="product.html?id=fitness-coaches" class="group block">
+                        <div class="bg-gray-200/30 rounded-xl overflow-hidden mb-4 border border-gray-200/50 transition-all duration-300 group-hover:shadow-lg">
+                            <img src="cover.fitness coaches pack.png.png" alt="Fitness" class="w-full object-cover">
+                        </div>
+                        <h4 class="font-bold text-sm text-black mb-1">AI Prompt Library for Fitness Coaches</h4>
+                        <p class="text-gray-600 font-medium text-sm">₹499.00</p>
+                    </a>
+
+                    <!-- Related 3 -->
+                    <a href="product.html?id=digital-marketers" class="group block">
+                        <div class="bg-gray-200/30 rounded-xl overflow-hidden mb-4 border border-gray-200/50 transition-all duration-300 group-hover:shadow-lg">
+                            <img src="cover.digital marketers pack.png.png" alt="Digital Marketers" class="w-full object-cover">
+                        </div>
+                        <h4 class="font-bold text-sm text-black mb-1">AI Prompt Library for Digital Marketers</h4>
+                        <p class="text-gray-600 font-medium text-sm">₹499.00</p>
+                    </a>
+
+                    <!-- Related 4 -->
+                    <a href="product.html?id=ecommerce-sellers" class="group block">
+                        <div class="bg-gray-200/30 rounded-xl overflow-hidden mb-4 border border-gray-200/50 transition-all duration-300 group-hover:shadow-lg">
+                            <img src="cover.e-commerce sellers pack.png.png" alt="E-commerce" class="w-full object-cover">
+                        </div>
+                        <h4 class="font-bold text-sm text-black mb-1">AI Prompt Library for E-Commerce Sellers</h4>
+                        <p class="text-gray-600 font-medium text-sm">₹499.00</p>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Review Callout -->
+            <div class="mt-24 text-center pb-12">
+                <h2 class="font-serif text-3xl font-bold text-black mb-6">Be the first to review</h2>
+                <button class="bg-transparent border-2 border-black text-black hover:bg-black hover:text-white px-8 py-3 rounded-full font-bold transition-all">
+                    Leave review
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-100 py-16 text-gray-900 text-sm">
+        <div class="max-w-7xl mx-auto px-4 text-center mb-10">
+            <h2 class="font-serif text-3xl font-bold tracking-widest uppercase text-black">THE PROSPERITY GRID</h2>
+            <div class="w-full h-px bg-gray-300 my-8"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+            <div>
+                <h4 class="font-bold mb-4 text-lg text-black">Quick Links</h4>
+                <ul class="space-y-3 font-semibold text-gray-700">
+                    <li><a href="index.html" class="hover:text-primary transition-colors underline underline-offset-4">HOME</a></li>
+                    <li><a href="prompts-library.html" class="hover:text-primary transition-colors underline underline-offset-4">PRODUCTS</a></li>
+                    <li><a href="index.html#systems" class="hover:text-primary transition-colors underline underline-offset-4">ABOUT US</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 text-lg text-black">Our Policies</h4>
+                <ul class="space-y-3 font-semibold text-gray-700">
+                    <li><a href="privacy-policy.html" class="hover:text-primary transition-colors underline underline-offset-4">PRIVACY POLICY</a></li>
+                    <li><a href="refunds.html" class="hover:text-primary transition-colors underline underline-offset-4">REFUND POLICY</a></li>
+                    <li><a href="terms.html" class="hover:text-primary transition-colors underline underline-offset-4">TERMS & CONDITIONS</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 text-lg text-black">Contacts</h4>
+                <ul class="space-y-3 font-semibold text-gray-700">
+                    <li>Email - <a href="mailto:theprosperitygrid10@gmail.com" class="hover:text-primary transition-colors underline underline-offset-4">theprosperitygrid10@gmail.com</a></li>
+                </ul>
+                <h4 class="font-bold mt-8 mb-4 text-lg text-black">Instagram</h4>
+                <ul class="space-y-3 font-semibold text-gray-700">
+                    <li><a href="https://instagram.com/theprosperity_grid" target="_blank" class="hover:text-primary transition-colors underline underline-offset-4">@theprosperity_grid</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- DYNAMIC RENDER SCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get Product ID from URL (e.g., product.html?id=hr-recruiters)
+            const urlParams = new URLSearchParams(window.location.search);
+            let productId = urlParams.get('id');
+            
+            // Default to HR if none provided just to prevent blank page
+            if (!productId) productId = 'hr-recruiters';
+
+            // Get product data, falling back to dynamic generation if not explicitly in DB
+            let productData = productsDB[productId];
+            
+            if (!productData) {
+                // Generate data on the fly for products not fully typed out in DB
+                productData = { ...productsDB['default'] };
+                if (dynamicTitles[productId]) productData.title = dynamicTitles[productId];
+                if (dynamicImages[productId]) productData.image = dynamicImages[productId];
+            }
+            
+            // Override the payment link with the actual Razorpay link if it exists
+            if (paymentLinks[productId]) {
+                productData.paymentLink = paymentLinks[productId];
+            }
+            
+            const downloadBtn = document.getElementById('download-btn');
+            
+            // Re-add the download attribute only for the free blueprint
+            if (productId === 'blueprint-free') {
+                downloadBtn.setAttribute('download', '');
+            } else {
+                downloadBtn.removeAttribute('download');
+            }
+
+            // Populate DOM
+            document.title = productData.title + ' | The Prosperity Grid';
+            document.getElementById('breadcrumb-title').textContent = productData.title;
+            document.getElementById('product-title').textContent = productData.title;
+            document.getElementById('product-subtitle').textContent = productData.subtitle;
+            document.getElementById('product-price').textContent = productData.price;
+            document.getElementById('product-image').src = productData.image;
+            document.getElementById('product-image').alt = productData.title;
+            downloadBtn.href = productData.paymentLink;
+            document.getElementById('product-description').innerHTML = productData.description;
+        });
+    </script>
+</body>
+</html>
