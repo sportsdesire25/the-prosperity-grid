@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/jpeg" href="../favicon.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Website Library | The Prosperity Grid</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#673de6',
+                        'primary-dark': '#2f1c6a',
+                        accent: '#c6a664',
+                        dark: '#111111',
+                        darker: '#0a0a0a',
+                        card: '#1c1c1f'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                        ui: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .fade-up { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; transform: translateY(30px); }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        .glass-nav { background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+    </style>
+</head>
+<body class="bg-darker text-white font-sans antialiased overflow-x-hidden">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="../index.html" class="font-serif text-xl md:text-2xl font-bold tracking-widest text-white uppercase flex items-center">
+                        <svg class="w-6 h-6 mr-3 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        THE PROSPERITY GRID
+                    </a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="https://wa.me/916000681916?text=Hi%20The%20Prosperity%20Grid,%20I'd%20like%20to%20discuss%20a%20website%20for%20my%20business." target="_blank" class="bg-accent hover:bg-yellow-600 text-black px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-[0_0_15px_rgba(198,166,100,0.4)]">
+                        Discuss Your Project
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 lg:pt-40 lg:pb-24 bg-dark relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent"></div>
+        <div class="max-w-4xl mx-auto px-4 relative z-10 text-center fade-up">
+            <div class="inline-block mb-6 px-4 py-1.5 rounded-full border border-accent/40 bg-accent/10 text-accent text-sm font-bold tracking-widest uppercase">
+                Demo Library
+            </div>
+            <h1 class="font-serif text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">
+                See What Your Business Could Look Like Online
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 font-ui mb-8 max-w-3xl mx-auto leading-relaxed">
+                Explore industry-specific website concepts designed around how customers discover, evaluate and enquire about local businesses.
+            </p>
+            <div class="bg-card border border-gray-800 rounded-2xl p-6 max-w-2xl mx-auto flex items-start text-left fade-up delay-1 shadow-2xl">
+                <svg class="w-6 h-6 text-gray-500 mr-4 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <p class="text-sm text-gray-400 leading-relaxed font-ui">
+                    <strong class="text-white">Note:</strong> These are demonstration concepts created by Prosperity Grid to show how a website and enquiry system can be tailored to different businesses. The brands and content are illustrative.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grid Section -->
+    <section class="py-16 pb-32 bg-darker relative z-10">
+        <div class="max-w-7xl mx-auto px-4">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- 1. Music Academy -->
+                <div class="bg-card rounded-3xl border border-white/5 overflow-hidden group hover:border-accent/50 transition-all duration-500 hover:shadow-[0_10px_40px_rgba(198,166,100,0.05)] fade-up delay-1 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?auto=format&fit=crop&w=800&q=80" alt="Music Academy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex flex-col flex-1">
+                        <div class="text-accent text-xs font-bold tracking-widest uppercase mb-2">Education</div>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-3">Music Academy</h3>
+                        <p class="text-gray-400 text-sm mb-6 flex-1 font-ui leading-relaxed">A creative, elegant layout focusing on trial classes, faculty showcases, and structured programs.</p>
+                        <div class="bg-black/50 p-4 rounded-xl border border-white/5 mb-6">
+                            <span class="block text-xs text-gray-500 mb-1">Optimized for:</span>
+                            <span class="text-sm font-semibold text-gray-300">"Book a Free Trial Class"</span>
+                        </div>
+                        <a href="music-academy/index.html" class="w-full text-center bg-white text-black hover:bg-accent px-6 py-3 rounded-full font-bold transition-colors">
+                            View Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2. Coaching Institute -->
+                <div class="bg-card rounded-3xl border border-white/5 overflow-hidden group hover:border-accent/50 transition-all duration-500 hover:shadow-[0_10px_40px_rgba(198,166,100,0.05)] fade-up delay-1 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80" alt="Coaching Institute" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex flex-col flex-1">
+                        <div class="text-accent text-xs font-bold tracking-widest uppercase mb-2">Education</div>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-3">Coaching Institute</h3>
+                        <p class="text-gray-400 text-sm mb-6 flex-1 font-ui leading-relaxed">Authority-building design focused on student success, course structures, and admissions.</p>
+                        <div class="bg-black/50 p-4 rounded-xl border border-white/5 mb-6">
+                            <span class="block text-xs text-gray-500 mb-1">Optimized for:</span>
+                            <span class="text-sm font-semibold text-gray-300">"Request a Counseling Session"</span>
+                        </div>
+                        <a href="coaching-institute/index.html" class="w-full text-center bg-white text-black hover:bg-accent px-6 py-3 rounded-full font-bold transition-colors">
+                            View Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3. Dental Clinic -->
+                <div class="bg-card rounded-3xl border border-white/5 overflow-hidden group hover:border-accent/50 transition-all duration-500 hover:shadow-[0_10px_40px_rgba(198,166,100,0.05)] fade-up delay-1 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80" alt="Dental Clinic" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex flex-col flex-1">
+                        <div class="text-accent text-xs font-bold tracking-widest uppercase mb-2">Healthcare</div>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-3">Dental Clinic</h3>
+                        <p class="text-gray-400 text-sm mb-6 flex-1 font-ui leading-relaxed">Clean, highly trustworthy aesthetic highlighting treatments, before/afters, and expert care.</p>
+                        <div class="bg-black/50 p-4 rounded-xl border border-white/5 mb-6">
+                            <span class="block text-xs text-gray-500 mb-1">Optimized for:</span>
+                            <span class="text-sm font-semibold text-gray-300">"Book an Appointment"</span>
+                        </div>
+                        <a href="dental-clinic/index.html" class="w-full text-center bg-white text-black hover:bg-accent px-6 py-3 rounded-full font-bold transition-colors">
+                            View Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 4. Physiotherapy Clinic -->
+                <div class="bg-card rounded-3xl border border-white/5 overflow-hidden group hover:border-accent/50 transition-all duration-500 hover:shadow-[0_10px_40px_rgba(198,166,100,0.05)] fade-up delay-2 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" alt="Physiotherapy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex flex-col flex-1">
+                        <div class="text-accent text-xs font-bold tracking-widest uppercase mb-2">Healthcare</div>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-3">Physiotherapy</h3>
+                        <p class="text-gray-400 text-sm mb-6 flex-1 font-ui leading-relaxed">Empathy-driven design focusing on pain relief, rehabilitation programs, and home visits.</p>
+                        <div class="bg-black/50 p-4 rounded-xl border border-white/5 mb-6">
+                            <span class="block text-xs text-gray-500 mb-1">Optimized for:</span>
+                            <span class="text-sm font-semibold text-gray-300">"Get a Free Assessment"</span>
+                        </div>
+                        <a href="physiotherapy/index.html" class="w-full text-center bg-white text-black hover:bg-accent px-6 py-3 rounded-full font-bold transition-colors">
+                            View Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 5. Gym / Fitness Studio -->
+                <div class="bg-card rounded-3xl border border-white/5 overflow-hidden group hover:border-accent/50 transition-all duration-500 hover:shadow-[0_10px_40px_rgba(198,166,100,0.05)] fade-up delay-2 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" alt="Gym & Fitness" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex flex-col flex-1">
+                        <div class="text-accent text-xs font-bold tracking-widest uppercase mb-2">Fitness</div>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-3">Gym / Fitness</h3>
+                        <p class="text-gray-400 text-sm mb-6 flex-1 font-ui leading-relaxed">High-energy, bold aesthetic showcasing facilities, transformations, and personal training.</p>
+                        <div class="bg-black/50 p-4 rounded-xl border border-white/5 mb-6">
+                            <span class="block text-xs text-gray-500 mb-1">Optimized for:</span>
+                            <span class="text-sm font-semibold text-gray-300">"Claim 1-Day Trial Pass"</span>
+                        </div>
+                        <a href="gym/index.html" class="w-full text-center bg-white text-black hover:bg-accent px-6 py-3 rounded-full font-bold transition-colors">
+                            View Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 6. Dance Academy -->
+                <div class="bg-card rounded-3xl border border-white/5 overflow-hidden group hover:border-accent/50 transition-all duration-500 hover:shadow-[0_10px_40px_rgba(198,166,100,0.05)] fade-up delay-2 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=800&q=80" alt="Dance Academy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex flex-col flex-1">
+                        <div class="text-accent text-xs font-bold tracking-widest uppercase mb-2">Arts & Fitness</div>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-3">Dance Academy</h3>
+                        <p class="text-gray-400 text-sm mb-6 flex-1 font-ui leading-relaxed">Dynamic, visually rich design targeting various age groups, styles, and performance batches.</p>
+                        <div class="bg-black/50 p-4 rounded-xl border border-white/5 mb-6">
+                            <span class="block text-xs text-gray-500 mb-1">Optimized for:</span>
+                            <span class="text-sm font-semibold text-gray-300">"Book Your First Class"</span>
+                        </div>
+                        <a href="dance-academy/index.html" class="w-full text-center bg-white text-black hover:bg-accent px-6 py-3 rounded-full font-bold transition-colors">
+                            View Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 7. Sports Academy -->
+                <div class="bg-card rounded-3xl border border-white/5 overflow-hidden group hover:border-accent/50 transition-all duration-500 hover:shadow-[0_10px_40px_rgba(198,166,100,0.05)] fade-up delay-3 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=800&q=80" alt="Sports Academy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex flex-col flex-1">
+                        <div class="text-accent text-xs font-bold tracking-widest uppercase mb-2">Sports</div>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-3">Sports Academy</h3>
+                        <p class="text-gray-400 text-sm mb-6 flex-1 font-ui leading-relaxed">Performance-oriented layout focusing on professional coaching, infrastructure, and camps.</p>
+                        <div class="bg-black/50 p-4 rounded-xl border border-white/5 mb-6">
+                            <span class="block text-xs text-gray-500 mb-1">Optimized for:</span>
+                            <span class="text-sm font-semibold text-gray-300">"Register for Trial Camp"</span>
+                        </div>
+                        <a href="sports-academy/index.html" class="w-full text-center bg-white text-black hover:bg-accent px-6 py-3 rounded-full font-bold transition-colors">
+                            View Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 8. Beauty Salon -->
+                <div class="bg-card rounded-3xl border border-white/5 overflow-hidden group hover:border-accent/50 transition-all duration-500 hover:shadow-[0_10px_40px_rgba(198,166,100,0.05)] fade-up delay-3 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80" alt="Beauty Salon" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex flex-col flex-1">
+                        <div class="text-accent text-xs font-bold tracking-widest uppercase mb-2">Lifestyle</div>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-3">Premium Salon</h3>
+                        <p class="text-gray-400 text-sm mb-6 flex-1 font-ui leading-relaxed">Luxurious, calm aesthetic highlighting premium services, bridal packages, and expertise.</p>
+                        <div class="bg-black/50 p-4 rounded-xl border border-white/5 mb-6">
+                            <span class="block text-xs text-gray-500 mb-1">Optimized for:</span>
+                            <span class="text-sm font-semibold text-gray-300">"Schedule a Visit"</span>
+                        </div>
+                        <a href="beauty-salon/index.html" class="w-full text-center bg-white text-black hover:bg-accent px-6 py-3 rounded-full font-bold transition-colors">
+                            View Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 9. Preschool -->
+                <div class="bg-card rounded-3xl border border-white/5 overflow-hidden group hover:border-accent/50 transition-all duration-500 hover:shadow-[0_10px_40px_rgba(198,166,100,0.05)] fade-up delay-3 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" alt="Preschool" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex flex-col flex-1">
+                        <div class="text-accent text-xs font-bold tracking-widest uppercase mb-2">Education</div>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-3">Preschool</h3>
+                        <p class="text-gray-400 text-sm mb-6 flex-1 font-ui leading-relaxed">Warm, trust-building layout for parents focusing on safety, curriculum, and environment.</p>
+                        <div class="bg-black/50 p-4 rounded-xl border border-white/5 mb-6">
+                            <span class="block text-xs text-gray-500 mb-1">Optimized for:</span>
+                            <span class="text-sm font-semibold text-gray-300">"Schedule a Campus Tour"</span>
+                        </div>
+                        <a href="preschool/index.html" class="w-full text-center bg-white text-black hover:bg-accent px-6 py-3 rounded-full font-bold transition-colors">
+                            View Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 10. Interior Design -->
+                <div class="bg-card rounded-3xl border border-white/5 overflow-hidden group hover:border-accent/50 transition-all duration-500 hover:shadow-[0_10px_40px_rgba(198,166,100,0.05)] fade-up delay-4 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Interior Design" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex flex-col flex-1">
+                        <div class="text-accent text-xs font-bold tracking-widest uppercase mb-2">Services</div>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-3">Interior Design</h3>
+                        <p class="text-gray-400 text-sm mb-6 flex-1 font-ui leading-relaxed">Minimalist, portfolio-centric design highlighting previous projects and the design process.</p>
+                        <div class="bg-black/50 p-4 rounded-xl border border-white/5 mb-6">
+                            <span class="block text-xs text-gray-500 mb-1">Optimized for:</span>
+                            <span class="text-sm font-semibold text-gray-300">"Discuss Your Space"</span>
+                        </div>
+                        <a href="interior-design/index.html" class="w-full text-center bg-white text-black hover:bg-accent px-6 py-3 rounded-full font-bold transition-colors">
+                            View Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 11. Photography -->
+                <div class="bg-card rounded-3xl border border-white/5 overflow-hidden group hover:border-accent/50 transition-all duration-500 hover:shadow-[0_10px_40px_rgba(198,166,100,0.05)] fade-up delay-4 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80" alt="Photography" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex flex-col flex-1">
+                        <div class="text-accent text-xs font-bold tracking-widest uppercase mb-2">Creative</div>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-3">Photography</h3>
+                        <p class="text-gray-400 text-sm mb-6 flex-1 font-ui leading-relaxed">Visual-first layout focusing on portfolios, booking packages, and creative style.</p>
+                        <div class="bg-black/50 p-4 rounded-xl border border-white/5 mb-6">
+                            <span class="block text-xs text-gray-500 mb-1">Optimized for:</span>
+                            <span class="text-sm font-semibold text-gray-300">"Enquire About Dates"</span>
+                        </div>
+                        <a href="photography/index.html" class="w-full text-center bg-white text-black hover:bg-accent px-6 py-3 rounded-full font-bold transition-colors">
+                            View Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 12. Yoga -->
+                <div class="bg-card rounded-3xl border border-white/5 overflow-hidden group hover:border-accent/50 transition-all duration-500 hover:shadow-[0_10px_40px_rgba(198,166,100,0.05)] fade-up delay-4 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80" alt="Yoga Studio" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex flex-col flex-1">
+                        <div class="text-accent text-xs font-bold tracking-widest uppercase mb-2">Wellness</div>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-3">Yoga / Pilates</h3>
+                        <p class="text-gray-400 text-sm mb-6 flex-1 font-ui leading-relaxed">Calm, spacious design focusing on wellness programs, instructor ethos, and memberships.</p>
+                        <div class="bg-black/50 p-4 rounded-xl border border-white/5 mb-6">
+                            <span class="block text-xs text-gray-500 mb-1">Optimized for:</span>
+                            <span class="text-sm font-semibold text-gray-300">"Book a Drop-in Session"</span>
+                        </div>
+                        <a href="yoga-pilates/index.html" class="w-full text-center bg-white text-black hover:bg-accent px-6 py-3 rounded-full font-bold transition-colors">
+                            View Demo
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

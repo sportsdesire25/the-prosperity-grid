@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertex Dental Studio | Premium Demo</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            charcoal: '#26292b', // Deep charcoal for headings
+                            text: '#4a4d4e',     // Softer charcoal for body text
+                            bg: '#fcfcfb',       // Warm white
+                            white: '#ffffff',
+                            sage: '#6b8a82',     // Muted sage accent
+                            sageHover: '#58766f',
+                            sageLight: '#f3f6f5' // Very light sage for subtle backgrounds
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(38, 41, 43, 0.05)',
+                        'inner-soft': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.03)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Demo Configuration for demo-core.js -->
+    <script>
+        window.DemoConfig = {
+            niche: 'Dental Clinic',
+            colors: { primary: '#26292b', accent: '#6b8a82' }
+        };
+    </script>
+    
+    <style>
+        .fade-up { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; transform: translateY(20px); }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        html { scroll-behavior: smooth; }
+        
+        /* Custom form inputs */
+        input[type="date"]::-webkit-calendar-picker-indicator,
+        input[type="time"]::-webkit-calendar-picker-indicator {
+            filter: opacity(0.5);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-brand-bg text-brand-text font-sans antialiased overflow-x-hidden selection:bg-brand-sage selection:text-white">
+
+    <!-- 1. NAVIGATION -->
+    <nav class="fixed w-full z-40 top-0 left-0 bg-brand-bg/90 backdrop-blur-md border-b border-brand-charcoal/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-serif text-2xl font-bold tracking-tight text-brand-charcoal flex items-center">
+                        <svg class="w-7 h-7 text-brand-sage mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        Vertex Dental
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center text-sm font-medium text-brand-text">
+                    <a href="#treatments" class="hover:text-brand-sage transition-colors">Treatments</a>
+                    <a href="#dentist" class="hover:text-brand-sage transition-colors">Our Dentist</a>
+                    <a href="#experience" class="hover:text-brand-sage transition-colors">Experience</a>
+                    <a href="#contact" class="bg-brand-sage hover:bg-brand-sageHover text-white px-7 py-2.5 rounded-full transition-all shadow-soft">Book Appointment</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. HERO -->
+    <header class="relative pt-32 pb-24 lg:pt-48 lg:pb-32 bg-brand-sageLight overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1920&q=80" alt="Modern Dental Clinic" class="w-full h-full object-cover object-center opacity-[0.15] mix-blend-multiply">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-sageLight via-brand-sageLight/90 to-transparent"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex items-center">
+            <div class="max-w-2xl fade-up">
+                <span class="text-brand-sage font-semibold tracking-wider text-xs uppercase mb-4 block">Premium Oral Healthcare</span>
+                <h1 class="font-serif text-5xl md:text-6xl font-medium leading-tight mb-6 text-brand-charcoal">
+                    Modern Dentistry.<br>
+                    <span class="italic text-brand-sage">Thoughtful Care.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-brand-text font-light mb-10 max-w-xl leading-relaxed">
+                    Comprehensive dental care in a calm, modern environment — with treatment explained clearly at every step.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="bg-brand-charcoal text-white hover:bg-black text-center px-8 py-4 rounded-full font-medium transition-all shadow-soft">
+                        Book an Appointment
+                    </a>
+                    <a href="#treatments" class="bg-white border border-brand-charcoal/10 text-brand-charcoal hover:border-brand-sage hover:text-brand-sage text-center px-8 py-4 rounded-full font-medium transition-all shadow-sm">
+                        Explore Treatments
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. TRUST & POSITIONING -->
+    <section class="py-16 bg-white border-b border-brand-charcoal/5 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left divide-y md:divide-y-0 md:divide-x divide-brand-charcoal/5">
+                <div class="fade-up md:pr-8 py-4 md:py-0">
+                    <div class="w-10 h-10 bg-brand-sageLight rounded-full flex items-center justify-center mb-4 mx-auto md:mx-0 text-brand-sage">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="font-serif text-lg font-medium mb-2 text-brand-charcoal">Calm Environment</h3>
+                    <p class="text-sm text-brand-text leading-relaxed">A clinic designed to reduce anxiety, focusing on patient comfort and a relaxed atmosphere.</p>
+                </div>
+                <div class="fade-up delay-1 md:px-8 py-4 md:py-0">
+                    <div class="w-10 h-10 bg-brand-sageLight rounded-full flex items-center justify-center mb-4 mx-auto md:mx-0 text-brand-sage">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    </div>
+                    <h3 class="font-serif text-lg font-medium mb-2 text-brand-charcoal">Modern Technology</h3>
+                    <p class="text-sm text-brand-text leading-relaxed">Utilizing contemporary dental equipment for precise diagnostics and minimally invasive procedures.</p>
+                </div>
+                <div class="fade-up delay-2 md:pl-8 py-4 md:py-0">
+                    <div class="w-10 h-10 bg-brand-sageLight rounded-full flex items-center justify-center mb-4 mx-auto md:mx-0 text-brand-sage">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="font-serif text-lg font-medium mb-2 text-brand-charcoal">Transparent Care</h3>
+                    <p class="text-sm text-brand-text leading-relaxed">Every step of your treatment and its associated costs are explained clearly before we begin.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. TREATMENTS -->
+    <section id="treatments" class="py-24 bg-brand-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <span class="text-brand-sage font-semibold tracking-wider text-xs uppercase mb-3 block">Clinical Services</span>
+                <h2 class="font-serif text-4xl font-medium text-brand-charcoal">Comprehensive Treatments</h2>
+                <div class="w-16 h-px bg-brand-sage mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Treatment 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-soft border border-brand-charcoal/5 hover:border-brand-sage/30 transition-all group fade-up">
+                    <h3 class="font-serif text-xl font-medium text-brand-charcoal mb-3">General Dentistry</h3>
+                    <p class="text-sm text-brand-text leading-relaxed mb-6">Routine check-ups, professional cleaning, and comprehensive oral health assessments to maintain your natural smile.</p>
+                    <a href="#contact" class="text-brand-sage text-sm font-medium flex items-center group-hover:text-brand-charcoal transition-colors">
+                        Enquire <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Treatment 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-soft border border-brand-charcoal/5 hover:border-brand-sage/30 transition-all group fade-up delay-1">
+                    <h3 class="font-serif text-xl font-medium text-brand-charcoal mb-3">Dental Implants</h3>
+                    <p class="text-sm text-brand-text leading-relaxed mb-6">Structural replacements for missing teeth, designed to function and look like natural teeth while preserving jaw health.</p>
+                    <a href="#contact" class="text-brand-sage text-sm font-medium flex items-center group-hover:text-brand-charcoal transition-colors">
+                        Enquire <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Treatment 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-soft border border-brand-charcoal/5 hover:border-brand-sage/30 transition-all group fade-up delay-2">
+                    <h3 class="font-serif text-xl font-medium text-brand-charcoal mb-3">Clear Aligners</h3>
+                    <p class="text-sm text-brand-text leading-relaxed mb-6">Modern orthodontic solutions using transparent, removable trays to gradually align teeth without traditional metal brackets.</p>
+                    <a href="#contact" class="text-brand-sage text-sm font-medium flex items-center group-hover:text-brand-charcoal transition-colors">
+                        Enquire <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Treatment 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-soft border border-brand-charcoal/5 hover:border-brand-sage/30 transition-all group fade-up delay-3">
+                    <h3 class="font-serif text-xl font-medium text-brand-charcoal mb-3">Root Canal</h3>
+                    <p class="text-sm text-brand-text leading-relaxed mb-6">Endodontic therapy designed to relieve pain, clear infection, and save a severely damaged or diseased tooth.</p>
+                    <a href="#contact" class="text-brand-sage text-sm font-medium flex items-center group-hover:text-brand-charcoal transition-colors">
+                        Enquire <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Treatment 5 -->
+                <div class="bg-white p-8 rounded-2xl shadow-soft border border-brand-charcoal/5 hover:border-brand-sage/30 transition-all group fade-up">
+                    <h3 class="font-serif text-xl font-medium text-brand-charcoal mb-3">Cosmetic Dentistry</h3>
+                    <p class="text-sm text-brand-text leading-relaxed mb-6">Aesthetic procedures including professional whitening, veneers, and composite bonding to refine your smile's appearance.</p>
+                    <a href="#contact" class="text-brand-sage text-sm font-medium flex items-center group-hover:text-brand-charcoal transition-colors">
+                        Enquire <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Treatment 6 -->
+                <div class="bg-white p-8 rounded-2xl shadow-soft border border-brand-charcoal/5 hover:border-brand-sage/30 transition-all group fade-up delay-1">
+                    <h3 class="font-serif text-xl font-medium text-brand-charcoal mb-3">Orthodontics</h3>
+                    <p class="text-sm text-brand-text leading-relaxed mb-6">Traditional and ceramic braces designed to correct bite issues and effectively align complex dental structures.</p>
+                    <a href="#contact" class="text-brand-sage text-sm font-medium flex items-center group-hover:text-brand-charcoal transition-colors">
+                        Enquire <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Treatment 7 -->
+                <div class="bg-white p-8 rounded-2xl shadow-soft border border-brand-charcoal/5 hover:border-brand-sage/30 transition-all group fade-up delay-2">
+                    <h3 class="font-serif text-xl font-medium text-brand-charcoal mb-3">Pediatric Dentistry</h3>
+                    <p class="text-sm text-brand-text leading-relaxed mb-6">Gentle, preventive dental care tailored for children to build positive associations with oral hygiene from a young age.</p>
+                    <a href="#contact" class="text-brand-sage text-sm font-medium flex items-center group-hover:text-brand-charcoal transition-colors">
+                        Enquire <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Treatment 8 -->
+                <div class="bg-white p-8 rounded-2xl shadow-soft border border-brand-charcoal/5 hover:border-brand-sage/30 transition-all group fade-up delay-3">
+                    <h3 class="font-serif text-xl font-medium text-brand-charcoal mb-3">Preventive Care</h3>
+                    <p class="text-sm text-brand-text leading-relaxed mb-6">Fissure sealants, fluoride treatments, and structured hygiene plans to prevent decay and protect enamel long-term.</p>
+                    <a href="#contact" class="text-brand-sage text-sm font-medium flex items-center group-hover:text-brand-charcoal transition-colors">
+                        Enquire <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. MEET THE DENTIST -->
+    <section id="dentist" class="py-24 bg-brand-charcoal text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                
+                <div class="lg:w-5/12 fade-up">
+                    <div class="relative">
+                        <div class="aspect-[4/5] overflow-hidden rounded-2xl">
+                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80" alt="Dr. Ananya Mehta" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 bg-brand-sage p-6 rounded-xl shadow-2xl">
+                            <div class="font-serif text-xl font-medium mb-1">Dr. Ananya Mehta</div>
+                            <div class="text-sm text-white/80">Principal Dentist</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:w-7/12 fade-up delay-1">
+                    <span class="text-brand-sage font-semibold tracking-wider text-xs uppercase mb-3 block">Clinical Leadership</span>
+                    <h2 class="font-serif text-4xl font-medium mb-6">Experienced dental professional focused on patient comfort.</h2>
+                    <p class="text-white/70 mb-6 leading-relaxed font-light">
+                        "Many patients avoid necessary dental care due to clinical anxiety. My approach centers on transparent communication and creating a calm environment where patients feel entirely in control of their treatment."
+                    </p>
+                    <p class="text-white/70 mb-8 leading-relaxed font-light">
+                        With extensive experience in comprehensive restorative and cosmetic dentistry, Dr. Mehta leads our clinical team with a philosophy rooted in minimally invasive techniques and long-term oral health preservation.
+                    </p>
+                    <ul class="space-y-4 text-sm font-medium text-white/90">
+                        <li class="flex items-start">
+                            <span class="text-brand-sage mr-3 mt-1">✓</span> Experienced in comprehensive restorative care
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-sage mr-3 mt-1">✓</span> Focus on pain-free clinical techniques
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-sage mr-3 mt-1">✓</span> Commitment to ongoing dental education
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6 & 7 & 8. EXPERIENCE / TECHNOLOGY / JOURNEY -->
+    <section id="experience" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <span class="text-brand-sage font-semibold tracking-wider text-xs uppercase mb-3 block">The Vertex Experience</span>
+                <h2 class="font-serif text-4xl font-medium text-brand-charcoal">What to Expect</h2>
+                <div class="w-16 h-px bg-brand-sage mx-auto mt-6"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-12 items-center mb-24">
+                <div class="md:w-1/2 fade-up">
+                    <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=800&q=80" alt="Clinical Technology" class="rounded-2xl shadow-soft">
+                </div>
+                <div class="md:w-1/2 fade-up delay-1">
+                    <h3 class="font-serif text-2xl font-medium text-brand-charcoal mb-4">Modern Facilities</h3>
+                    <p class="text-brand-text text-sm leading-relaxed mb-6">
+                        We invest in contemporary clinical technology to ensure precise diagnostics and efficient treatments. From digital imaging to ergonomic chairs, every element of our studio is designed for clinical excellence and patient comfort.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-brand-sageLight p-4 rounded-xl border border-brand-sage/10">
+                            <div class="font-medium text-brand-charcoal mb-1 text-sm">Digital Diagnostics</div>
+                            <div class="text-xs text-brand-text">For detailed imaging</div>
+                        </div>
+                        <div class="bg-brand-sageLight p-4 rounded-xl border border-brand-sage/10">
+                            <div class="font-medium text-brand-charcoal mb-1 text-sm">Strict Sterilization</div>
+                            <div class="text-xs text-brand-text">Advanced hygiene protocols</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Treatment Journey Steps -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+                <div class="fade-up">
+                    <div class="w-12 h-12 rounded-full border border-brand-sage text-brand-sage flex items-center justify-center mx-auto mb-4 font-serif text-xl">1</div>
+                    <h4 class="font-serif font-medium text-brand-charcoal mb-2">Consultation</h4>
+                    <p class="text-xs text-brand-text leading-relaxed px-4">Discuss your concerns and expectations in a comfortable, non-clinical setting.</p>
+                </div>
+                <div class="fade-up delay-1">
+                    <div class="w-12 h-12 rounded-full border border-brand-sage text-brand-sage flex items-center justify-center mx-auto mb-4 font-serif text-xl">2</div>
+                    <h4 class="font-serif font-medium text-brand-charcoal mb-2">Assessment</h4>
+                    <p class="text-xs text-brand-text leading-relaxed px-4">Comprehensive clinical examination and digital imaging to assess oral health.</p>
+                </div>
+                <div class="fade-up delay-2">
+                    <div class="w-12 h-12 rounded-full border border-brand-sage text-brand-sage flex items-center justify-center mx-auto mb-4 font-serif text-xl">3</div>
+                    <h4 class="font-serif font-medium text-brand-charcoal mb-2">Treatment Plan</h4>
+                    <p class="text-xs text-brand-text leading-relaxed px-4">Clear explanation of proposed procedures, timelines, and transparent costs.</p>
+                </div>
+                <div class="fade-up delay-3">
+                    <div class="w-12 h-12 rounded-full border border-brand-sage text-brand-sage flex items-center justify-center mx-auto mb-4 font-serif text-xl">4</div>
+                    <h4 class="font-serif font-medium text-brand-charcoal mb-2">Care & Recovery</h4>
+                    <p class="text-xs text-brand-text leading-relaxed px-4">Gentle clinical execution followed by clear aftercare instructions and support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. TESTIMONIALS -->
+    <section class="py-24 bg-brand-bg border-y border-brand-charcoal/5 text-center relative">
+        <div class="max-w-4xl mx-auto px-4 fade-up">
+            <span class="inline-block bg-white border border-brand-charcoal/10 text-brand-text text-xs font-semibold px-3 py-1 rounded-full mb-8">Sample Demo Content</span>
+            <svg class="w-10 h-10 text-brand-sage mx-auto mb-6 opacity-40" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+            <p class="font-serif text-2xl md:text-3xl leading-relaxed mb-8 text-brand-charcoal">
+                "I've always been extremely anxious about dental visits, but the team here completely changed my perspective. They took the time to explain exactly what they were doing and ensured I was comfortable throughout the entire procedure. A genuinely calm and professional environment."
+            </p>
+            <div class="text-sm font-medium text-brand-text">
+                Rohan M. — Routine Care Patient
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. FAQS -->
+    <section class="py-24 bg-white">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="text-center mb-12 fade-up">
+                <h2 class="font-serif text-3xl font-medium text-brand-charcoal">Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="space-y-4 fade-up delay-1">
+                <!-- FAQ 1 -->
+                <div class="border border-brand-charcoal/10 rounded-xl overflow-hidden bg-brand-bg">
+                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-medium text-brand-charcoal">Are you currently accepting new patients?</span>
+                        <svg class="w-5 h-5 text-brand-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="px-6 pb-5 text-sm text-brand-text">
+                        Yes, we are welcoming new patients for both routine check-ups and specialized treatments. You can request an appointment using the form below.
+                    </div>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="border border-brand-charcoal/10 rounded-xl overflow-hidden bg-brand-bg">
+                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-medium text-brand-charcoal">What should I expect at my first visit?</span>
+                        <svg class="w-5 h-5 text-brand-sage transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="px-6 pb-5 text-sm text-brand-text hidden">
+                        Your initial visit will involve a comprehensive examination, including digital x-rays if necessary, followed by a discussion of your oral health and any recommended treatment plans.
+                    </div>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="border border-brand-charcoal/10 rounded-xl overflow-hidden bg-brand-bg">
+                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-medium text-brand-charcoal">Do you provide estimates before treatment?</span>
+                        <svg class="w-5 h-5 text-brand-sage transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="px-6 pb-5 text-sm text-brand-text hidden">
+                        Absolutely. We believe in complete transparency. Following your assessment, you will receive a detailed breakdown of proposed treatments and associated costs before any clinical work begins.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11 & 12. APPOINTMENT FORM -->
+    <section id="contact" class="py-24 bg-brand-sageLight relative border-t border-brand-sage/20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-soft fade-up border border-brand-charcoal/5">
+                <div class="text-center mb-10">
+                    <h2 class="font-serif text-3xl font-medium mb-4 text-brand-charcoal">Request an Appointment</h2>
+                    <p class="text-brand-text text-sm max-w-lg mx-auto">Fill out the form below and our reception team will contact you shortly to confirm your booking time.</p>
+                </div>
+
+                <form class="demo-form space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-medium text-brand-charcoal mb-2 uppercase tracking-wide">Full Name</label>
+                            <input type="text" required class="w-full bg-brand-bg border border-brand-charcoal/10 rounded-lg px-4 py-3 text-brand-charcoal focus:outline-none focus:border-brand-sage transition-colors" placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-brand-charcoal mb-2 uppercase tracking-wide">Phone / WhatsApp</label>
+                            <input type="tel" required class="w-full bg-brand-bg border border-brand-charcoal/10 rounded-lg px-4 py-3 text-brand-charcoal focus:outline-none focus:border-brand-sage transition-colors" placeholder="+91">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-1 gap-6">
+                        <div>
+                            <label class="block text-xs font-medium text-brand-charcoal mb-2 uppercase tracking-wide">Primary Concern / Treatment</label>
+                            <select class="w-full bg-brand-bg border border-brand-charcoal/10 rounded-lg px-4 py-3 text-brand-charcoal focus:outline-none focus:border-brand-sage transition-colors appearance-none">
+                                <option>Routine Check-up / Cleaning</option>
+                                <option>Tooth Pain / Emergency</option>
+                                <option>Consultation for Implants</option>
+                                <option>Consultation for Aligners / Braces</option>
+                                <option>Cosmetic Inquiry (Whitening, Veneers)</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-medium text-brand-charcoal mb-2 uppercase tracking-wide">Preferred Date</label>
+                            <input type="date" class="w-full bg-brand-bg border border-brand-charcoal/10 rounded-lg px-4 py-3 text-brand-charcoal focus:outline-none focus:border-brand-sage transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-brand-charcoal mb-2 uppercase tracking-wide">Preferred Time</label>
+                            <select class="w-full bg-brand-bg border border-brand-charcoal/10 rounded-lg px-4 py-3 text-brand-charcoal focus:outline-none focus:border-brand-sage transition-colors appearance-none">
+                                <option>Morning (9 AM - 12 PM)</option>
+                                <option>Afternoon (12 PM - 3 PM)</option>
+                                <option>Evening (3 PM - 6 PM)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="pt-6">
+                        <button type="submit" class="w-full bg-brand-charcoal hover:bg-black text-white font-medium text-lg py-4 rounded-xl transition-all shadow-soft">
+                            Request Appointment
+                        </button>
+                        <p class="text-center text-xs text-brand-text mt-4">We will call or message you to confirm the exact time slot.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. FOOTER -->
+    <footer class="bg-brand-charcoal py-12 text-center text-white/60">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="font-serif text-2xl font-bold tracking-tight text-white mb-6 flex items-center justify-center">
+                <svg class="w-6 h-6 text-brand-sage mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                Vertex Dental Studio
+            </h2>
+            <p class="text-sm mb-8 max-w-md mx-auto font-light">
+                Modern, thoughtful, and comprehensive dental care delivered in a calm clinical environment.
+            </p>
+            <div class="flex justify-center space-x-6 text-sm">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Patient Forms</a>
+                <a href="#" class="hover:text-white transition-colors">Contact Us</a>
+            </div>
+            <div class="mt-12 pt-8 border-t border-white/10 text-xs flex flex-col md:flex-row justify-between items-center opacity-50">
+                <span>&copy; 2026 Vertex Dental Studio. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVITY & DEMO INJECTION -->
+    <script>
+        // Simple FAQ Toggle
+        document.querySelectorAll('button').forEach(btn => {
+            if(btn.parentElement.classList.contains('overflow-hidden') && btn.nextElementSibling) {
+                btn.addEventListener('click', () => {
+                    const content = btn.nextElementSibling;
+                    const svg = btn.querySelector('svg');
+                    content.classList.toggle('hidden');
+                    if(content.classList.contains('hidden')){
+                        svg.classList.add('rotate-180');
+                    } else {
+                        svg.classList.remove('rotate-180');
+                    }
+                });
+            }
+        });
+
+        // Scroll Animation Observer
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { root: null, rootMargin: "0px", threshold: 0.1 });
+
+            document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+        });
+    </script>
+    
+    <!-- Include the shared architecture script -->
+    <script src="../shared/demo-core.js"></script>
+
+</body>
+</html>

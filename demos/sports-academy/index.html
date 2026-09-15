@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevate Sports Academy | Premium Demo</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#060B19',       // Very deep navy
+                            charcoal: '#0F172A',   // Slate 900 for cards
+                            dark: '#1E293B',       // Slate 800 for borders
+                            white: '#F8FAFC',      // Slate 50
+                            accent: '#FACC15',     // Yellow 400 (Athletic Gold)
+                            accentHover: '#EAB308',
+                            muted: '#94A3B8'       // Slate 400
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(250, 204, 21, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Demo Configuration for demo-core.js -->
+    <script>
+        window.DemoConfig = {
+            niche: 'Sports Academy',
+            colors: { primary: '#060B19', accent: '#FACC15' }
+        };
+    </script>
+    
+    <style>
+        .fade-up { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; transform: translateY(30px); }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        html { scroll-behavior: smooth; }
+        
+        .clip-slant { clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
+        .clip-slant-reverse { clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%); }
+        
+        /* Sticky mobile CTA */
+        .mobile-cta { display: none; }
+        @media (max-width: 768px) {
+            .mobile-cta {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                z-index: 50;
+            }
+        }
+    </style>
+</head>
+<body class="bg-brand-navy text-brand-white font-sans antialiased overflow-x-hidden selection:bg-brand-accent selection:text-brand-navy">
+
+    <!-- 1. NAVIGATION -->
+    <nav class="fixed w-full z-40 top-0 left-0 bg-brand-navy/95 backdrop-blur-md border-b border-brand-dark transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-display text-3xl font-bold tracking-widest text-white uppercase flex items-center">
+                        Elevate<span class="text-brand-accent">.</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center text-sm font-bold uppercase tracking-wider text-brand-muted">
+                    <a href="#sports" class="hover:text-white transition-colors">Sports</a>
+                    <a href="#method" class="hover:text-white transition-colors">Method</a>
+                    <a href="#facilities" class="hover:text-white transition-colors">Facilities</a>
+                    <a href="#contact" class="bg-brand-accent hover:bg-brand-accentHover text-brand-navy px-6 py-2 transition-transform transform hover:skew-x-[-10deg]">Book Trial</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. HERO -->
+    <header class="relative pt-32 pb-32 lg:pt-56 lg:pb-48 overflow-hidden clip-slant bg-brand-navy">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=1920&q=80" alt="Athletics Track" class="w-full h-full object-cover object-center filter grayscale mix-blend-luminosity opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/80 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-navy to-transparent"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl fade-up">
+                <div class="inline-flex items-center space-x-3 mb-6">
+                    <div class="h-1 w-12 bg-brand-accent"></div>
+                    <span class="text-brand-accent font-bold tracking-widest uppercase text-xs">Multi-Sport Development Academy</span>
+                </div>
+                <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] mb-6 uppercase">
+                    Train With Structure.<br>
+                    Compete With Confidence.
+                </h1>
+                <p class="text-lg md:text-xl text-brand-muted font-normal mb-10 max-w-2xl leading-relaxed">
+                    Structured sports development for young athletes, beginners and players looking to take their game further. Professional coaching, modern infrastructure, zero gimmicks.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="bg-brand-accent text-brand-navy hover:bg-white text-center px-8 py-4 font-bold uppercase tracking-widest transition-transform transform hover:skew-x-[-5deg]">
+                        Book a Trial Session
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. SPORTS PROGRAMS -->
+    <section id="sports" class="py-24 bg-brand-navy relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="font-display text-4xl md:text-5xl font-bold uppercase tracking-tight">Our Sports</h2>
+                <p class="text-brand-muted mt-4 max-w-xl mx-auto text-sm">Specialized coaching programs across five core disciplines.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Football -->
+                <div class="group relative overflow-hidden bg-brand-charcoal border border-brand-dark fade-up cursor-pointer h-80">
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images.unsplash.com/photo-1518605368461-1ee7e53dc2cb?auto=format&fit=crop&w=800&q=80" alt="Football" class="w-full h-full object-cover filter grayscale mix-blend-luminosity opacity-40 group-hover:opacity-60 group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-brand-charcoal/80 to-transparent"></div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full z-10 flex flex-col justify-end h-full">
+                        <div class="w-10 h-10 bg-brand-accent/20 flex items-center justify-center mb-4 text-brand-accent group-hover:bg-brand-accent group-hover:text-brand-navy transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="font-display text-3xl font-bold uppercase mb-2">Football</h3>
+                        <p class="text-brand-muted text-sm line-clamp-2">Technical drills, tactical awareness, and small-sided games to develop complete players.</p>
+                    </div>
+                </div>
+
+                <!-- Tennis -->
+                <div class="group relative overflow-hidden bg-brand-charcoal border border-brand-dark fade-up delay-1 cursor-pointer h-80">
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?auto=format&fit=crop&w=800&q=80" alt="Tennis" class="w-full h-full object-cover filter grayscale mix-blend-luminosity opacity-40 group-hover:opacity-60 group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-brand-charcoal/80 to-transparent"></div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full z-10 flex flex-col justify-end h-full">
+                        <div class="w-10 h-10 bg-brand-accent/20 flex items-center justify-center mb-4 text-brand-accent group-hover:bg-brand-accent group-hover:text-brand-navy transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="font-display text-3xl font-bold uppercase mb-2">Tennis</h3>
+                        <p class="text-brand-muted text-sm line-clamp-2">Stroke biomechanics, footwork, and match-play strategy on synthetic hard courts.</p>
+                    </div>
+                </div>
+
+                <!-- Cricket -->
+                <div class="group relative overflow-hidden bg-brand-charcoal border border-brand-dark fade-up delay-2 cursor-pointer h-80">
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=800&q=80" alt="Cricket" class="w-full h-full object-cover filter grayscale mix-blend-luminosity opacity-40 group-hover:opacity-60 group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-brand-charcoal/80 to-transparent"></div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full z-10 flex flex-col justify-end h-full">
+                        <div class="w-10 h-10 bg-brand-accent/20 flex items-center justify-center mb-4 text-brand-accent group-hover:bg-brand-accent group-hover:text-brand-navy transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path></svg>
+                        </div>
+                        <h3 class="font-display text-3xl font-bold uppercase mb-2">Cricket</h3>
+                        <p class="text-brand-muted text-sm line-clamp-2">Batting technique, bowling action correction, and fielding drills with bowling machines.</p>
+                    </div>
+                </div>
+
+                <!-- Badminton -->
+                <div class="group relative overflow-hidden bg-brand-charcoal border border-brand-dark fade-up cursor-pointer h-80">
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=800&q=80" alt="Badminton" class="w-full h-full object-cover filter grayscale mix-blend-luminosity opacity-40 group-hover:opacity-60 group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-brand-charcoal/80 to-transparent"></div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full z-10 flex flex-col justify-end h-full">
+                        <div class="w-10 h-10 bg-brand-accent/20 flex items-center justify-center mb-4 text-brand-accent group-hover:bg-brand-accent group-hover:text-brand-navy transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path></svg>
+                        </div>
+                        <h3 class="font-display text-3xl font-bold uppercase mb-2">Badminton</h3>
+                        <p class="text-brand-muted text-sm line-clamp-2">Agility, reflex training, and stroke perfection on professional wooden courts.</p>
+                    </div>
+                </div>
+
+                <!-- Athletics -->
+                <div class="group relative overflow-hidden bg-brand-charcoal border border-brand-dark fade-up delay-1 cursor-pointer h-80">
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images.unsplash.com/photo-1552674605-15c2145bc098?auto=format&fit=crop&w=800&q=80" alt="Athletics" class="w-full h-full object-cover filter grayscale mix-blend-luminosity opacity-40 group-hover:opacity-60 group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-brand-charcoal/80 to-transparent"></div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full z-10 flex flex-col justify-end h-full">
+                        <div class="w-10 h-10 bg-brand-accent/20 flex items-center justify-center mb-4 text-brand-accent group-hover:bg-brand-accent group-hover:text-brand-navy transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="font-display text-3xl font-bold uppercase mb-2">Athletics</h3>
+                        <p class="text-brand-muted text-sm line-clamp-2">Track & field fundamentals, sprint mechanics, and endurance building.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. AGE GROUPS -->
+    <section class="py-12 bg-brand-charcoal border-y border-brand-dark text-center">
+        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-center gap-4 fade-up">
+            <span class="px-6 py-2 border border-brand-dark rounded-full text-brand-muted font-bold uppercase tracking-widest text-xs hover:border-brand-accent hover:text-brand-accent transition-colors cursor-pointer">Grassroots (5-8 Yrs)</span>
+            <span class="px-6 py-2 border border-brand-dark rounded-full text-brand-muted font-bold uppercase tracking-widest text-xs hover:border-brand-accent hover:text-brand-accent transition-colors cursor-pointer">Juniors (9-13 Yrs)</span>
+            <span class="px-6 py-2 border border-brand-dark rounded-full text-brand-muted font-bold uppercase tracking-widest text-xs hover:border-brand-accent hover:text-brand-accent transition-colors cursor-pointer">Seniors (14-18 Yrs)</span>
+            <span class="px-6 py-2 border border-brand-dark rounded-full text-brand-muted font-bold uppercase tracking-widest text-xs hover:border-brand-accent hover:text-brand-accent transition-colors cursor-pointer">Adult/Amateur (18+)</span>
+        </div>
+    </section>
+
+    <!-- 5 & 8. METHOD & JOURNEY -->
+    <section id="method" class="py-24 bg-brand-navy relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-16">
+                <!-- Method -->
+                <div class="lg:w-1/2 fade-up">
+                    <span class="text-brand-accent font-bold tracking-widest text-xs uppercase mb-4 block">The Elevate Method</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold uppercase mb-6">Process Over Outcome.</h2>
+                    <p class="text-brand-muted mb-8 leading-relaxed">
+                        We don't focus purely on winning weekend matches. We focus on athletic development. Our curriculum ensures that a 9-year-old learns the correct mechanics so they don't face injuries at 15.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-4">
+                                <div class="w-8 h-8 rounded-full bg-brand-charcoal border border-brand-accent flex items-center justify-center text-brand-accent font-display font-bold">1</div>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold uppercase tracking-wider mb-1">Assessment & Baseline</h4>
+                                <p class="text-brand-muted text-sm">Every athlete undergoes a physical and technical assessment before joining a batch to ensure they are placed correctly.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-4">
+                                <div class="w-8 h-8 rounded-full bg-brand-charcoal border border-brand-accent flex items-center justify-center text-brand-accent font-display font-bold">2</div>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold uppercase tracking-wider mb-1">Technical Correction</h4>
+                                <p class="text-brand-muted text-sm">Repetitive drill work focusing purely on biomechanics, stance, and form without game pressure.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-4">
+                                <div class="w-8 h-8 rounded-full bg-brand-charcoal border border-brand-accent flex items-center justify-center text-brand-accent font-display font-bold">3</div>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold uppercase tracking-wider mb-1">Game Intelligence</h4>
+                                <p class="text-brand-muted text-sm">Introducing tactical scenarios, decision-making under pressure, and match simulations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Imagery -->
+                <div class="lg:w-1/2 fade-up delay-1 relative">
+                    <div class="absolute inset-0 bg-brand-accent transform translate-x-4 translate-y-4"></div>
+                    <img src="https://images.unsplash.com/photo-1434682881908-b43d0467b798?auto=format&fit=crop&w=800&q=80" alt="Training Session" class="relative z-10 w-full h-full object-cover filter grayscale contrast-125">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6 & 7. COACHING & FACILITIES -->
+    <section id="facilities" class="py-24 bg-brand-charcoal border-y border-brand-dark relative text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-display text-4xl md:text-5xl font-bold uppercase tracking-tight mb-4">Infrastructure & Staff</h2>
+            <p class="text-brand-muted max-w-2xl mx-auto mb-16">High-performance surfaces and certified coaches ensuring a safe, professional environment.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2 fade-up">
+                <div class="relative h-64 group overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=800&q=80" alt="Football Turf" class="w-full h-full object-cover mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/60 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-left">
+                        <h4 class="font-display text-2xl uppercase font-bold text-white">FIFA-Grade Turf</h4>
+                        <p class="text-xs text-brand-muted uppercase tracking-widest">All-weather 5v5 & 7v7</p>
+                    </div>
+                </div>
+                <div class="relative h-64 group overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=800&q=80" alt="Tennis Courts" class="w-full h-full object-cover mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/60 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-left">
+                        <h4 class="font-display text-2xl uppercase font-bold text-white">Synthetic Courts</h4>
+                        <p class="text-xs text-brand-muted uppercase tracking-widest">ITF Approved Surfaces</p>
+                    </div>
+                </div>
+                <div class="relative h-64 group overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80" alt="Athletic Track" class="w-full h-full object-cover mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/60 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-left">
+                        <h4 class="font-display text-2xl uppercase font-bold text-white">Certified Coaches</h4>
+                        <p class="text-xs text-brand-muted uppercase tracking-widest">NIS / FA Level 2 Trained</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. TESTIMONIALS -->
+    <section class="py-24 bg-brand-navy relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10 fade-up">
+            <span class="inline-block border border-brand-dark text-brand-muted text-xs font-bold uppercase tracking-widest px-3 py-1 mb-8 rounded-full">Sample Demo Content</span>
+            
+            <h2 class="font-display text-4xl font-bold uppercase text-white mb-8">Parent Perspectives</h2>
+            <p class="text-xl md:text-2xl leading-relaxed mb-8 text-brand-muted italic">
+                "We enrolled our son for football. What impressed me wasn't just the drills, but how the coaches handled discipline, teamwork, and communication. They treat the kids like young athletes, not just kids playing in a park. The structure is fantastic."
+            </p>
+            <div class="text-sm font-bold text-brand-accent uppercase tracking-widest">
+                Rajiv K. — Parent of U12 Athlete
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. FAQS -->
+    <section class="py-24 bg-brand-charcoal">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="text-center mb-12 fade-up">
+                <h2 class="font-display text-4xl font-bold uppercase text-white">Common Questions</h2>
+            </div>
+            
+            <div class="space-y-4 fade-up delay-1">
+                <div class="border border-brand-dark bg-brand-navy">
+                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-bold text-white uppercase tracking-wider text-sm">Do you provide equipment?</span>
+                        <svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="px-6 pb-5 text-sm text-brand-muted leading-relaxed hidden">
+                        We provide all general training equipment (cones, bibs, standard balls). However, athletes are required to bring their personal gear (appropriate footwear, shin guards for football, own racquets/bats for hygiene and sizing reasons).
+                    </div>
+                </div>
+                <div class="border border-brand-dark bg-brand-navy">
+                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-bold text-white uppercase tracking-wider text-sm">What happens if it rains?</span>
+                        <svg class="w-5 h-5 text-brand-accent transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="px-6 pb-5 text-sm text-brand-muted leading-relaxed hidden">
+                        Sessions are moved to our indoor conditioning facility where coaches conduct tactical video sessions, fitness/agility drills, or theory classes. We do not cancel sessions unless conditions are severely unsafe.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12 & 13. LEAD FORM -->
+    <section id="contact" class="py-24 bg-brand-accent relative clip-slant-reverse">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-12">
+            <div class="bg-brand-navy p-8 md:p-12 shadow-2xl fade-up border-t-4 border-white">
+                <div class="text-center mb-10">
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 uppercase text-white">Join The Academy</h2>
+                    <p class="text-brand-muted text-sm max-w-lg mx-auto">Register for a trial session. We will evaluate the athlete's current level and recommend the appropriate batch.</p>
+                </div>
+
+                <form class="demo-form space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-brand-muted mb-2 uppercase tracking-widest">Parent/Athlete Name</label>
+                            <input type="text" required class="w-full bg-brand-charcoal border border-brand-dark px-4 py-4 text-white focus:outline-none focus:border-brand-accent transition-all" placeholder="Full Name">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-brand-muted mb-2 uppercase tracking-widest">Phone / WhatsApp</label>
+                            <input type="tel" required class="w-full bg-brand-charcoal border border-brand-dark px-4 py-4 text-white focus:outline-none focus:border-brand-accent transition-all" placeholder="+91">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-brand-muted mb-2 uppercase tracking-widest">Sport</label>
+                            <select class="w-full bg-brand-charcoal border border-brand-dark px-4 py-4 text-white focus:outline-none focus:border-brand-accent transition-all appearance-none">
+                                <option>Football</option>
+                                <option>Tennis</option>
+                                <option>Cricket</option>
+                                <option>Badminton</option>
+                                <option>Athletics</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-brand-muted mb-2 uppercase tracking-widest">Athlete Age</label>
+                            <select class="w-full bg-brand-charcoal border border-brand-dark px-4 py-4 text-white focus:outline-none focus:border-brand-accent transition-all appearance-none">
+                                <option>5-8 Years</option>
+                                <option>9-13 Years</option>
+                                <option>14-17 Years</option>
+                                <option>18+ (Adult)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-brand-muted mb-2 uppercase tracking-widest">Experience</label>
+                            <select class="w-full bg-brand-charcoal border border-brand-dark px-4 py-4 text-white focus:outline-none focus:border-brand-accent transition-all appearance-none">
+                                <option>Beginner (Never played)</option>
+                                <option>Intermediate (Plays casually)</option>
+                                <option>Advanced (School/Club team)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-brand-muted mb-2 uppercase tracking-widest">Preferred Schedule</label>
+                            <select class="w-full bg-brand-charcoal border border-brand-dark px-4 py-4 text-white focus:outline-none focus:border-brand-accent transition-all appearance-none">
+                                <option>Weekday Evenings</option>
+                                <option>Weekend Mornings</option>
+                                <option>Flexible</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="pt-6">
+                        <button type="submit" class="w-full bg-brand-accent hover:bg-white text-brand-navy font-bold text-xl py-5 uppercase tracking-widest transition-transform transform hover:skew-x-[-2deg]">
+                            Request Trial Session
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. FOOTER -->
+    <footer class="bg-brand-navy pt-24 pb-12 text-center text-brand-muted border-t border-brand-dark">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="font-display text-4xl font-bold tracking-widest text-white mb-6 uppercase">
+                Elevate<span class="text-brand-accent">.</span>
+            </h2>
+            <p class="text-sm mb-8 max-w-sm mx-auto">
+                Professional sports development academy focusing on long-term athletic success.
+            </p>
+            <div class="flex justify-center space-x-8 text-xs font-bold uppercase tracking-widest">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Code of Conduct</a>
+                <a href="#" class="hover:text-white transition-colors">Contact</a>
+            </div>
+            <div class="mt-16 pt-8 border-t border-brand-dark text-xs">
+                <span>&copy; 2026 Elevate Sports Academy. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MOBILE STICKY CTA -->
+    <div class="mobile-cta bg-brand-navy border-t border-brand-accent p-4">
+        <a href="#contact" class="w-full bg-brand-accent text-brand-navy font-bold uppercase tracking-widest text-center py-4 text-sm shadow-glow">
+            Request Trial
+        </a>
+    </div>
+
+    <!-- INTERACTIVITY & DEMO INJECTION -->
+    <script>
+        // Simple FAQ Toggle
+        document.querySelectorAll('button').forEach(btn => {
+            if(btn.parentElement.classList.contains('bg-brand-navy') && btn.nextElementSibling) {
+                btn.addEventListener('click', () => {
+                    const content = btn.nextElementSibling;
+                    const svg = btn.querySelector('svg');
+                    content.classList.toggle('hidden');
+                    if(content.classList.contains('hidden')){
+                        svg.classList.add('rotate-180');
+                    } else {
+                        svg.classList.remove('rotate-180');
+                    }
+                });
+            }
+        });
+
+        // Scroll Animation Observer
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { root: null, rootMargin: "0px", threshold: 0.1 });
+
+            document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+        });
+    </script>
+    
+    <!-- Include the shared architecture script -->
+    <script src="../shared/demo-core.js"></script>
+
+</body>
+</html>

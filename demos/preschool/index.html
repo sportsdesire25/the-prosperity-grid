@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Grove Early Learning | Premium Demo</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            cream: '#FDFBF7',      // Warm cream background
+                            creamDark: '#F4F0E6',  // Slightly darker cream
+                            green: '#85A88B',      // Soft green accent
+                            greenDark: '#6A8A6F',
+                            terracotta: '#CD8973', // Muted terracotta
+                            terracottaDark: '#B2735E',
+                            text: '#4A5568',       // Soft dark grey body text
+                            charcoal: '#2D3748',   // Soft charcoal for headings
+                            white: '#FFFFFF'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Demo Configuration for demo-core.js -->
+    <script>
+        window.DemoConfig = {
+            niche: 'Preschool & Daycare',
+            colors: { primary: '#FDFBF7', accent: '#85A88B' }
+        };
+    </script>
+    
+    <style>
+        .fade-up { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; transform: translateY(30px); }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        html { scroll-behavior: smooth; }
+        
+        .blob-shape {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation: morph 8s ease-in-out infinite alternate;
+        }
+        
+        @keyframes morph {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        }
+
+        /* Fixed CTA on Mobile */
+        .mobile-cta { display: none; }
+        @media (max-width: 768px) {
+            .mobile-cta {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                z-index: 50;
+            }
+        }
+    </style>
+</head>
+<body class="bg-brand-cream text-brand-text font-sans antialiased overflow-x-hidden selection:bg-brand-green selection:text-white">
+
+    <!-- 1. NAVIGATION -->
+    <nav class="fixed w-full z-40 top-0 left-0 bg-brand-cream/90 backdrop-blur-md border-b border-brand-charcoal/5 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-display text-2xl font-bold text-brand-charcoal flex items-center">
+                        <svg class="w-6 h-6 mr-2 text-brand-terracotta" fill="currentColor" viewBox="0 0 24 24"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-11v6h2v-6h-2zm0-4v2h2V7h-2z"/></svg>
+                        Little Grove
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center text-sm font-semibold text-brand-charcoal">
+                    <a href="#philosophy" class="hover:text-brand-terracotta transition-colors">Philosophy</a>
+                    <a href="#programs" class="hover:text-brand-terracotta transition-colors">Programs</a>
+                    <a href="#safety" class="hover:text-brand-terracotta transition-colors">Safety</a>
+                    <a href="#contact" class="bg-brand-green hover:bg-brand-greenDark text-white px-6 py-2.5 rounded-full transition-colors">Schedule a Visit</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. HERO -->
+    <header class="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-brand-cream">
+        <!-- Abstract Shapes -->
+        <div class="absolute top-20 right-0 w-96 h-96 bg-brand-green/10 blob-shape -z-10 blur-3xl"></div>
+        <div class="absolute bottom-10 left-10 w-72 h-72 bg-brand-terracotta/10 blob-shape -z-10 blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2 fade-up text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-white px-4 py-2 rounded-full shadow-sm mb-6 border border-brand-charcoal/5">
+                        <span class="w-2 h-2 rounded-full bg-brand-terracotta"></span>
+                        <span class="text-brand-charcoal font-semibold text-xs tracking-wider uppercase">Early Learning Center</span>
+                    </div>
+                    <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 text-brand-charcoal">
+                        A Thoughtful Beginning for Growing Minds.
+                    </h1>
+                    <p class="text-lg md:text-xl text-brand-text mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        A warm, safe environment where children can explore, learn, create and build confidence at their own pace.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                        <a href="#contact" class="bg-brand-green text-white hover:bg-brand-greenDark px-8 py-4 rounded-full font-semibold transition-colors shadow-lg shadow-brand-green/20">
+                            Schedule a Visit
+                        </a>
+                        <a href="#philosophy" class="bg-white text-brand-charcoal border border-brand-charcoal/10 hover:border-brand-charcoal/30 px-8 py-4 rounded-full font-semibold transition-colors">
+                            Explore Our Approach
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 fade-up delay-1 relative">
+                    <div class="relative w-full aspect-square md:aspect-[4/3] lg:aspect-square">
+                        <div class="absolute inset-0 bg-brand-creamDark rounded-[3rem] transform rotate-3"></div>
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" alt="Children playing with educational toys" class="absolute inset-0 w-full h-full object-cover rounded-[3rem] shadow-xl transform -rotate-3 transition-transform hover:rotate-0 duration-500">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. LEARNING PHILOSOPHY -->
+    <section id="philosophy" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-brand-charcoal mb-4">How Children Learn Here</h2>
+                <p class="text-brand-text max-w-2xl mx-auto">We focus on play-based learning that encourages curiosity, independence, and social-emotional development.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 fade-up delay-1">
+                <div class="bg-brand-cream p-10 rounded-3xl text-center border border-brand-charcoal/5 hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 mx-auto bg-brand-green/20 rounded-full flex items-center justify-center mb-6 text-brand-green">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-brand-charcoal mb-3">Play & Explore</h3>
+                    <p class="text-sm text-brand-text leading-relaxed">Children learn best when they are engaged. Our classrooms are designed with open-ended materials that invite exploration.</p>
+                </div>
+                
+                <div class="bg-brand-cream p-10 rounded-3xl text-center border border-brand-charcoal/5 hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 mx-auto bg-brand-terracotta/20 rounded-full flex items-center justify-center mb-6 text-brand-terracotta">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-brand-charcoal mb-3">Emotional Safety</h3>
+                    <p class="text-sm text-brand-text leading-relaxed">Before a child can learn, they must feel secure. We prioritize building strong, trusting relationships with every child.</p>
+                </div>
+
+                <div class="bg-brand-cream p-10 rounded-3xl text-center border border-brand-charcoal/5 hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 mx-auto bg-brand-charcoal/10 rounded-full flex items-center justify-center mb-6 text-brand-charcoal">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-brand-charcoal mb-3">Guided Curiosity</h3>
+                    <p class="text-sm text-brand-text leading-relaxed">Our educators observe what interests the children and gently guide them to ask questions and discover answers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PROGRAMS -->
+    <section id="programs" class="py-24 bg-brand-creamDark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row justify-between items-end mb-16 fade-up">
+                <div>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-brand-charcoal mb-4">Our Programs</h2>
+                    <p class="text-brand-text max-w-xl">Age-appropriate environments structured to support your child's natural development milestones.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Playgroup -->
+                <div class="bg-white rounded-3xl overflow-hidden border border-brand-charcoal/5 fade-up group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80" alt="Playgroup" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <div class="text-xs font-bold text-brand-terracotta uppercase tracking-wider mb-2">Ages 1.5 - 2.5 Years</div>
+                        <h3 class="font-display text-2xl font-bold text-brand-charcoal mb-3">Playgroup</h3>
+                        <p class="text-sm text-brand-text mb-6">Gentle separation from parents, sensory exploration, and early socialization in a nurturing space.</p>
+                        <a href="#contact" class="text-brand-green font-semibold text-sm hover:text-brand-greenDark flex items-center">
+                            Enquire <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Nursery -->
+                <div class="bg-white rounded-3xl overflow-hidden border border-brand-charcoal/5 fade-up delay-1 group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=800&q=80" alt="Nursery" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <div class="text-xs font-bold text-brand-terracotta uppercase tracking-wider mb-2">Ages 2.5 - 3.5 Years</div>
+                        <h3 class="font-display text-2xl font-bold text-brand-charcoal mb-3">Nursery</h3>
+                        <p class="text-sm text-brand-text mb-6">Developing language skills, independent self-care routines, and foundational motor skills.</p>
+                        <a href="#contact" class="text-brand-green font-semibold text-sm hover:text-brand-greenDark flex items-center">
+                            Enquire <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Junior KG -->
+                <div class="bg-white rounded-3xl overflow-hidden border border-brand-charcoal/5 fade-up delay-2 group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" alt="Junior KG" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <div class="text-xs font-bold text-brand-terracotta uppercase tracking-wider mb-2">Ages 3.5 - 4.5 Years</div>
+                        <h3 class="font-display text-2xl font-bold text-brand-charcoal mb-3">Junior Kindergarten</h3>
+                        <p class="text-sm text-brand-text mb-6">Introduction to pre-reading, early math concepts, and collaborative project-based learning.</p>
+                        <a href="#contact" class="text-brand-green font-semibold text-sm hover:text-brand-greenDark flex items-center">
+                            Enquire <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Senior KG -->
+                <div class="bg-white rounded-3xl overflow-hidden border border-brand-charcoal/5 fade-up group">
+                    <div class="p-8">
+                        <div class="text-xs font-bold text-brand-terracotta uppercase tracking-wider mb-2">Ages 4.5 - 5.5 Years</div>
+                        <h3 class="font-display text-2xl font-bold text-brand-charcoal mb-3">Senior Kindergarten</h3>
+                        <p class="text-sm text-brand-text mb-6">School readiness program focusing on literacy, numeracy, and emotional regulation for primary school.</p>
+                        <a href="#contact" class="text-brand-green font-semibold text-sm hover:text-brand-greenDark flex items-center">
+                            Enquire <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Daycare -->
+                <div class="bg-white rounded-3xl overflow-hidden border border-brand-charcoal/5 fade-up delay-1 group">
+                    <div class="p-8">
+                        <div class="text-xs font-bold text-brand-terracotta uppercase tracking-wider mb-2">Up to 8 Years</div>
+                        <h3 class="font-display text-2xl font-bold text-brand-charcoal mb-3">Full Daycare</h3>
+                        <p class="text-sm text-brand-text mb-6">A safe, engaging home-away-from-home with nutritious meals, rest time, and structured play for working parents.</p>
+                        <a href="#contact" class="text-brand-green font-semibold text-sm hover:text-brand-greenDark flex items-center">
+                            Enquire <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- After School -->
+                <div class="bg-white rounded-3xl overflow-hidden border border-brand-charcoal/5 fade-up delay-2 group">
+                    <div class="p-8">
+                        <div class="text-xs font-bold text-brand-terracotta uppercase tracking-wider mb-2">Ages 4 - 8 Years</div>
+                        <h3 class="font-display text-2xl font-bold text-brand-charcoal mb-3">After-School Programs</h3>
+                        <p class="text-sm text-brand-text mb-6">Enrichment activities including art, music, physical movement, and homework assistance.</p>
+                        <a href="#contact" class="text-brand-green font-semibold text-sm hover:text-brand-greenDark flex items-center">
+                            Enquire <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5 & 6. SAFETY & EDUCATORS -->
+    <section id="safety" class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <div class="lg:w-1/2 fade-up">
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-brand-charcoal mb-6">Safety Is Our Baseline.</h2>
+                    <p class="text-brand-text leading-relaxed mb-8">
+                        As parents ourselves, we know that nothing matters more than your child's physical and emotional safety. Our premises are designed to be secure, hygienic, and constantly supervised.
+                    </p>
+                    
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-brand-cream flex items-center justify-center mr-4 flex-shrink-0 text-brand-terracotta">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-display text-xl font-bold text-brand-charcoal mb-1">Secure Premises</h4>
+                                <p class="text-sm text-brand-text">CCTV monitoring, child-safe entry systems, and strict pick-up protocols.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-brand-cream flex items-center justify-center mr-4 flex-shrink-0 text-brand-terracotta">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-display text-xl font-bold text-brand-charcoal mb-1">Child-Safe Infrastructure</h4>
+                                <p class="text-sm text-brand-text">Rounded furniture edges, finger-pinch guards on doors, and soft-fall surfaces in play areas.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-brand-cream flex items-center justify-center mr-4 flex-shrink-0 text-brand-terracotta">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-display text-xl font-bold text-brand-charcoal mb-1">Trained Educators</h4>
+                                <p class="text-sm text-brand-text">All staff undergo background checks and are trained in basic pediatric First Aid and CPR.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="lg:w-1/2 fade-up delay-1">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=800&q=80" alt="Safe play" class="rounded-3xl w-full h-64 object-cover">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="Educator with child" class="rounded-3xl w-full h-64 object-cover mt-12">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. TESTIMONIALS -->
+    <section class="py-24 bg-brand-green text-white text-center relative overflow-hidden">
+        <!-- Abstract Shapes -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-2xl transform translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-2xl transform -translate-x-1/2 translate-y-1/2"></div>
+
+        <div class="max-w-4xl mx-auto px-4 relative z-10 fade-up">
+            <span class="inline-block border border-white/30 text-white/80 text-xs font-bold uppercase tracking-widest px-4 py-1 mb-8 rounded-full">Sample Demo Testimonials</span>
+            
+            <h2 class="font-display text-3xl md:text-4xl font-bold mb-10">What Parents Say</h2>
+            <p class="text-xl md:text-2xl leading-relaxed mb-8 font-medium">
+                "Leaving your child in someone else's care is daunting, but the team here made the transition so smooth. My daughter runs in every morning excited to see her teachers. The updates we get give us complete peace of mind."
+            </p>
+            <div class="text-sm font-bold uppercase tracking-widest text-brand-cream">
+                Priya M. — Mother of Nursery Student
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FAQS -->
+    <section class="py-24 bg-brand-cream relative">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="font-display text-4xl font-bold text-brand-charcoal">Questions Parents Ask</h2>
+            </div>
+            
+            <div class="space-y-4 fade-up delay-1">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item bg-white rounded-2xl border border-brand-charcoal/5 shadow-sm">
+                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-display text-lg font-bold text-brand-charcoal">What is the educator-to-child ratio?</span>
+                        <svg class="w-5 h-5 text-brand-green transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="px-6 pb-5 text-sm text-brand-text leading-relaxed hidden">
+                        We maintain strict ratios to ensure individual attention. Playgroup is 1:6, Nursery is 1:8, and Kindergarten is 1:10, always supported by dedicated support staff.
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="faq-item bg-white rounded-2xl border border-brand-charcoal/5 shadow-sm">
+                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-display text-lg font-bold text-brand-charcoal">Do you provide meals?</span>
+                        <svg class="w-5 h-5 text-brand-green transition-transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="px-6 pb-5 text-sm text-brand-text leading-relaxed hidden">
+                        For our daycare children, we provide fresh, nutritious, child-friendly vegetarian meals prepared in our hygienic in-house kitchen. Preschool children are required to bring a healthy snack box from home.
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="faq-item bg-white rounded-2xl border border-brand-charcoal/5 shadow-sm">
+                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-display text-lg font-bold text-brand-charcoal">How do you handle separation anxiety?</span>
+                        <svg class="w-5 h-5 text-brand-green transition-transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="px-6 pb-5 text-sm text-brand-text leading-relaxed hidden">
+                        We follow a gentle, phased settling-in process. Parents are welcome to stay in the waiting area for the first few days while the child builds a bond with their primary educator. We never force a crying child to stay without comfort.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. LEAD FORM -->
+    <section id="contact" class="py-24 bg-white relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-brand-creamDark rounded-[3rem] p-8 md:p-14 shadow-lg border border-brand-charcoal/5 fade-up flex flex-col lg:flex-row gap-12">
+                
+                <div class="lg:w-2/5">
+                    <h2 class="font-display text-4xl font-bold mb-4 text-brand-charcoal">Visit Our Campus</h2>
+                    <p class="text-brand-text mb-8">
+                        The best way to know if we are the right fit for your child is to experience our environment. Schedule a campus tour to meet the educators and see the classrooms.
+                    </p>
+                    
+                    <div class="space-y-4 text-sm text-brand-charcoal">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            </div>
+                            <span>123 Family Lane, Quiet Suburb</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                            </div>
+                            <span>+91 98765 43210</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:w-3/5 bg-white p-8 rounded-3xl shadow-sm border border-brand-charcoal/5">
+                    <form class="demo-form space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-brand-charcoal mb-2 uppercase tracking-wide">Parent Name</label>
+                                <input type="text" required class="w-full bg-brand-cream border border-brand-charcoal/10 px-4 py-3 rounded-xl focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="Your Name">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-brand-charcoal mb-2 uppercase tracking-wide">Phone / WhatsApp</label>
+                                <input type="tel" required class="w-full bg-brand-cream border border-brand-charcoal/10 px-4 py-3 rounded-xl focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="Mobile Number">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-brand-charcoal mb-2 uppercase tracking-wide">Child's Age</label>
+                                <select class="w-full bg-brand-cream border border-brand-charcoal/10 px-4 py-3 rounded-xl focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all">
+                                    <option>Under 1.5 Years</option>
+                                    <option>1.5 - 2.5 Years</option>
+                                    <option>2.5 - 3.5 Years</option>
+                                    <option>3.5 - 4.5 Years</option>
+                                    <option>4.5 - 6 Years</option>
+                                    <option>Over 6 Years (Daycare)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-brand-charcoal mb-2 uppercase tracking-wide">Program of Interest</label>
+                                <select class="w-full bg-brand-cream border border-brand-charcoal/10 px-4 py-3 rounded-xl focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all">
+                                    <option>Playgroup</option>
+                                    <option>Nursery</option>
+                                    <option>Junior KG</option>
+                                    <option>Senior KG</option>
+                                    <option>Daycare</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-brand-charcoal mb-2 uppercase tracking-wide">Preferred Visit Date</label>
+                                <input type="date" class="w-full bg-brand-cream border border-brand-charcoal/10 px-4 py-3 rounded-xl focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all text-brand-charcoal">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-brand-charcoal mb-2 uppercase tracking-wide">Questions (Optional)</label>
+                                <textarea rows="2" class="w-full bg-brand-cream border border-brand-charcoal/10 px-4 py-3 rounded-xl focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="Any specific questions you have?"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="pt-4">
+                            <button type="submit" class="w-full bg-brand-green hover:bg-brand-greenDark text-white font-bold text-lg py-4 rounded-xl transition-colors shadow-lg shadow-brand-green/20">
+                                Schedule a Visit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. FOOTER -->
+    <footer class="bg-brand-creamDark pt-20 pb-10 text-center text-brand-text border-t border-brand-charcoal/5">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="font-display text-2xl font-bold text-brand-charcoal mb-6 flex items-center justify-center">
+                <svg class="w-5 h-5 mr-2 text-brand-terracotta" fill="currentColor" viewBox="0 0 24 24"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-11v6h2v-6h-2zm0-4v2h2V7h-2z"/></svg>
+                Little Grove
+            </h2>
+            <p class="text-sm mb-8 max-w-sm mx-auto">
+                A warm, nurturing early-learning environment for growing minds.
+            </p>
+            <div class="flex justify-center space-x-6 text-xs font-bold uppercase tracking-widest text-brand-charcoal mb-12">
+                <a href="#" class="hover:text-brand-terracotta transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-brand-terracotta transition-colors">Parent Portal</a>
+                <a href="#" class="hover:text-brand-terracotta transition-colors">Careers</a>
+            </div>
+            <div class="border-t border-brand-charcoal/10 pt-8 text-xs">
+                <span>&copy; 2026 Little Grove Early Learning. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MOBILE STICKY CTA -->
+    <div class="mobile-cta bg-white border-t border-brand-charcoal/10 p-4 pb-6">
+        <a href="#contact" class="w-full bg-brand-green text-white font-bold rounded-xl text-center py-4 text-sm shadow-lg shadow-brand-green/20">
+            Schedule a Visit
+        </a>
+    </div>
+
+    <!-- INTERACTIVITY & DEMO INJECTION -->
+    <script>
+        // Target .faq-item to prevent collapsing the main nav
+        document.querySelectorAll('.faq-item button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const svg = btn.querySelector('svg');
+                const isOpen = !content.classList.contains('hidden');
+                
+                // Close others
+                document.querySelectorAll('.faq-item > div:not(button)').forEach(div => {
+                    if(div !== content && !div.classList.contains('hidden')) {
+                        div.classList.add('hidden');
+                        div.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
+                    }
+                });
+
+                if(isOpen) {
+                    content.classList.add('hidden');
+                    svg.classList.remove('rotate-180');
+                } else {
+                    content.classList.remove('hidden');
+                    svg.classList.add('rotate-180');
+                }
+            });
+        });
+
+        // Scroll Animation Observer
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { root: null, rootMargin: "0px", threshold: 0.1 });
+
+            document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+        });
+    </script>
+    
+    <!-- Include the shared architecture script -->
+    <script src="../shared/demo-core.js"></script>
+
+</body>
+</html>

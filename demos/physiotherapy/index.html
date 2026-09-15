@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restore Physiotherapy & Rehabilitation | Premium Demo</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            charcoal: '#2a2e2d',   // Charcoal with a hint of green
+                            text: '#525956',       // Muted text color
+                            bg: '#fcfbf9',         // Warm white background
+                            white: '#ffffff',
+                            green: '#748c7a',      // Muted green
+                            greenHover: '#5e7564', // Darker muted green
+                            earth: '#f0ede6',      // Subtle earthy tone for sections
+                            earthDark: '#d9d3c8'   // Darker earth accent
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 12px 40px -12px rgba(42, 46, 45, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Demo Configuration for demo-core.js -->
+    <script>
+        window.DemoConfig = {
+            niche: 'Physiotherapy',
+            colors: { primary: '#2a2e2d', accent: '#748c7a' }
+        };
+    </script>
+    
+    <style>
+        .fade-up { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; transform: translateY(20px); }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        html { scroll-behavior: smooth; }
+        
+        /* Custom form inputs */
+        input[type="date"]::-webkit-calendar-picker-indicator,
+        input[type="time"]::-webkit-calendar-picker-indicator {
+            filter: opacity(0.5);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-brand-bg text-brand-text font-sans antialiased overflow-x-hidden selection:bg-brand-green selection:text-white">
+
+    <!-- 1. NAVIGATION -->
+    <nav class="fixed w-full z-40 top-0 left-0 bg-brand-bg/95 backdrop-blur-md border-b border-brand-charcoal/5 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-display text-2xl font-bold tracking-tight text-brand-charcoal flex items-center">
+                        <svg class="w-6 h-6 text-brand-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        RESTORE
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center text-sm font-medium text-brand-text">
+                    <a href="#services" class="hover:text-brand-green transition-colors">Services</a>
+                    <a href="#journey" class="hover:text-brand-green transition-colors">The Journey</a>
+                    <a href="#clinic" class="hover:text-brand-green transition-colors">Our Clinic</a>
+                    <a href="#contact" class="bg-brand-green hover:bg-brand-greenHover text-white px-7 py-2.5 rounded-full transition-all shadow-soft">Book Assessment</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. HERO -->
+    <header class="relative pt-32 pb-24 lg:pt-48 lg:pb-32 bg-brand-earth overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1920&q=80" alt="Physiotherapy Session" class="w-full h-full object-cover object-center opacity-[0.25] mix-blend-multiply">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-earth via-brand-earth/95 to-transparent"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex items-center">
+            <div class="max-w-2xl fade-up">
+                <span class="inline-block border border-brand-green/30 text-brand-green bg-brand-green/5 font-semibold tracking-wider text-xs uppercase mb-6 px-4 py-1.5 rounded-full">Expert Rehabilitation</span>
+                <h1 class="font-display text-5xl md:text-6xl font-bold leading-[1.1] mb-6 text-brand-charcoal tracking-tight">
+                    Move Better.<br>
+                    Recover With <span class="text-brand-green">Confidence.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-brand-text font-normal mb-10 max-w-xl leading-relaxed">
+                    Personalised physiotherapy and rehabilitation programs designed around your movement, goals and recovery journey.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="bg-brand-charcoal text-white hover:bg-black text-center px-8 py-4 rounded-full font-medium transition-all shadow-soft flex justify-center items-center">
+                        Book an Assessment
+                    </a>
+                    <a href="#services" class="bg-white/60 backdrop-blur border border-brand-charcoal/10 text-brand-charcoal hover:bg-white text-center px-8 py-4 rounded-full font-medium transition-all shadow-sm flex justify-center items-center">
+                        Explore Treatments
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. SERVICES -->
+    <section id="services" class="py-24 bg-brand-bg relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <span class="text-brand-green font-semibold tracking-wider text-xs uppercase mb-3 block">Our Expertise</span>
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-charcoal">Comprehensive Rehabilitation</h2>
+                <div class="w-16 h-1 bg-brand-green mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-brand-earth hover:shadow-soft transition-all group fade-up">
+                    <div class="w-12 h-12 bg-brand-earth rounded-xl flex items-center justify-center mb-6 text-brand-green group-hover:bg-brand-green group-hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-brand-charcoal mb-3">Sports Rehabilitation</h3>
+                    <p class="text-sm text-brand-text leading-relaxed">Targeted recovery plans for athletes focusing on returning to sport safely, restoring functional strength, and preventing future injuries.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-brand-earth hover:shadow-soft transition-all group fade-up delay-1">
+                    <div class="w-12 h-12 bg-brand-earth rounded-xl flex items-center justify-center mb-6 text-brand-green group-hover:bg-brand-green group-hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-brand-charcoal mb-3">Back & Neck Care</h3>
+                    <p class="text-sm text-brand-text leading-relaxed">Assessment and conservative management of spinal discomfort, postural imbalances, and work-related ergonomic strains.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-brand-earth hover:shadow-soft transition-all group fade-up delay-2">
+                    <div class="w-12 h-12 bg-brand-earth rounded-xl flex items-center justify-center mb-6 text-brand-green group-hover:bg-brand-green group-hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-brand-charcoal mb-3">Post-Injury Rehab</h3>
+                    <p class="text-sm text-brand-text leading-relaxed">Structured clinical pathways to help rebuild muscle strength, joint stability, and mobility following soft tissue or skeletal injuries.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-brand-earth hover:shadow-soft transition-all group fade-up">
+                    <div class="w-12 h-12 bg-brand-earth rounded-xl flex items-center justify-center mb-6 text-brand-green group-hover:bg-brand-green group-hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-brand-charcoal mb-3">Mobility & Strength</h3>
+                    <p class="text-sm text-brand-text leading-relaxed">Proactive conditioning and movement therapy designed to enhance daily function, flexibility, and overall physical resilience.</p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-brand-earth hover:shadow-soft transition-all group fade-up delay-1">
+                    <div class="w-12 h-12 bg-brand-earth rounded-xl flex items-center justify-center mb-6 text-brand-green group-hover:bg-brand-green group-hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-brand-charcoal mb-3">Post-Surgical Rehab</h3>
+                    <p class="text-sm text-brand-text leading-relaxed">Collaborative recovery programs following orthopedic surgeries (like joint replacements or ACL repairs) to restore optimal function.</p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-brand-earth hover:shadow-soft transition-all group fade-up delay-2">
+                    <div class="w-12 h-12 bg-brand-earth rounded-xl flex items-center justify-center mb-6 text-brand-green group-hover:bg-brand-green group-hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-brand-charcoal mb-3">Senior & Home Physio</h3>
+                    <p class="text-sm text-brand-text leading-relaxed">Gentle therapy focusing on balance, fall prevention, and arthritis management, available both in-clinic and in the comfort of your home.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4 & 5. ASSESSMENT PROCESS & JOURNEY -->
+    <section id="journey" class="py-24 bg-brand-charcoal text-white relative overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-10">
+            <img src="https://images.unsplash.com/photo-1579126038374-6064e9370f0f?auto=format&fit=crop&w=1920&q=80" alt="Treatment Journey" class="w-full h-full object-cover">
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                
+                <div class="lg:w-1/2 fade-up">
+                    <span class="text-brand-green font-semibold tracking-wider text-xs uppercase mb-3 block">Clinical Approach</span>
+                    <h2 class="font-display text-4xl font-bold mb-6">Your Road to Recovery</h2>
+                    <p class="text-white/70 mb-8 leading-relaxed font-light">
+                        We don't apply one-size-fits-all treatments. Your body and your goals are unique, which means your rehabilitation pathway must be completely personalised.
+                    </p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-4 flex flex-col items-center">
+                                <div class="w-8 h-8 rounded-full bg-brand-green flex items-center justify-center font-bold text-sm">1</div>
+                                <div class="w-px h-full bg-brand-green/30 my-2"></div>
+                            </div>
+                            <div class="pb-2">
+                                <h4 class="text-lg font-bold mb-2">Comprehensive Assessment</h4>
+                                <p class="text-sm text-white/60 leading-relaxed">Understanding your medical history, assessing your movement patterns, and identifying the root cause of your discomfort.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-4 flex flex-col items-center">
+                                <div class="w-8 h-8 rounded-full bg-brand-green flex items-center justify-center font-bold text-sm">2</div>
+                                <div class="w-px h-full bg-brand-green/30 my-2"></div>
+                            </div>
+                            <div class="pb-2">
+                                <h4 class="text-lg font-bold mb-2">Personalised Planning</h4>
+                                <p class="text-sm text-white/60 leading-relaxed">Collaborating with you to establish clear recovery goals and designing a structured treatment timeline.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-4 flex flex-col items-center">
+                                <div class="w-8 h-8 rounded-full bg-brand-green flex items-center justify-center font-bold text-sm">3</div>
+                            </div>
+                            <div class="pb-2">
+                                <h4 class="text-lg font-bold mb-2">Active Rehabilitation</h4>
+                                <p class="text-sm text-white/60 leading-relaxed">Combining manual therapy, guided exercise, and ongoing education to restore function and prevent recurrence.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2 fade-up delay-1">
+                    <div class="bg-white/5 border border-white/10 p-8 md:p-10 rounded-3xl backdrop-blur-sm">
+                        <h3 class="font-display text-2xl font-bold mb-6">Common Areas We Help With</h3>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 text-white/80 text-sm">
+                            <li class="flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-brand-green mr-3"></span> Knee & Joint Pain</li>
+                            <li class="flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-brand-green mr-3"></span> Lower Back Discomfort</li>
+                            <li class="flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-brand-green mr-3"></span> Rotator Cuff & Shoulder</li>
+                            <li class="flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-brand-green mr-3"></span> Sciatica Symptoms</li>
+                            <li class="flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-brand-green mr-3"></span> Postural Strain</li>
+                            <li class="flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-brand-green mr-3"></span> Tennis / Golfer's Elbow</li>
+                            <li class="flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-brand-green mr-3"></span> Plantar Fasciitis</li>
+                            <li class="flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-brand-green mr-3"></span> Ankle Sprains</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6 & 7. THERAPIST & CLINIC -->
+    <section id="clinic" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col-reverse md:flex-row items-center gap-16 mb-24">
+                <div class="md:w-1/2 fade-up">
+                    <span class="text-brand-green font-semibold tracking-wider text-xs uppercase mb-3 block">Professional Care</span>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-charcoal mb-6">Clinical Expertise You Can Trust</h2>
+                    <p class="text-brand-text mb-6 leading-relaxed">
+                        Our rehabilitation protocols are guided by experienced professionals who prioritize evidence-based practices. We focus on treating the individual, not just the symptom.
+                    </p>
+                    <p class="text-brand-text mb-8 leading-relaxed">
+                        Whether you are navigating a chronic condition or recovering from an acute injury, our therapists provide the structured guidance and manual interventions necessary for safe progression.
+                    </p>
+                    <div class="inline-flex items-center text-sm font-semibold text-brand-charcoal bg-brand-earth/50 px-4 py-2 rounded-lg border border-brand-earthDark">
+                        <svg class="w-5 h-5 text-brand-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        Certified Clinical Professionals
+                    </div>
+                </div>
+                <div class="md:w-1/2 fade-up delay-1">
+                    <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-soft relative">
+                        <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1000&q=80" alt="Professional Therapist" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-brand-charcoal/10 mix-blend-multiply"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-1/2 fade-up">
+                    <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-soft relative">
+                        <img src="https://images.unsplash.com/photo-1540324155970-148fa789d6e4?auto=format&fit=crop&w=1000&q=80" alt="Clinic Environment" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-1/2 fade-up delay-1">
+                    <span class="text-brand-green font-semibold tracking-wider text-xs uppercase mb-3 block">Our Environment</span>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-charcoal mb-6">A Space Designed for Movement</h2>
+                    <p class="text-brand-text mb-6 leading-relaxed">
+                        Our clinic combines private assessment rooms for confidential manual therapy with a spacious, fully-equipped movement area for active rehabilitation.
+                    </p>
+                    <p class="text-brand-text mb-8 leading-relaxed">
+                        We maintain a professional, calm, and highly hygienic environment so that you can focus entirely on your recovery without clinical anxiety.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-brand-bg p-4 rounded-xl border border-brand-earth">
+                            <div class="font-semibold text-brand-charcoal mb-1 text-sm">Private Rooms</div>
+                            <div class="text-xs text-brand-text">For manual therapy</div>
+                        </div>
+                        <div class="bg-brand-bg p-4 rounded-xl border border-brand-earth">
+                            <div class="font-semibold text-brand-charcoal mb-1 text-sm">Active Rehab Area</div>
+                            <div class="text-xs text-brand-text">For guided exercise</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8 & 9. PATIENT EXPERIENCE / TESTIMONIALS -->
+    <section class="py-24 bg-brand-earth border-y border-brand-earthDark/20 text-center relative">
+        <div class="max-w-4xl mx-auto px-4 fade-up">
+            <span class="inline-block bg-white border border-brand-earthDark/30 text-brand-text text-xs font-semibold px-3 py-1 rounded-full mb-8 shadow-sm">Sample Testimonial Content</span>
+            <svg class="w-12 h-12 text-brand-green mx-auto mb-8 opacity-60" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+            <p class="font-display text-2xl md:text-3xl leading-relaxed mb-8 text-brand-charcoal font-medium">
+                "Following my knee surgery, the structured rehabilitation plan provided here was invaluable. The therapist didn't just give me generic exercises; they carefully monitored my progression week by week, ensuring I rebuilt my strength safely. I'm now back to my regular running routine."
+            </p>
+            <div class="text-sm font-semibold text-brand-text uppercase tracking-wider">
+                Michael T. — Post-Surgical Rehab Patient
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. FAQS -->
+    <section class="py-24 bg-white">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="text-center mb-12 fade-up">
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-charcoal">Common Questions</h2>
+            </div>
+            
+            <div class="space-y-4 fade-up delay-1">
+                <!-- FAQ 1 -->
+                <div class="border border-brand-earthDark/40 rounded-xl overflow-hidden bg-brand-bg transition-colors hover:bg-white">
+                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-semibold text-brand-charcoal">Do I need a doctor's referral to book an assessment?</span>
+                        <svg class="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="px-6 pb-5 text-sm text-brand-text leading-relaxed">
+                        No, a medical referral is not strictly necessary for an initial physiotherapy assessment. You can book directly with us to discuss your concerns.
+                    </div>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="border border-brand-earthDark/40 rounded-xl overflow-hidden bg-brand-bg transition-colors hover:bg-white">
+                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-semibold text-brand-charcoal">What should I wear to my appointment?</span>
+                        <svg class="w-5 h-5 text-brand-green transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="px-6 pb-5 text-sm text-brand-text leading-relaxed hidden">
+                        Please wear loose, comfortable clothing (like gym wear or shorts) that allows the therapist to easily assess your movement and access the area of concern.
+                    </div>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="border border-brand-earthDark/40 rounded-xl overflow-hidden bg-brand-bg transition-colors hover:bg-white">
+                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-semibold text-brand-charcoal">How many sessions will I need?</span>
+                        <svg class="w-5 h-5 text-brand-green transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="px-6 pb-5 text-sm text-brand-text leading-relaxed hidden">
+                        This is highly dependent on your specific condition, goals, and response to initial therapy. Your therapist will discuss a projected timeline with you after your first comprehensive assessment.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11 & 12. APPOINTMENT FORM -->
+    <section id="contact" class="py-24 bg-brand-charcoal relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-soft fade-up">
+                <div class="text-center mb-10">
+                    <h2 class="font-display text-3xl font-bold mb-4 text-brand-charcoal">Request an Assessment</h2>
+                    <p class="text-brand-text text-sm max-w-lg mx-auto">Provide your details below and our team will contact you to finalize your assessment time and discuss your specific needs.</p>
+                </div>
+
+                <form class="demo-form space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-brand-charcoal mb-2 uppercase tracking-wide">Full Name</label>
+                            <input type="text" required class="w-full bg-brand-bg border border-brand-earthDark/40 rounded-xl px-4 py-3.5 text-brand-charcoal focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-brand-charcoal mb-2 uppercase tracking-wide">Phone / WhatsApp</label>
+                            <input type="tel" required class="w-full bg-brand-bg border border-brand-earthDark/40 rounded-xl px-4 py-3.5 text-brand-charcoal focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="+91">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-brand-charcoal mb-2 uppercase tracking-wide">Primary Area of Concern</label>
+                            <select class="w-full bg-brand-bg border border-brand-earthDark/40 rounded-xl px-4 py-3.5 text-brand-charcoal focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all appearance-none">
+                                <option>Back / Neck / Spine</option>
+                                <option>Shoulder / Arm / Hand</option>
+                                <option>Hip / Knee / Leg</option>
+                                <option>Sports Injury Recovery</option>
+                                <option>Post-Surgery Rehab</option>
+                                <option>General Mobility / Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-brand-charcoal mb-2 uppercase tracking-wide">Appointment Type</label>
+                            <select class="w-full bg-brand-bg border border-brand-earthDark/40 rounded-xl px-4 py-3.5 text-brand-charcoal focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all appearance-none">
+                                <option>In-Clinic Visit</option>
+                                <option>Home Physiotherapy Visit</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-brand-charcoal mb-2 uppercase tracking-wide">Preferred Date</label>
+                            <input type="date" class="w-full bg-brand-bg border border-brand-earthDark/40 rounded-xl px-4 py-3.5 text-brand-charcoal focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-brand-charcoal mb-2 uppercase tracking-wide">Preferred Time Window</label>
+                            <select class="w-full bg-brand-bg border border-brand-earthDark/40 rounded-xl px-4 py-3.5 text-brand-charcoal focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all appearance-none">
+                                <option>Morning (9 AM - 12 PM)</option>
+                                <option>Afternoon (12 PM - 4 PM)</option>
+                                <option>Evening (4 PM - 7 PM)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <button type="submit" class="w-full bg-brand-green hover:bg-brand-greenHover text-white font-semibold text-lg py-4 rounded-xl transition-all shadow-md">
+                            Book an Assessment
+                        </button>
+                        <p class="text-center text-xs text-brand-text mt-4 font-medium">We respect your privacy. Your information is securely submitted.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. FOOTER -->
+    <footer class="bg-brand-charcoal py-16 text-center text-white/50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="font-display text-2xl font-bold tracking-tight text-white mb-6 flex items-center justify-center">
+                <svg class="w-5 h-5 text-brand-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                RESTORE REHAB
+            </h2>
+            <p class="text-sm mb-8 max-w-md mx-auto font-light leading-relaxed text-white/70">
+                Personalised physiotherapy and movement rehabilitation designed to help you recover safely and effectively.
+            </p>
+            <div class="flex justify-center space-x-8 text-sm font-medium">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Patient Guidelines</a>
+                <a href="#" class="hover:text-white transition-colors">Contact Us</a>
+            </div>
+            <div class="mt-12 pt-8 border-t border-white/10 text-xs flex flex-col md:flex-row justify-between items-center">
+                <span>&copy; 2026 Restore Physiotherapy. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVITY & DEMO INJECTION -->
+    <script>
+        // Simple FAQ Toggle
+        document.querySelectorAll('button').forEach(btn => {
+            if(btn.parentElement.classList.contains('overflow-hidden') && btn.nextElementSibling) {
+                btn.addEventListener('click', () => {
+                    const content = btn.nextElementSibling;
+                    const svg = btn.querySelector('svg');
+                    content.classList.toggle('hidden');
+                    if(content.classList.contains('hidden')){
+                        svg.classList.add('rotate-180');
+                    } else {
+                        svg.classList.remove('rotate-180');
+                    }
+                });
+            }
+        });
+
+        // Scroll Animation Observer
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { root: null, rootMargin: "0px", threshold: 0.1 });
+
+            document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+        });
+    </script>
+    
+    <!-- Include the shared architecture script -->
+    <script src="../shared/demo-core.js"></script>
+
+</body>
+</html>

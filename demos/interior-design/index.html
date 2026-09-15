@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier Forma | Premium Interior Design</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            stone: '#E8E5E1',      // Warm white/stone background
+                            stoneDark: '#DCD8D2',  // Darker stone for contrast
+                            charcoal: '#1A1A1A',   // Charcoal text/bg
+                            charcoalLight: '#2C2C2C', // Slightly lighter charcoal
+                            earth: '#A08E78',      // Muted earth tone
+                            earthDark: '#8B7355',
+                            white: '#F9F8F6'       // Off-white
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Playfair Display', 'serif'],
+                    },
+                    letterSpacing: {
+                        'widest': '0.25em',
+                        'wider': '0.1em',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Demo Configuration for demo-core.js -->
+    <script>
+        window.DemoConfig = {
+            niche: 'Interior Design',
+            colors: { primary: '#1A1A1A', accent: '#A08E78' }
+        };
+    </script>
+    
+    <style>
+        .fade-up { animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; transform: translateY(40px); }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        html { scroll-behavior: smooth; }
+        
+        .editorial-image-mask {
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .border-left-earth {
+            border-left: 1px solid #A08E78;
+        }
+
+        .text-outline {
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(26, 26, 26, 0.2);
+        }
+        
+        /* Mobile Sticky CTA */
+        .mobile-cta { display: none; }
+        @media (max-width: 768px) {
+            .mobile-cta {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                z-index: 50;
+            }
+        }
+    </style>
+</head>
+<body class="bg-brand-stone text-brand-charcoal font-sans antialiased overflow-x-hidden selection:bg-brand-earth selection:text-white">
+
+    <!-- 1. NAVIGATION -->
+    <nav class="fixed w-full z-40 top-0 left-0 bg-brand-stone/80 backdrop-blur-md border-b border-brand-charcoal/5 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-sans font-medium text-xs tracking-widest uppercase text-brand-charcoal">
+                        Atelier Forma
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-12 items-center text-xs tracking-widest uppercase font-medium">
+                    <a href="#projects" class="hover:text-brand-earth transition-colors">Projects</a>
+                    <a href="#process" class="hover:text-brand-earth transition-colors">Process</a>
+                    <a href="#studio" class="hover:text-brand-earth transition-colors">Studio</a>
+                    <a href="#contact" class="hover:text-brand-earth transition-colors border-b border-brand-charcoal pb-1">Book Consultation</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. HERO -->
+    <header class="relative pt-32 pb-16 min-h-screen flex items-center bg-brand-stone">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-brand-charcoal/20 mix-blend-multiply z-10"></div>
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1920&q=80" alt="Luxury Minimal Living Room" class="w-full h-full object-cover">
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full mt-24">
+            <div class="max-w-4xl fade-up">
+                <span class="text-white text-xs uppercase tracking-widest font-medium mb-8 block">Interior Architecture & Design</span>
+                <h1 class="font-display text-5xl md:text-7xl lg:text-[6rem] leading-[1.05] mb-8 text-white font-medium">
+                    Spaces Designed<br>
+                    <span class="italic font-light">Around How You Live.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-white/90 font-light mb-12 max-w-xl leading-relaxed">
+                    Thoughtful interior design combining function, materiality and a distinct sense of place. We create enduring environments.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-8 items-center sm:items-start">
+                    <a href="#contact" class="w-full sm:w-auto bg-brand-charcoal text-white hover:bg-brand-earth text-center px-10 py-5 text-xs font-medium uppercase tracking-widest transition-colors duration-500">
+                        Book a Consultation
+                    </a>
+                    <a href="#projects" class="w-full sm:w-auto text-white hover:text-brand-earth text-center px-6 py-5 text-xs font-medium uppercase tracking-widest transition-colors duration-500 border-b border-white/30 hover:border-brand-earth">
+                        View Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. SELECTED PROJECTS (Asymmetric) -->
+    <section id="projects" class="py-32 bg-brand-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-24 fade-up">
+                <h2 class="font-display text-5xl md:text-6xl text-brand-charcoal">Selected<br><span class="italic text-brand-earth">Projects</span></h2>
+                <a href="#gallery" class="text-xs uppercase tracking-widest font-medium border-b border-brand-charcoal pb-1 mt-6 md:mt-0 hover:text-brand-earth hover:border-brand-earth transition-colors">View All</a>
+            </div>
+
+            <!-- Project 1 -->
+            <div class="flex flex-col md:flex-row items-center gap-12 mb-32 fade-up">
+                <div class="w-full md:w-3/5">
+                    <div class="aspect-[4/3] overflow-hidden bg-brand-stoneDark group">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80" alt="The Courtyard Residence" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105 filter saturate-50 group-hover:saturate-100">
+                    </div>
+                </div>
+                <div class="w-full md:w-2/5 pl-0 md:pl-12 border-left-earth">
+                    <div class="text-brand-earth text-[10px] uppercase tracking-widest font-medium mb-4">Residential / Demo Concept</div>
+                    <h3 class="font-display text-3xl md:text-4xl mb-6">The Courtyard Residence</h3>
+                    <p class="text-sm font-light text-brand-charcoal/70 leading-relaxed mb-8">
+                        A seamless blend of indoor and outdoor living. Material palettes focused on natural stone, raw timber, and expansive glazing to draw light deep into the living spaces.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Project 2 (Reversed) -->
+            <div class="flex flex-col md:flex-row-reverse items-center gap-12 mb-32 fade-up delay-1">
+                <div class="w-full md:w-1/2">
+                    <div class="aspect-[3/4] overflow-hidden bg-brand-stoneDark group">
+                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80" alt="Minimal Urban Apartment" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105 filter saturate-50 group-hover:saturate-100">
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 pr-0 md:pr-12 text-left md:text-right border-l md:border-l-0 md:border-r border-brand-earth pl-4 md:pl-0">
+                    <div class="text-brand-earth text-[10px] uppercase tracking-widest font-medium mb-4">Apartment / Demo Concept</div>
+                    <h3 class="font-display text-3xl md:text-4xl mb-6">Minimal Urban Apartment</h3>
+                    <p class="text-sm font-light text-brand-charcoal/70 leading-relaxed mb-8">
+                        Maximising volume in a compact footprint. Custom joinery conceals daily clutter, allowing the architecture to breathe.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="flex flex-col md:flex-row items-center gap-12 fade-up delay-2">
+                <div class="w-full md:w-3/5">
+                    <div class="aspect-[16/9] overflow-hidden bg-brand-stoneDark group">
+                        <img src="https://images.unsplash.com/photo-1542314831-c6a4d14eff3e?auto=format&fit=crop&w=1200&q=80" alt="Boutique Hospitality Space" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105 filter saturate-50 group-hover:saturate-100">
+                    </div>
+                </div>
+                <div class="w-full md:w-2/5 pl-0 md:pl-12 border-left-earth">
+                    <div class="text-brand-earth text-[10px] uppercase tracking-widest font-medium mb-4">Commercial / Demo Concept</div>
+                    <h3 class="font-display text-3xl md:text-4xl mb-6">Boutique Hospitality Space</h3>
+                    <p class="text-sm font-light text-brand-charcoal/70 leading-relaxed mb-8">
+                        Creating an atmosphere of quiet luxury for patrons. Deep velvets, brass accents, and moody lighting define the guest experience.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4 & 5. PHILOSOPHY & SERVICES -->
+    <section id="philosophy" class="py-32 bg-brand-charcoal text-brand-white relative overflow-hidden">
+        <div class="absolute right-0 top-0 w-1/3 h-full bg-brand-charcoalLight/50 -z-10"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-24">
+                <div class="fade-up">
+                    <h2 class="font-display text-4xl md:text-5xl mb-10 leading-tight">Design is not just visual.<br>It is <span class="italic text-brand-earth text-outline">visceral.</span></h2>
+                    <p class="text-white/60 font-light leading-relaxed mb-8">
+                        Atelier Forma approaches every project as a unique narrative. We believe interiors should not merely look beautiful, but should fundamentally improve how you live, work, and interact.
+                    </p>
+                    <p class="text-white/60 font-light leading-relaxed mb-16">
+                        We reject temporary trends in favour of enduring materiality and timeless architectural principles.
+                    </p>
+                    
+                    <div class="space-y-8">
+                        <div class="border-b border-white/10 pb-8">
+                            <h4 class="font-sans text-xs uppercase tracking-widest font-medium mb-3">01. Residential Design</h4>
+                            <p class="text-xs text-white/50 font-light leading-relaxed">Full-scale interior architecture, spatial planning, and custom furnishing for private homes.</p>
+                        </div>
+                        <div class="border-b border-white/10 pb-8">
+                            <h4 class="font-sans text-xs uppercase tracking-widest font-medium mb-3">02. Commercial & Hospitality</h4>
+                            <p class="text-xs text-white/50 font-light leading-relaxed">Brand-aligned spatial design for boutiques, restaurants, and premium office environments.</p>
+                        </div>
+                        <div class="border-b border-white/10 pb-8">
+                            <h4 class="font-sans text-xs uppercase tracking-widest font-medium mb-3">03. Custom Joinery</h4>
+                            <p class="text-xs text-white/50 font-light leading-relaxed">Bespoke cabinetry and furniture design tailored precisely to the project constraints.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-up delay-1">
+                    <div class="aspect-[3/4] w-full max-w-md mx-auto">
+                        <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=800&q=80" alt="Material Palette" class="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-1000">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PROCESS -->
+    <section id="process" class="py-32 bg-brand-stone">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-24 fade-up">
+                <h2 class="font-display text-4xl md:text-5xl text-brand-charcoal">The Process</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8 fade-up delay-1 border-t border-brand-charcoal/10 pt-12 relative">
+                <!-- Progress Line -->
+                <div class="hidden md:block absolute top-12 left-0 w-full h-[1px] bg-brand-charcoal/10"></div>
+                
+                <!-- Steps -->
+                <div class="relative">
+                    <div class="text-3xl font-display text-brand-charcoal/30 mb-4 bg-brand-stone inline-block pr-4 relative z-10">01</div>
+                    <h4 class="text-xs uppercase tracking-widest font-medium mb-3">Discover</h4>
+                    <p class="text-[11px] font-light text-brand-charcoal/70 leading-relaxed">Initial consultation to understand the brief, lifestyle requirements, and aesthetic vision.</p>
+                </div>
+                
+                <div class="relative mt-8 md:mt-0">
+                    <div class="text-3xl font-display text-brand-charcoal/30 mb-4 bg-brand-stone inline-block pr-4 relative z-10">02</div>
+                    <h4 class="text-xs uppercase tracking-widest font-medium mb-3">Concept</h4>
+                    <p class="text-[11px] font-light text-brand-charcoal/70 leading-relaxed">Developing spatial layouts and establishing the preliminary material and colour palette.</p>
+                </div>
+                
+                <div class="relative mt-8 md:mt-0">
+                    <div class="text-3xl font-display text-brand-charcoal/30 mb-4 bg-brand-stone inline-block pr-4 relative z-10">03</div>
+                    <h4 class="text-xs uppercase tracking-widest font-medium mb-3">Design</h4>
+                    <p class="text-[11px] font-light text-brand-charcoal/70 leading-relaxed">Refining details, selecting specific finishes, fixtures, and producing technical drawings.</p>
+                </div>
+                
+                <div class="relative mt-8 md:mt-0">
+                    <div class="text-3xl font-display text-brand-charcoal/30 mb-4 bg-brand-stone inline-block pr-4 relative z-10">04</div>
+                    <h4 class="text-xs uppercase tracking-widest font-medium mb-3">Detail</h4>
+                    <p class="text-[11px] font-light text-brand-charcoal/70 leading-relaxed">Tendering to contractors, finalising budgets, and preparing for construction.</p>
+                </div>
+                
+                <div class="relative mt-8 md:mt-0">
+                    <div class="text-3xl font-display text-brand-charcoal/30 mb-4 bg-brand-stone inline-block pr-4 relative z-10">05</div>
+                    <h4 class="text-xs uppercase tracking-widest font-medium mb-3">Execute</h4>
+                    <p class="text-[11px] font-light text-brand-charcoal/70 leading-relaxed">Site management, procurement, installation, and final styling of the completed space.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. PROJECT GALLERY -->
+    <section id="gallery" class="py-24 bg-brand-white">
+        <div class="max-w-[1600px] mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8 fade-up">
+                <div class="aspect-[4/5] bg-brand-stoneDark group overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="The Heritage House" class="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-105 filter grayscale group-hover:grayscale-0">
+                </div>
+                <div class="grid grid-cols-1 gap-4 lg:gap-8">
+                    <div class="aspect-[16/9] bg-brand-stoneDark group overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="Modern Office" class="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-105 filter grayscale group-hover:grayscale-0">
+                    </div>
+                    <div class="aspect-[16/9] bg-brand-stoneDark group overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542314831-c6a4d14eff3e?auto=format&fit=crop&w=1200&q=80" alt="Hospitality Detail" class="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-105 filter grayscale group-hover:grayscale-0">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. TESTIMONIALS -->
+    <section class="py-32 bg-brand-stone text-center relative border-t border-brand-charcoal/5">
+        <div class="max-w-4xl mx-auto px-4 fade-up">
+            <span class="inline-block border border-brand-charcoal/20 text-brand-charcoal/50 text-[10px] font-medium uppercase tracking-widest px-3 py-1 mb-12">Sample Client Feedback</span>
+            
+            <p class="font-display text-2xl md:text-4xl leading-relaxed mb-12 italic text-brand-charcoal">
+                "The studio completely reimagined our spatial layout. They brought a level of restraint and material sophistication that we couldn't have achieved ourselves. The resulting home is calm, functional, and deeply beautiful."
+            </p>
+            <div class="text-[10px] font-medium text-brand-charcoal uppercase tracking-widest">
+                — Private Client, The Courtyard Residence
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. FAQS -->
+    <section class="py-32 bg-brand-white">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="text-center mb-20 fade-up">
+                <h2 class="font-display text-4xl text-brand-charcoal">Enquiries</h2>
+            </div>
+            
+            <div class="space-y-0 border-t border-brand-charcoal/10 fade-up delay-1">
+                <div class="faq-item border-b border-brand-charcoal/10">
+                    <button class="w-full py-8 text-left flex justify-between items-center focus:outline-none group">
+                        <span class="font-sans text-xs uppercase tracking-widest font-medium text-brand-charcoal group-hover:text-brand-earth transition-colors">Do you take on international projects?</span>
+                        <svg class="w-4 h-4 text-brand-charcoal transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
+                    </button>
+                    <div class="pb-8 text-[13px] font-light text-brand-charcoal/70 leading-relaxed hidden">
+                        Yes, we operate globally. International projects require an initial video consultation to determine feasibility, followed by site visits scheduled during key project phases.
+                    </div>
+                </div>
+                <div class="faq-item border-b border-brand-charcoal/10">
+                    <button class="w-full py-8 text-left flex justify-between items-center focus:outline-none group">
+                        <span class="font-sans text-xs uppercase tracking-widest font-medium text-brand-charcoal group-hover:text-brand-earth transition-colors">What is your minimum project scope?</span>
+                        <svg class="w-4 h-4 text-brand-charcoal transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
+                    </button>
+                    <div class="pb-8 text-[13px] font-light text-brand-charcoal/70 leading-relaxed hidden">
+                        We specialise in full-scale interior architecture and comprehensive renovations. We typically do not take on single-room decoration projects, as our process requires a holistic approach to the architecture.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11 & 12. ENQUIRY FORM -->
+    <section id="contact" class="py-32 bg-brand-charcoal text-brand-stone relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-16">
+                <!-- Info -->
+                <div class="lg:col-span-2 fade-up">
+                    <h2 class="font-display text-4xl mb-8 text-white">Initiate a Project</h2>
+                    <p class="text-white/60 font-light text-sm mb-16 leading-relaxed">
+                        Please provide preliminary details regarding your project. We review all enquiries and will contact you to arrange a formal consultation if the project aligns with our current schedule.
+                    </p>
+                    
+                    <div class="space-y-12">
+                        <div>
+                            <strong class="block text-brand-earth font-sans text-[10px] uppercase tracking-widest font-medium mb-3">Studio</strong>
+                            <p class="text-sm font-light text-white/70">Level 4, The Architecture Building<br>Design District, 1001</p>
+                        </div>
+                        <div>
+                            <strong class="block text-brand-earth font-sans text-[10px] uppercase tracking-widest font-medium mb-3">Contact</strong>
+                            <p class="text-sm font-light text-white/70">+1 (555) 890-1234<br>studio@atelierforma.demo</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="lg:col-span-3 fade-up delay-1">
+                    <form class="demo-form space-y-12">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                            <div class="relative border-b border-white/20">
+                                <label class="block text-[10px] font-medium text-white/50 mb-2 uppercase tracking-widest">Full Name</label>
+                                <input type="text" required class="w-full bg-transparent border-none px-0 py-2 text-white focus:outline-none focus:ring-0 font-light text-sm" placeholder="Your Name">
+                            </div>
+                            <div class="relative border-b border-white/20">
+                                <label class="block text-[10px] font-medium text-white/50 mb-2 uppercase tracking-widest">Phone Number</label>
+                                <input type="tel" required class="w-full bg-transparent border-none px-0 py-2 text-white focus:outline-none focus:ring-0 font-light text-sm" placeholder="+1 (___) ___-____">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                            <div class="relative border-b border-white/20">
+                                <label class="block text-[10px] font-medium text-white/50 mb-2 uppercase tracking-widest">Project Type</label>
+                                <select class="w-full bg-transparent border-none px-0 py-2 text-white focus:outline-none focus:ring-0 font-light text-sm appearance-none">
+                                    <option class="bg-brand-charcoal text-white">Residential (New Build)</option>
+                                    <option class="bg-brand-charcoal text-white">Residential (Renovation)</option>
+                                    <option class="bg-brand-charcoal text-white">Commercial / Office</option>
+                                    <option class="bg-brand-charcoal text-white">Hospitality / Retail</option>
+                                </select>
+                            </div>
+                            <div class="relative border-b border-white/20">
+                                <label class="block text-[10px] font-medium text-white/50 mb-2 uppercase tracking-widest">Project Location</label>
+                                <input type="text" required class="w-full bg-transparent border-none px-0 py-2 text-white focus:outline-none focus:ring-0 font-light text-sm" placeholder="City, State">
+                            </div>
+                        </div>
+
+                        <div class="relative border-b border-white/20">
+                            <label class="block text-[10px] font-medium text-white/50 mb-2 uppercase tracking-widest">Approximate Scope</label>
+                            <textarea rows="1" class="w-full bg-transparent border-none px-0 py-2 text-white focus:outline-none focus:ring-0 font-light text-sm" placeholder="Briefly describe the scale (e.g. 4 bed house, full renovation)"></textarea>
+                        </div>
+                        
+                        <div class="relative border-b border-white/20">
+                            <label class="block text-[10px] font-medium text-white/50 mb-2 uppercase tracking-widest">Preferred Consultation Time</label>
+                            <select class="w-full bg-transparent border-none px-0 py-2 text-white focus:outline-none focus:ring-0 font-light text-sm appearance-none">
+                                <option class="bg-brand-charcoal text-white">Morning (9am - 12pm)</option>
+                                <option class="bg-brand-charcoal text-white">Afternoon (1pm - 5pm)</option>
+                            </select>
+                        </div>
+
+                        <div class="pt-8 text-right">
+                            <button type="submit" class="bg-white hover:bg-brand-earth hover:text-white text-brand-charcoal font-medium text-[11px] px-12 py-5 uppercase tracking-widest transition-colors duration-500">
+                                Request Consultation
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. FOOTER -->
+    <footer class="bg-brand-charcoal pt-12 pb-12 text-center text-white/30 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="font-sans text-xs font-medium tracking-widest uppercase text-white/80 mb-12">
+                Atelier Forma
+            </h2>
+            <div class="flex justify-center space-x-12 text-[10px] font-medium uppercase tracking-widest mb-16">
+                <a href="#" class="hover:text-brand-earth transition-colors">Instagram</a>
+                <a href="#" class="hover:text-brand-earth transition-colors">Pinterest</a>
+                <a href="#" class="hover:text-brand-earth transition-colors">Journal</a>
+            </div>
+            <div class="text-[10px] font-light">
+                <span>&copy; 2026 Atelier Forma Studio. Fictional Demo.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MOBILE STICKY CTA -->
+    <div class="mobile-cta bg-brand-charcoal border-t border-white/10 p-4">
+        <a href="#contact" class="w-full bg-white text-brand-charcoal font-medium uppercase tracking-widest text-center py-4 text-[10px]">
+            Request Consultation
+        </a>
+    </div>
+
+    <!-- INTERACTIVITY & DEMO INJECTION -->
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-item button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const svg = btn.querySelector('svg');
+                const isOpen = !content.classList.contains('hidden');
+                
+                // Close others
+                document.querySelectorAll('.faq-item > div:not(button)').forEach(div => {
+                    if(div !== content && !div.classList.contains('hidden')) {
+                        div.classList.add('hidden');
+                        div.previousElementSibling.querySelector('svg').innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"></path>';
+                    }
+                });
+
+                if(isOpen) {
+                    content.classList.add('hidden');
+                    svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"></path>';
+                } else {
+                    content.classList.remove('hidden');
+                    svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 12H4"></path>';
+                }
+            });
+        });
+
+        // Scroll Animation Observer
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { root: null, rootMargin: "0px", threshold: 0.1 });
+
+            document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+        });
+    </script>
+    
+    <!-- Include the shared architecture script -->
+    <script src="../shared/demo-core.js"></script>
+
+</body>
+</html>
